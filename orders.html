@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>My beIN</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <script src="ds/jquery-2.2.4.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="ds/theme.en.css">
+    <link rel="stylesheet" href="common.css" />
+    <link rel="stylesheet" href="all.css" />
+    <script src="common.js"></script>
+	<style>
+	h2.filter{font-family:'Gotham-Medium';font-size:18px;color:#FFFFFF}
+	.modal-body .data td{font-family:'Gotham-Book';font-size:16px;color:#FFFFFF;height:50px;border-bottom:1px solid #361a55}
+	.closebtn{cursor:pointer;font-size:25px}
+	  #modal_thankyou .modal-content {
+            background: #767382 !important;
+            color: #FFFFFF !important;
+
+        }
+		
+		
+		 .modal-backdrop {
+            background-color: rgba(233, 233, 240, 0.9) !important;
+            z-index: 1040 !important;
+        }
+        
+        .modal-body {
+            overflow: auto;
+            z-index: 1100 !important;
+            color: #fff;
+        }
+        
+        
+        .modal-content {
+            overflow-y: auto;
+            overflow-y: auto;
+            -webkit-border-radius: 30px !important;
+            -moz-border-radius: 30px !important;
+            border-radius: 30px;
+			display:inline-block;
+        }
+        
+      
+        
+        html {
+            overflow-y: scroll;
+        }
+	</style>
+    <body>
+        <script>
+            mobilemenu2();
+            header2();
+        </script>
+	<!--MODALS-->
+	<!-- The Modal -->
+    <div class="modal" id="modal_thankyou" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <div class="row">
+						
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+							<div style="height:15px"></div>
+							<table width=100%>
+							<tr>
+							<td><h2 class="filter">Filter your payments by</h2></td>
+							<td class=closebtn onclick=hidemodal('modal_thankyou');>X</td>
+							</tr>
+							</table>
+							
+							<table class=data width=95%>
+							<tr onclick=selects(this)><td>Date</td><td></td></tr>
+							<tr onclick=selects(this)><td>Product</td><td></td></tr>
+							<tr onclick=selects(this)><td>Payment Method</td><td></td></tr>
+							<tr onclick=selects(this)><td>Subscription No</td><td></td></tr>
+							<tr onclick=selects(this)><td>Amount No</td><td></td></tr>
+							</table>
+							
+							<table width=95%>
+							<tr><td style="height:20px"></td></tr>
+							<tr><td colspan="2">
+								<div class="curved_buttons" onclick=hidemodal('modal_thankyou');>Confirm</div>
+							</td></tr>
+							<tr><td style="height:20px"></td></tr>
+							</table>
+						</div>
+                            
+							
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <div class="all" style="min-height:819px">
+
+            <div id="container" class="container" style="clear:both">
+			
+				<div class="row" onclick=showmodal('modal_thankyou');>
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pt-4 d-block d-lg-none" style="clear:both">
+						<div style="float:left">
+						<h2 class=mainheader>Order details</h2>	
+						</div>
+					</div>
+				</div>
+
+                <script language=javascript>
+                    menu();
+                </script>
+				
+				<div class="row no-pad" id="step0_header">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-9 pt-4 d-none d-lg-block">
+                        <h2 class=mainheader>Order details</h2>
+                    </div>
+                </div>
+
+                <!--start-->
+                <div class="row no-pad">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 d-none d-lg-block">
+                        <div class=curved_half>
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-6 col-md-7 col-lg-7">
+                                    <span class=signedin_curve_header></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+				
+				<!--single item-->
+				<div class="row no-pad">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 d-block d-lg-none">
+                        <div class=curved_half>
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-6 col-md-7 col-lg-7">
+                                    <span class=signedin_curve_header></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+				
+				<div class="row">
+                    <div class="col-md-2 col-lg-2 ths d-none d-lg-block">
+						Date
+					</div>
+                    <div class="col-md-3 col-lg-3 ths d-none d-lg-block">
+                        Product
+                    </div>
+                    <div class="col-md-3 col-lg-3 ths d-none d-lg-block">
+                       Payment Method
+					</div>
+                    <div class="col-md-2 col-lg-2 ths d-none d-lg-block">
+                       Smart Card No
+                    </div>
+                    <div class="col-md-2 col-lg-2 ths d-none d-lg-block">
+                       Amount
+                    </div>
+                </div>
+
+				<div class="row">
+                    <div class="col-md-2 col-lg-2 thd">
+						<div class="tblcell d-block d-md-none">Date</div>
+						<div class=tblcell>01-10-2018</div>
+					</div>
+                    <div class="col-md-3 col-lg-3 thd">
+                        <div class="tblcell d-block d-md-none">Product</div>
+                        <div class=tblcell>Access Package</div>
+                    </div>
+                    <div class="col-md-3 col-lg-3 thd">
+                        <div class="tblcell d-block d-md-none">Payment Method</div>
+                        <div class=tblcell>Pay Pal</div>
+					</div>
+                    <div class="col-md-2 col-lg-2 thd">
+                        <div class=tbl>
+							<div class="tblcell d-block d-md-none">Subscriber ID</div>
+                            <div class=tblcell>10066785314</div>
+                        </div>
+                    </div>
+                    <div class="col-md-2 col-lg-2 thd">
+                        <div class=tbl>
+							<div class="tblcell d-block d-md-none">Amount</div>
+                            <div class=tblcell>$ 60</div>
+                        </div>
+                    </div>
+                </div>
+				
+				 <div class="row no-pad">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 d-block d-lg-none">
+                        <div class=curved_half_end>
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-6 col-md-7 col-lg-7">
+                                    <span class=signedin_curve_header></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+				<!--end of single-->
+
+				<!--split background for mobiles-->
+				<div class="row">
+					<div class="col-12 d-block d-lg-none" style="background-color:transparent;height:20px"></div>
+				</div>
+				<!--end of split background for mobiles-->
+				
+				<!--single item-->
+				<div class="row no-pad">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 d-block d-lg-none">
+                        <div class=curved_half>
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-6 col-md-7 col-lg-7">
+                                    <span class=signedin_curve_header></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+				<div class="row">
+                    <div class="col-md-2 col-lg-2 thad">
+						<div class="tblcell d-block d-md-none">Date</div>
+						<div class=tblcell>02-10-2018</div>
+					</div>
+                    <div class="col-md-3 col-lg-3 thad">
+                        <div class="tblcell d-block d-md-none">Product</div>
+                        <div class=tblcell>Elite Package</div>
+                    </div>
+                    <div class="col-md-3 col-lg-3 thad">
+                        <div class="tblcell d-block d-md-none">Payment Method</div>
+                        <div class=tblcell>Pay Pal</div>
+					</div>
+                    <div class="col-md-2 col-lg-2 thad">
+                        <div class=tbl>
+							<div class="tblcell d-block d-md-none">Subscriber ID</div>
+                            <div class=tblcell>10066785314</div>
+                        </div>
+                    </div>
+                    <div class="col-md-2 col-lg-2 thad">
+                        <div class=tbl>
+							<div class="tblcell d-block d-md-none">Amount</div>
+                            <div class=tblcell>$ 60</div>
+                        </div>
+                    </div>
+                </div>
+				
+				 <div class="row no-pad">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 d-block d-lg-none">
+                        <div class=curved_half_end>
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-6 col-md-7 col-lg-7">
+                                    <span class=signedin_curve_header></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+				<!--end of single-->
+
+				<!--split background for mobiles-->
+				<div class="row">
+					<div class="col-12 d-block d-lg-none" style="background-color:transparent;height:20px"></div>
+				</div>
+				<!--end of split background for mobiles-->
+				
+				<!--repeating-->
+				
+				
+				<!--single item-->
+				<div class="row no-pad">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 d-block d-lg-none">
+                        <div class=curved_half>
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-6 col-md-7 col-lg-7">
+                                    <span class=signedin_curve_header></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+				<div class="row">
+                    <div class="col-md-2 col-lg-2 thd">
+						<div class="tblcell d-block d-md-none">Date</div>
+						<div class=tblcell>03-10-2018</div>
+					</div>
+                    <div class="col-md-3 col-lg-3 thd">
+                        <div class="tblcell d-block d-md-none">Product</div>
+                        <div class=tblcell>World cup addon</div>
+                    </div>
+                    <div class="col-md-3 col-lg-3 thd">
+                        <div class="tblcell d-block d-md-none">Payment Method</div>
+                        <div class=tblcell>Pay Pal</div>
+					</div>
+                    <div class="col-md-2 col-lg-2 thd">
+                        <div class=tbl>
+							<div class="tblcell d-block d-md-none">Subscriber ID</div>
+                            <div class=tblcell>10066785314</div>
+                        </div>
+                    </div>
+                    <div class="col-md-2 col-lg-2 thd">
+                        <div class=tbl>
+							<div class="tblcell d-block d-md-none">Amount</div>
+                            <div class=tblcell>$ 60</div>
+                        </div>
+                    </div>
+                </div>
+				
+				 <div class="row no-pad">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 d-block d-lg-none">
+                        <div class=curved_half_end>
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-6 col-md-7 col-lg-7">
+                                    <span class=signedin_curve_header></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+				<!--end of single-->
+
+				<!--split background for mobiles-->
+				<div class="row">
+					<div class="col-12 d-block d-lg-none" style="background-color:transparent;height:20px"></div>
+				</div>
+				<!--end of split background for mobiles-->
+				
+				<!--repeat-->
+				
+				
+				<!--single item-->
+				<div class="row no-pad">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 d-block d-lg-none">
+                        <div class=curved_half>
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-6 col-md-7 col-lg-7">
+                                    <span class=signedin_curve_header></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+				<div class="row">
+                    <div class="col-md-2 col-lg-2 thad">
+						<div class="tblcell d-block d-md-none">Date</div>
+						<div class=tblcell>02-10-2018</div>
+					</div>
+                    <div class="col-md-3 col-lg-3 thad">
+                        <div class="tblcell d-block d-md-none">Product</div>
+                        <div class=tblcell>Elite Package</div>
+                    </div>
+                    <div class="col-md-3 col-lg-3 thad">
+                        <div class="tblcell d-block d-md-none">Payment Method</div>
+                        <div class=tblcell>Pay Pal</div>
+					</div>
+                    <div class="col-md-2 col-lg-2 thad">
+                        <div class=tbl>
+							<div class="tblcell d-block d-md-none">Subscriber ID</div>
+                            <div class=tblcell>10066785314</div>
+                        </div>
+                    </div>
+                    <div class="col-md-2 col-lg-2 thad">
+                        <div class=tbl>
+							<div class="tblcell d-block d-md-none">Amount</div>
+                            <div class=tblcell>$ 60</div>
+                        </div>
+                    </div>
+                </div>
+				
+				 <div class="row no-pad">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 d-block d-lg-none">
+                        <div class=curved_half_end>
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-6 col-md-7 col-lg-7">
+                                    <span class=signedin_curve_header></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+				<!--end of single-->
+
+				<!--split background for mobiles-->
+				<div class="row">
+					<div class="col-12 d-block d-lg-none" style="background-color:transparent;height:20px"></div>
+				</div>
+				<!--end of split background for mobiles-->
+				
+				
+				<!--single item-->
+				<div class="row no-pad">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 d-block d-lg-none">
+                        <div class=curved_half>
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-6 col-md-7 col-lg-7">
+                                    <span class=signedin_curve_header></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+				<div class="row">
+                    <div class="col-md-2 col-lg-2 thd">
+						<div class="tblcell d-block d-md-none">Date</div>
+						<div class=tblcell>03-10-2018</div>
+					</div>
+                    <div class="col-md-3 col-lg-3 thd">
+                        <div class="tblcell d-block d-md-none">Product</div>
+                        <div class=tblcell>World cup addon</div>
+                    </div>
+                    <div class="col-md-3 col-lg-3 thd">
+                        <div class="tblcell d-block d-md-none">Payment Method</div>
+                        <div class=tblcell>Pay Pal</div>
+					</div>
+                    <div class="col-md-2 col-lg-2 thd">
+                        <div class=tbl>
+							<div class="tblcell d-block d-md-none">Subscriber ID</div>
+                            <div class=tblcell>10066785314</div>
+                        </div>
+                    </div>
+                    <div class="col-md-2 col-lg-2 thd">
+                        <div class=tbl>
+							<div class="tblcell d-block d-md-none">Amount</div>
+                            <div class=tblcell>$ 60</div>
+                        </div>
+                    </div>
+                </div>
+				
+				 <div class="row no-pad">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 d-block d-lg-none">
+                        <div class=curved_half_end>
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-6 col-md-7 col-lg-7">
+                                    <span class=signedin_curve_header></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+				<!--end of single-->
+
+				<!--split background for mobiles-->
+				<div class="row">
+					<div class="col-12 d-block d-lg-none" style="background-color:transparent;height:20px"></div>
+				</div>
+				<!--end of split background for mobiles-->
+				
+				<!--single item-->
+				<div class="row no-pad">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 d-block d-lg-none">
+                        <div class=curved_half>
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-6 col-md-7 col-lg-7">
+                                    <span class=signedin_curve_header></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+				<div class="row">
+                    <div class="col-md-2 col-lg-2 thad">
+						<div class="tblcell d-block d-md-none">Date</div>
+						<div class=tblcell>04-10-2018</div>
+					</div>
+                    <div class="col-md-3 col-lg-3 thad">
+                        <div class="tblcell d-block d-md-none">Product</div>
+                        <div class=tblcell>beIN HD PVR Box</div>
+                    </div>
+                    <div class="col-md-3 col-lg-3 thad">
+                        <div class="tblcell d-block d-md-none">Payment Method</div>
+                        <div class=tblcell>Pay Pal</div>
+					</div>
+                    <div class="col-md-2 col-lg-2 thad">
+                        <div class=tbl>
+							<div class="tblcell d-block d-md-none">Subscriber ID</div>
+                            <div class=tblcell>10066785314</div>
+                        </div>
+                    </div>
+                    <div class="col-md-2 col-lg-2 thad">
+                        <div class=tbl>
+							<div class="tblcell d-block d-md-none">Amount</div>
+                            <div class=tblcell>$ 60</div>
+                        </div>
+                    </div>
+                </div>
+				
+				 <div class="row no-pad">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 d-block d-lg-none">
+                        <div class=curved_half_end>
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-6 col-md-7 col-lg-7">
+                                    <span class=signedin_curve_header>
+									
+									<nav>
+									<ul class="pagination">
+									<li class="page-item"><a class="page-link" href="">&laquo;</a></li>
+									<li class="page-item active"><a class="page-link" href="">1</a></li>
+									<li class="page-item"><a class="page-link" href="">2</a></li>
+									<li class="page-item"><a class="page-link" href="">3</a></li>
+									<li class="page-item"><a class="page-link" href="">&raquo;</a></li>
+									</ul>
+									</nav>
+									
+									
+									</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+				<!--end of single-->
+
+				<!--end of repeat-->
+				
+				 <div class="row no-pad">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 d-none d-lg-block">
+                        <div class=curved_half_end>
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-6 col-md-7 col-lg-7">
+                                    <span class=signedin_curve_header>
+									
+									<nav>
+									<ul class="pagination">
+									<li class="page-item"><a class="page-link" href="">&laquo;</a></li>
+									<li class="page-item active"><a class="page-link" href="">1</a></li>
+									<li class="page-item"><a class="page-link" href="">2</a></li>
+									<li class="page-item"><a class="page-link" href="">3</a></li>
+									<li class="page-item"><a class="page-link" href="">&raquo;</a></li>
+									</ul>
+									</nav>
+
+									</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+				<!--end of single-->
+
+				<!--split background for mobiles-->
+				<div class="row">
+					<div class="col-12 d-block d-lg-none" style="background-color:transparent;height:20px"></div>
+				</div>
+				<!--end of split background for mobiles-->
+				
+				<!--end of repeating-->
+
+               
+             </div>
+        </div>
+ 
+            <div class="bottomspacer d-block d-md-none"></div>
+        </div>
+        <script>
+            footer();
+            footer_mobiletab();
+        </script>
+    </body>
+</html>

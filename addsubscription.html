@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>My beIN</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="ds/jquery-2.2.4.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="ds/bootbox.min.js"></script>
+    <link rel="stylesheet" href="ds/theme.en.css">
+    <link rel="stylesheet" href="common.css" />
+    <link rel="stylesheet" href="all.css" />
+    <style>
+      
+.dropdown {
+    position: relative;
+    display: inline-block;
+	margin:0 auto;
+	text-align:center;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+	width:100%;
+	margin-top:2px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+	text-align:center;
+	
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #ddd;}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {display: block;}
+
+.tds{background-color:red}
+
+        #modal_thankyou .modal-content {
+            background: #767382 !important;
+            color: #FFFFFF !important;
+
+        }
+		
+		
+		 .modal-backdrop {
+            background-color: rgba(0, 0, 0, 0.5) !important;
+            z-index: 1040 !important;
+        }
+        
+        .modal-content {
+            overflow-y: auto;
+            overflow-y: auto;
+            -webkit-border-radius: 30px !important;
+            -moz-border-radius: 30px !important;
+            border-radius: 30px;
+			display:inline-block;
+        }
+        
+        .modal-body {
+            overflow: auto;
+            z-index: 1100 !important;
+            color: #fff;
+        }
+        /* This will prevent a long page from scrolling when a modal is opend */
+        
+   
+        
+        html {
+            overflow-y: scroll;
+        }
+        
+        .modal-open {
+            padding-right: 0 !important;
+        }
+        
+        #modal_channels .modal-content {
+            background: #ffffff !important;
+            color: #FFFFFF !important;
+            border: 1px solid #767382;
+            -webkit-border-radius: 30px !important;
+            -moz-border-radius: 30px !important;
+            border-radius: 30px;
+        }
+        /* Change background only on thank you modal */
+        
+        #modal_thankyou .modal-content {
+            background: #767382 !important;
+            color: #FFFFFF !important;
+
+        }
+        
+        .modal-backdrop.fade {
+            opacity: 0;
+            filter: alpha(opacity=0);
+        }
+        
+        .modal-backdrop.in {
+            opacity: 0.5;
+            filter: alpha(opacity=50);
+        }
+        
+        .modal h2 {
+            color: #fff;
+        }
+		
+		.modal p {
+            color: #fff;
+        }
+
+    </style>
+
+    <script src="common.js"></script>
+	
+	
+<script type="text/javascript">
+function validatesmartcard()
+{
+	const msg1="<p class=err><i class='fa fa-exclamation-triangle'></i>The <em>Smart card number</em> &nbsp;is invalid</p>";
+	$("#msg").hide();
+	$("#msgtxt").text('');
+	$("#msgtxt").html('');
+	
+	if($("#smartcard").val()!="1234567890")
+	{
+		err=1;
+		$("#msg").show();
+		$("#msgtxt").html(msg1);
+	}
+	else
+	{
+		$("#country").val("+974");
+		$("#mobile").attr("placeholder", "xxxxx67890");
+		$("#step1").fadeTo(400,0.3);
+		$("#step2").fadeTo(400,10);
+	
+	}
+}
+
+function validateotp()
+{
+	var err=0;
+	const msg4="<p class=err><i class='fa fa-exclamation-triangle'>&nbsp;</i>The code entered is invalid</p>";
+
+	if($("#otp").val()!="123456")
+	{
+		err=1;
+		$("#msg_step2").show();
+		$("#msg_step2_txt").html(msg4);
+	}
+	
+	if(err==0)
+	{
+	$("#msg_step2").hide();
+	$("#step2").fadeTo(400,0.3);
+	$("#step3").fadeTo(400,10);
+	}
+	
+}
+
+function validatemobile()
+{
+	var err=0;
+	
+	const msg2="<p class=err><i class='fa fa-exclamation-triangle'>&nbsp;</i>The <em>Country Code</em> must be chosen</p>";
+	const msg3="<p class=err><i class='fa fa-exclamation-triangle'>&nbsp;</i>Please type a valid mobile number</p>";
+	
+
+	$("#msg").hide();
+	$("#msgtxt").text('');
+	
+	
+	
+	$("#msg_step3").hide();
+	$("#msg_step3_txt").text('');
+	$("#msg_step3_txt").html('');
+	
+
+	if($("#country").val()==0)
+	{
+		err=1;
+		$("#msg_step3").show();
+		$("#msg_step3_txt").html(msg2);
+		return;
+	}
+	else if($("#mobile").val()=="")
+	{
+		err=1;
+		$("#msg_step3").show();
+		$("#msg_step3_txt").html(msg3);
+		return;
+	}
+	else if($("#mobile").val()!="1234567890")
+	{
+		err=1;
+		$("#msg_step3").show();
+		$("#msg_step3_txt").html(msg3);
+		return;
+		
+		/*
+		if($("#mobilecode_container").css("display")=='none')
+		{
+			$("#basicModal").modal("show");
+			return;
+		}*/
+	}
+	else
+	{
+		showmodal('modal_thankyou');
+		$("#step0").fadeTo(400,0);
+		$("#step1").fadeTo(400,0);
+		$("#step2").fadeTo(400,0);
+		$("#step3").fadeTo(400,0);
+		$("#step4").fadeTo(400,0);
+		$("#step_last").fadeTo(400,0);
+	}
+	
+}
+
+function mobilechanged(opt)
+{
+	if(opt==true)
+	{
+		$("#mobile_msg").hide();
+		$("#mobilecode_container").show();
+	}
+	else
+	{
+		$("#mobilecode_container").hide();
+		$("#step4").hide();
+		$("#mobile").attr("placeholder", "xxxxx67890");
+		$("#mobile").val('');	
+		$("#mobile_msg").show();
+		$("#mobile_msg").html("<p class=info><i class='fa fa-exclamation-triangle'></i>&nbsp;Enter your existing number</p>");
+	}
+}
+
+function validatemobilecode()
+{
+	var msg1="<p class=err><i class='fa fa-exclamation-triangle'>&nbsp;</i>Invalid mobile Code</p>";
+	
+	if($("#mobilecode").val()!="123456")
+	{
+		err=1;
+		$("#mobile_code_msg").show();
+		$("#mobile_code_msg").html(msg1);
+	}
+	else if($("#mobilecode").val()=="123456")
+	{
+		err=0;
+	}
+	
+	if(err==0)
+	{
+		$("#step3").fadeTo(400,0.3);
+		$("#step4").fadeTo(400,10);
+	}
+
+}
+</script>
+
+    <body>
+	
+	
+<!--MODALS-->
+  <!-- The Modal -->
+    <div class="modal" id="modal_thankyou" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                            <h2>Congratulations !</h2>
+                            <p>Your payment is successful.</p>
+                            <p>Our call center will contact you soon for installation appointment.</p. <p>Welcome to the world of entertainment!</p>
+							
+							<div class="curved_buttons" onclick=window.location='subscriptions.html'>Back to my Subscriptions</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+	
+
+<div class="modal" id="basicModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel">CONFIRM: </h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body">
+		<i>
+        <h4><b>Are you changing to a new mobile number  ?</b></h4>
+		<p>We will send you a one time CODE to your new number for verification purpose</p>
+		</i>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success" data-dismiss="modal" onclick=mobilechanged(true)>Yes</button>
+        <button type="button" class="btn btn-success" data-dismiss="modal" onclick=mobilechanged(false)>No</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="basicemailModal" tabindex="-1" role="dialog" aria-labelledby="basicemailModal" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel">CONFIRM: </h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body">
+		<i>
+        <h4><b>Are you changing to a new Email ?</b></h4>
+		<p>We will send you a one time CODE to your EMAIL for verification purpose</p>
+		</i>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success" data-dismiss="modal" onclick=emailchanged(true)>Yes</button>
+        <button type="button" class="btn btn-success" data-dismiss="modal" onclick=emailchanged(false)>No</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+          <script>
+		mobilemenu2();
+            header2();
+        </script>
+
+    
+<div class="all" class="all" style="min-height:819px">
+
+
+<div class="container" style="clear:both">
+
+	<script language=javascript>
+	menu();
+	</script>
+	
+	<div class="row" id="step0_header" >
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-9 pt-4">
+		<h2 class=mainheader>Add Subscription</h2>
+		</div>
+	</div>
+
+	
+	<div class="row no-pad">
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+			
+			
+			<!--STEP 1-->
+			<div id="step1">
+			
+
+			<div class="row">
+					<div class="col-xs-12 col-sm-8 col-md-8 col-lg-5">
+						<label  for="smartcard" class="lbl">&nbsp;&nbsp;Smart Card</label>
+						<input type="text" class="form-control form-rounded transparent-input" id="smartcard" placeholder="Your Smart Card Number" data-maxlength="11">
+					</div>
+				</div>
+
+			<div class="row" >
+					<div class="col-xs-12 col-sm-8 col-md-8 col-lg-5">
+						<div class="form-group" >
+							<div style="height:15px;clear:both"></div>
+							<button type="button" class="btn btn-success form-rounded" onclick='validatesmartcard()'>Verify Smart card</button>
+						</div>
+					</div>
+			</div>
+			
+
+			<div class="row no-pad"  id="msg" style=display:none>
+				<div class="col-xs-12 col-sm-8 col-md-6 col-lg-4" id="msgtxt">
+				</div>
+			</div>
+	
+			</div>
+			<!--END STEP 1-->
+			
+			<!--STEP 2-->
+			<div id="step2" style="display:none">
+	
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+					<div class="form-group">
+						<label  for="otp" class=blue-tooltip data-toggle="tooltip" title="Check your TV and enter the CODE">&nbsp;&nbsp;Tune your box to a beIN channel to get the Code and update it below</label>
+						<label  for="otp" class=blue-tooltip data-toggle="tooltip" title="Resend CODE"><a href="javascript:return false" class=nolink>&nbsp;&nbsp;If you did not receive your Code ? click here to resend</a></label>
+					</div>
+				</div>
+			</div>
+		
+			<div class="row">
+				<div class="col-xs-12 col-sm-8 col-md-8 col-lg-6">
+				<input type="text" class="form-control form-rounded transparent-input" id="otp" placeholder="6 digits verification CODE" data-maxlength="6">
+				</div>
+			</div>
+		
+			<div class="row">
+				<div class="col-xs-12 col-sm-8 col-md-8 col-lg-6">
+					<div class="form-group" >
+						<div style="height:15px;clear:both"></div>
+						<button type="button" class="btn btn-success form-rounded" onclick='validateotp()'>Verify Code</button>
+					</div>
+				</div>
+			</div>
+		
+			<div class="row no-pad"  style="margin-bottom:10px" id="msg_step2" style=display:none>
+				<div class="col-xs-12 col-sm-8 col-md-6 col-lg-4" id="msg_step2_txt"></div>
+			</div>
+	
+			</div>
+			<!--END STEP 2-->
+			
+			<!--step3-->
+			<div id="step3" style="display:none">
+	
+				<div style="height:15px;clear:both"></div>
+
+				<div class="row">
+				<div class="col-xs-12 col-sm-8 col-md-8 col-lg-6">
+					<div class="form-group">
+					<label  for="country" class=blue-tooltip data-toggle="tooltip" title="Choose your country" >&nbsp;&nbsp;Country</label>
+					<select class="form-control form-rounded transparent-input" id="country" disabled>
+						<option selected="selected" value="0">Country Code</option>
+						<option value="+213">+213 - Algeria</option>
+						<option value="+973">+974 - Bahrain</option>
+						<option value="+235">+235 - Chad</option>
+						<option value="+964">+964 - Iraq</option>
+						<option value="+962">+962 - Jordan</option>
+						<option value="‎+965">+965 - Kuwait</option>
+						<option value="‎+961">+961 - Lebanon</option>
+						<option value="+218">+218 - Libya</option>
+						<option value="‎+222">+222 - Mauritania</option>
+						<option value="+212">+212 - Morocco</option>
+						<option value="‎+968">+968 - Oman</option>
+						<option value="‎+970">+970 - Palestine</option>
+						<option value="+974">+974 - Qatar</option>
+						<option value="+966">+966 - Saudi Arabia</option>
+						<option value="+249">+249 - Sudan</option>
+						<option value="+249">+211 - South Sudan</option>
+						<option value="+963">+963 - Syria</option>
+						<option value="+216">+216 - Tunisia</option>
+						<option value="+971">+971 - United Arab Emirates</option>
+						<option value="+967">+967 - Yemen</option>
+					</select>
+					</div>
+				</div>
+				</div>
+				
+				<div class="row">
+					<div class="col-xs-12 col-sm-8 col-md-8 col-lg-6">
+						<div class="form-group">
+							<label  for="mobile" class=blue-tooltip data-toggle="tooltip" title="Enter your existing Mobile or new one if you wish to change">&nbsp;&nbsp;Mobile</label>
+							<input type="Mobile" class="form-control form-rounded transparent-input" id="mobile" placeholder="Mobile">
+							<label id="mobile_msg" style=display:none></label>
+						</div>
+					</div>
+				</div>	
+		
+				<div style="height:15px;clear:both"></div>
+
+				<div class="row">
+					<div class="col-xs-12 col-sm-8 col-md-8 col-lg-6">
+						<div class="form-group" >
+							<button type="button" class="btn btn-success form-rounded" onclick='validatemobile()'>Verify Mobile</button>
+						</div>
+					</div>
+				</div>
+
+		
+				<!--mobile code container-->
+				<div class="row no-pad" id="mobilecode_container" style="display:none">
+		
+				<div style="height:15px;clear:both"></div>
+			
+				<div class="row">
+					<div class="col-xs-12 col-sm-8 col-md-8 col-lg-6">
+						<div class="form-group">
+						<label  for="otp" class=blue-tooltip data-toggle="tooltip" title="Check your SMS and enter the Code"><i class="fa fa-info-circle fa-lg"></i>&nbsp;&nbsp;Check your SMS to get the Code, Update it below</label>
+						<label  for="otp" class=blue-tooltip data-toggle="tooltip" title="Resend Code"><a href="javascript:return false" class=nolink>&nbsp;&nbsp;If you did not receive your Code ? click to resend</a></label>
+						<input type="text" class="form-control form-rounded transparent-input" id="mobilecode" placeholder="6 Digits verification Code" data-maxlength="6">
+						<label id="mobile_code_msg" style=display:none></label>
+						</div>
+					</div>
+				</div>
+			
+				<div class="row">
+					<div class="col-xs-12 col-sm-8 col-md-8 col-lg-6">
+						<div class="form-group" >
+							<div style="height:15px;clear:both"></div>
+							<button type="button" class="btn btn-success form-rounded" onclick='validatemobilecode()'>Verify Code</button>
+						</div>
+					</div>
+				</div>
+		
+				</div>
+				<!--end code container-->
+		
+				<div class="row"  style="margin-bottom:10px" id="msg_step3" style=display:none>
+					<div class="col-xs-12 col-sm-8 col-md-6 col-lg-6" id="msg_step3_txt"></div>
+				</div>
+		
+			</div>
+			<!--STEP 3-->
+		
+			<div id="step4"  style=display:none>
+			
+			<div style="height:15px;clear:both"></div>
+
+			
+			
+			</div>
+			
+			<!--END STEP 3-->
+			
+			<div id="step_last">
+			
+			
+			<div class="ruler">&nbsp;</div>
+			
+			<div style="height:20px"></div>
+			
+			
+			<div class="row">
+				<div class="col-xs-12 col-sm-8 col-md-8 col-lg-6">
+					<div class="form-group">
+						<label  for="smartcard" >&nbsp;&nbsp;Buy a new receiver and subscription</label>
+					</div>
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-xs-12 col-sm-8 col-md-8 col-lg-6">
+					<button type="button" class="btn btn-success form-rounded" onclick=window.location='user.html'>Buy</button>
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-xs-12 col-sm-8 col-md-8 col-lg-6">
+					<div class="form-group">
+						<label  for="smartcard" >&nbsp;&nbsp;Give a Gift</label>
+					</div>
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-xs-12 col-sm-8 col-md-8 col-lg-6">
+					<button type="button" class="btn btn-success form-rounded" onclick=window.location='gifts.html'>Send a Gift</button>
+				</div>
+			</div>
+			
+			</div>
+
+			
+		</div>
+	</div>
+	
+	<div style='height:50px'></div>
+	
+</div>		
+
+
+	
+	
+</div>		
+
+
+
+
+        <script>
+            footer();
+	    </script>
+
+    </body>
+
+</html>
+

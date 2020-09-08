@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>My beIN</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="ds/theme.en.css">
+    <link rel="stylesheet" href="common.css" />
+    <link rel="stylesheet" href="all.css" />
+    <style>
+		@media only screen and (max-device-height: 667px)  {
+			.img-sign{width:260px;height:auto;margin:0 auto}
+		}
+		@media only screen and (min-device-height: 737px)  {
+			.img-sign{width:100%;height:auto}
+		}
+        .aligned {
+            width: 33%;
+            float: left
+        }
+        
+        .header1 {
+            font-size: 20pt;
+            font-family: Gotham-Black;
+            color: #2B2932;
+            padding: 0;
+            margin: 0 auto;
+            line-height: 1
+        }
+        
+        .header2 {
+            font-size: 22pt;
+            font-family: Gotham-Black;
+            color: #2B2932;
+            padding: 0;
+            margin: 0;
+            line-height: 1
+        }
+        
+        .header3 {
+            font-size: 27pt;
+            font-family: Gotham-Black;
+            color: #2B2932;
+            padding: 0;
+            margin: 0;
+            line-height: 1;
+            width: 100%;
+        }
+        
+        .signin {
+            color: #E9E9F0;
+            font-family: 'Gotham-Book';
+            font-size: 18px;
+            margin: 0 auto
+        }
+        
+        .signinbuttons {
+            border-radius: 15px;
+            background: rgb(255, 255, 255);
+            background: radial-gradient(circle, rgba(92, 45, 145, 1) 0%, rgba(67, 33, 106, 1) 0%, rgba(46, 23, 73) 100%);
+            width: 100px;
+            height: 100px;
+            line-height: 100px;
+            cursor: pointer;
+            border: 1px solid #767382;
+            box-shadow: 1px 1px #00000029;
+            vertical-align: middle;
+            text-align: center;
+        }
+        
+        .signinbuttonstext {
+            font-family: 'Gotham-Medium';
+            font-size: 12px;
+            color: #767382;
+            padding-left: 5px
+        }
+        /* For tablets and desktops ...*/
+        
+        @media only screen and (min-device-width: 768px) {
+            .logo {
+                width: 40%;
+            }
+            button {
+                width: 100%;
+                margin: 0 auto;
+            }
+            .signinbuttonstext {
+                font-family: 'Gotham-Medium';
+                font-size: 15px;
+                color: #767382;
+                padding-left: 5px
+            }
+        }
+        /* Extra size devices */
+        
+        @media only screen and (min-device-width: 481px) and (max-device-width:767px) {
+            button {
+                width: 100%;
+                margin: 0 auto
+            }
+            .logo {
+                width: 120px;
+                height: auto;
+                text-align: center
+            }
+        }
+        /*Smartphones (portrait and landscape) ----------- */
+        
+        @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+            button {
+                width: 100%;
+                margin: 0 auto
+            }
+            .logo {
+                width: 90px;
+                height: auto;
+            }
+        }
+        
+        .row {
+            padding: 0;
+            margin: 0
+        }
+        
+        .main-footer {
+            border-bottom: 3px solid #fff;
+        }
+        
+        .row.no-gutter {
+            margin-left: 0;
+            margin-right: 0;
+        }
+        
+        .row.no-gutter [class*='col-']:not(:first-child),
+        .row.no-gutter [class*='col-']:not(:last-child) {
+            padding-right: 0;
+            padding-left: 0;
+        }
+        
+        .modal-backdrop {
+            background-color: rgba(233, 233, 240, 0.9) !important;
+            z-index: 1040 !important;
+        }
+        
+        .modal-body {
+            overflow: auto;
+            z-index: 1100 !important;
+            color: #fff;
+        }
+        
+        .modal-content {
+            overflow-y: auto;
+            -webkit-border-radius: 30px !important;
+            -moz-border-radius: 30px !important;
+            border-radius: 30px;
+        }
+        /* This will prevent a long page from scrolling when a modal is opend */
+        
+        body.modal-open {
+            overflow: hidden;
+        }
+        
+        .modal-open {
+            padding-right: 0 !important;
+        }
+        /* Change background only on thank you modal */
+        
+        #modal_signin .modal-content {
+            background: rgb(92, 45, 145);
+            background: radial-gradient(circle, rgba(92, 45, 145, 1) 0%, rgba(46, 23, 73, 1) 50%);
+            color: #FFFFFF !important;
+            border: 1px solid #767382;
+            -webkit-border-radius: 30px !important;
+            -moz-border-radius: 30px !important;
+            border-radius: 30px;
+        }
+    </style>
+    <script src="ds/jquery-2.2.4.min.js"></script>
+    <script src="ds/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="ds/bootbox.min.js"></script>
+    <script src="common.js"></script>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="row no-pad">
+
+            <div class="col-sm-4 col-md-12 col-lg-6 d-none d-lg-block">
+                <p style="height:80px" class="d-none d-lg-block"></p>
+                <img src='bg_signin.png'>
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+
+                <p style="height:150px" class="d-none d-lg-block"></p>
+
+                <img align="center" src=bg_signin.png class="d-block d-lg-none img-sign">
+
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+
+                    <img src="beinlogo.svg" class="logo" />
+
+                    <div class=header1>WELCOME</div>
+                    <div class=header2>TO THE WORLD OF</div>
+                    <div class=header3>ENTERTAINMENT</div>
+
+                    <div style="height:20px;clear:both"></div>
+
+                    <div class="aligned">
+                        <div class="signinbuttons" onclick=showmodal('modal_signin')>
+                            <img align="center" src="menu1.svg">
+                        </div>
+                        <div style="height:5px;clear:both"></div>
+                        <div class="signinbuttonstext">Sign In</div>
+                    </div>
+                    <div class="aligned">
+                        <div class="signinbuttons" onclick="window.location='create.html'">
+                            <img src="menu2.svg">
+                        </div>
+                        <div style="height:5px;clear:both"></div>
+                        <div class="signinbuttonstext" onclick=window.location='register.html'>Create Account</div>
+                    </div>
+                    <div class="aligned">
+                        <div class="signinbuttons" onclick="window.location='user.html'">
+                            <img align="center" src="menu3.svg">
+                        </div>
+                        <div style="height:5px;clear:both"></div>
+                        <div class="signinbuttonstext">Subscribe</div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- The Modal -->
+        <div class="modal" id="modal_signin">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <!-- Modal body -->
+                    <div class="modal-body">
+
+                        <div class="container">
+
+                            <div class="row no-pad">
+                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-right">
+                                    <span class="closer" onclick=hidemodal('modal_signin')>X</span>
+                                </div>
+                            </div>
+                            <div class="pt-5"></div>
+                            <div class="row no-pad">
+                                <div class="col-xs-12 col-md-10 offset-md-1 col-lg-10 offset-lg-1">
+                                    <p class="signin mb-3">Sign in to your account</p>
+                                    <div class="form-group" style=margin-bottom:10px>
+                                        <input type="text" class="form-control form-rounded transparent-input" id="username" placeholder="Username">
+                                        <div class="pt-2 pb-2"></div>
+                                        <input type="password" class="form-control form-rounded transparent-input" id="password" placeholder="Password">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row no-pad">
+                                <div class="col-xs-12 col-md-10 offset-md-1 col-lg-10  offset-lg-1">
+                                    <button type="button" class="btn btn-success-signin form-rounded-signin" onclick=window.location='subscriptions.html'><i class='fa fa-sign-in-alt'></i>&nbsp;&nbsp;Sign In</button>
+                                    <div class="pt-2"></div>
+                                    <div style="color:#767382" class="text-right"><a href=fp.html>Forgot Password ?</a></div>
+
+                                </div>
+                            </div>
+
+                            <div class="pt-5"></div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</body>
+</html>

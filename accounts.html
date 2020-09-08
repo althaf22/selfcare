@@ -1,0 +1,659 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>My beIN</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="jquery-3.4.1.min.js" charset="UTF-8"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="ds/bootbox.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.css">
+    <script src="bootstrap-datepicker.min.js"></script>
+    <link rel="stylesheet" href="ds/theme.en.css">
+    <link rel="stylesheet" href="common.css" />
+    <link rel="stylesheet" href="all.css" />
+    <script src="common.js"></script>
+    <script>
+        var process = "";
+
+        function goedit() {
+            $(".display_mode").hide();
+            $("#edit_mode").show();
+            $("#confirm_btn").show();
+            $("#edit_mode2").hide();
+        }
+
+        function sendmobilecode() {
+            const msg1 = "<p class=info><i class='fa fa-envelope fa-lg'></i>&nbsp;Check your SMS for CODE </p>";
+            $("#msg_mobile").show();
+            $("#msg_mobile_txt").html(msg1);
+            $("#verifymobile_div").show();
+			
+        }
+
+        function enablemobile() {
+
+            const msg_complete = "<p class=info><i class='fa fa-envelope fa-lg'></i>&nbsp;Please complete the verification";
+            if (process != "") {
+                err = 1;
+                $("#msg_common").html(msg_complete);
+                return;
+            }
+
+            process = "mobile";
+            $("#mobile").removeAttr("readonly");
+            $("#msg_mobile_txt").html('');
+            $("#msg_mobile_txt").text('');
+            //$("#mobiledeleteicon").show();
+
+            $("#sendmobilecodetoverifymsg").show();
+            $("#mobilecode").val('');
+            $("#msg_common").html('');
+
+        }
+
+        function disablemobile() {
+            process = "";
+            $("#mobile").prop("readonly", true);
+            $("#msg_mobile_txt").html('');
+            $("#msg_mobile_txt").text('');
+            //$("#mobiledeleteicon").hide();
+            $("#sendmobilecodetoverifymsg").hide();
+            $("#verifymobile_div").hide();
+            $("#mobilecode").val('');
+            $("#mobile").val('1234567890');
+            $("#msg_common").html("");
+        }
+
+        function verifymobile() {
+            const msg1 = "<p class=info><i class='fa fa-envelope fa-lg'></i>&nbsp;<em>Mobile</em> is sucessfully verified</p>";
+            const msg2 = "<p class=err><i class='fa fa-envelope fa-lg'></i>&nbsp;<em>Mobile<em> verification failed</p>";
+            $("#msg_mobile_txt").html('');
+            $("#msg_mobile_txt").text('');
+            $("#msg_mobile").show();
+
+            if ($("#mobilecode").val() == "123456") {
+                //$("#msg_mobile_txt").html(msg1);
+                $("#verifymobile_div").hide();
+                $("#verifymobile_div").hide();
+                $("#mobile").prop("readonly", true);
+                //$("#mobiledeleteicon").css("display", "none");
+                $("#sendmobilecodetoverifymsg").hide();
+                process = "";
+				$("#lbl_mobile").show();
+            } else {
+                $("#msg_mobile_txt").html(msg2);
+            }
+        }
+
+        function enableemail() {
+
+            const msg_complete = "<p class=info><i class='fa fa-envelope fa-lg'></i>&nbsp;Please complete the verification";
+            if (process != "") {
+                err = 1;
+                $("#msg_common").html(msg_complete);
+                return;
+            }
+
+            process = "email";
+            $("#email").removeAttr("readonly");
+            $("#msg_email_txt").html('');
+            $("#msg_email_txt").text('');
+            //$("#emaildeleteicon").show();
+
+            $("#sendemailcodetoverifymsg").show();
+            $("#verifyemail").val('');
+            $("#emailcode").val('');
+
+        }
+
+        function disableemail() {
+            process = "";
+            $("#email").prop("readonly", true);
+            $("#msg_email_txt").html('');
+            $("#msg_email_txt").text('');
+            //$("#emaildeleteicon").hide();
+            $("#sendemailcodetoverifymsg").hide();
+            $("#verifyemail_div").hide();
+            $("#verifyemail").val('');
+            $("#email").val('user@bein.net');
+            $("#msg_common").html("");
+        }
+
+        function sendemailcode() {
+            const msg1 = "<p class=info><i class='fa fa-envelope fa-lg'></i>&nbsp;Check your Email for CODE</p>";
+            $("#msg_email").show();
+            $("#msg_email_txt").html(msg1);
+            $("#verifyemail_div").show();
+        }
+
+        function verifyemail() {
+            const msg1 = "<p class=info><i class='fa fa-envelope fa-lg'></i>&nbsp;<em>Email</em> is sucessfully verified</p>";
+            const msg2 = "<p class=err><i class='fa fa-envelope fa-lg'></i>&nbsp;<em>Email<em> verification failed</p>";
+            $("#msg_email_txt").html('');
+            $("#msg_email_txt").text('');
+            $("#msg_email").show();
+
+            if ($("#emailcode").val() == "123456") {
+                $("#verifyemail_div").hide();
+                $("#email").prop("readonly", true);
+                //$("#emaildeleteicon").css("display", "none");
+                $("#msg_common").html("");
+                $("#sendemailcodetoverifymsg").hide();
+				$("#lbl_email").show();
+				editupdate("email");
+                process = "";
+            } else {
+                $("#msg_email_txt").html(msg2);
+            }
+        }
+
+        function verifypassword() {
+            const msg1 = "<p class=info><i class='fa fa-envelope fa-lg'></i>&nbsp;<em>Password</em> is sucessfully updated</p>";
+
+            $("#msg_password_txt").html('');
+            $("#msg_password_txt").text('');
+            $("#msg_password").show();
+
+            $("#verifypassword_div").hide();
+            $("#password").prop("readonly", true);
+            //$("#passworddeleteicon").css("display", "none");
+            $("#msg_common").html("");
+			$("#lbl_password").show();
+			editupdate("passwords");
+            process = "";
+        }
+
+        function revert() {
+
+            $("#" + signalid).addClass("actionnormal");
+            $("#" + signalid).css("color", "#000");
+        }
+
+        function enablepassword() {
+
+            const msg_complete = "<p class=info><i class='fa fa-envelope fa-lg'></i>&nbsp;Please complete the verification";
+            if (process != "") {
+                err = 1;
+                $("#msg_common").html(msg_complete);
+                return;
+            }
+	
+            process = "password";
+			
+            $("#password").removeAttr("readonly");
+            $("#msg_password_txt").html('');
+            //$("#passworddeleteicon").show();
+            $("#verifypassword_div").show();
+
+        }
+
+        function disablepassword() {
+            process = "";
+            $("#password").prop("readonly", true);
+            $("#password").val('********');
+            $("#msg_password_txt").html('');
+            //$("#passworddeleteicon").hide();
+            $("#verifypassword_div").hide();
+            $("#msg_common").html("");
+        }
+
+        $('#dateofbirth').datepicker({
+            autoclose: true,
+            todayHighlight: true,
+            format: "dd MM yyyy"
+        });
+
+        $('#idexpiry').datepicker({
+            autoclose: true,
+            todayHighlight: true,
+            format: "dd MM yyyy"
+        });
+
+        function update() {
+            $("#edit_mode").hide();
+            $("#edit_mode2").show();
+            $(".display_mode").show();
+            $("#confirm_btn").hide();
+        }
+
+        var inputs = document.querySelectorAll('.inputfile');
+        Array.prototype.forEach.call(inputs, function(input) {
+            var label = input.nextElementSibling,
+                labelVal = label.innerHTML;
+            
+
+            input.addEventListener('change', function(e) {
+                var fileName = '';
+                if (this.files && this.files.length > 1)
+                    fileName = (this.getAttribute('data-multiple-caption') || '').replace('{count}', this.files.length);
+                else
+                    fileName = e.target.value.split('\\').pop();
+
+                if (fileName)
+                    $("#upmsg").html(fileName);
+                else
+                    $("#upmsg").html(labelVal);
+            });
+        });
+		
+		function removerows(element)
+		{
+			var selectedrow=$(element).closest(".row");
+			$(selectedrow).remove();
+		}
+		
+		function setactive(element)
+		{
+			var counter=0;
+			var selectedrow=$(element).closest(".row");
+			var rowid=selectedrow[0].id;
+	
+			jQuery('.cards').each( function(  ) { 
+			
+			if($(this).attr("id")==rowid)
+				$(this).find(".tbl")[0].children[1].innerHTML="<span class=active>Active</span>";
+			else
+				{
+					var html="<span class=setactive onclick=setactive(this)>Set Default</span> | ";
+						html+="<span class=setactive onclick=removerows(this)>Remove</span>";
+					$(this).find(".tbl")[0].children[1].innerHTML=html;
+				}
+
+			counter++;
+				
+			} );
+		}
+		
+		
+    </script>
+
+    <body>
+        <script>
+            mobilemenu2();
+            header2();
+        </script>
+        <div class="all">
+            <div id="container" class="container" style="clear:both">
+                <script language=javascript>
+                    menu();
+                </script>
+
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pt-4" style="clear:both">
+                        <div style="float:left">
+                            <h2 class=mainheader>My Account</h2>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <!--DISPLAY MODE-->
+                        <div class="row no-pad display_mode">
+                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-4">
+                                <span class=curve_header1>beIN Username</span>
+                                <span class=curve_header2>Ralph Lauren</span>
+
+                                <span class=curve_header1>First Name</span>
+                                <span class=curve_header2>Ralph</span>
+
+                                <span class=curve_header1>Middle Name</span>
+                                <span class=curve_header2>Lauren</span>
+
+                                <span class=curve_header1>Last Name</span>
+                                <span class=curve_header2>Rol</span>
+
+                                <span class=curve_header1>Gender</span>
+                                <span class=curve_header2>Male</span>
+								
+                                <span class=curve_header1>Date of Birth</span>
+                                <span class=curve_header2>26 June 1984</span>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-3">
+                                <span class=curve_header1>ID Number <span class=editbtn onclick=editupdate('idnumber',this)><label class=lbleditbtn>Edit</label>&nbsp;<img src=edit_white.svg ></span></span>
+                                <span class=curve_header2 id="lbl_idnumber">28435602965</span>
+								<span class="curve_header2 hide" id="edit_idnumber">
+									<input  type="text" class="form-control form-rounded transparent-input" id="idnumber" data-maxlength="6">
+									
+									<div class="spacer5"></div>
+									
+									<label style='width:100%;margin:0;padding:0;clear:both' for="file-upload1" class="custom-file-upload">
+									<div style='cursor:pointer' class="curved_buttons_signout_black floats2" id=up1_filename><i class='fas fa-upload fa-lg'></i>&nbsp;&nbsp;ID Front</div>
+									</label>
+									
+									<label style='width:100%;margin:0;padding:0;clear:both' for="file-upload2" class="custom-file-upload">
+									<div style='cursor:pointer;' class="curved_buttons_signout_black floats2"  id=up2_filename><i class='fas fa-upload fa-lg'></i>&nbsp;&nbsp;ID Back</div>
+									</label>
+									
+								</span>
+
+                                <span class=curve_header1>ID Expiry Date <span class=editbtn onclick=editupdate('idexpirydate',this)><label class=lbleditbtn>Edit</label>&nbsp;<img src=edit_white.svg ></span></span>
+                                <span class=curve_header2 id="lbl_idexpirydate">18 June 2020 </span>
+								<span class="curve_header2 hide" id="edit_idexpirydate">
+									<input  type="text" class="form-control form-rounded transparent-input" id="idexpirydate" data-maxlength="6">
+								</span>
+
+                                <span class=curve_header1>Address</span>
+                                <span class=curve_header2>P.O Box.20081</span>
+
+                                <span class=curve_header1>City</span>
+                                <span class=curve_header2>Doha</span>
+
+                                <span class=curve_header1>Country</span>
+                                <span class=curve_header2>Qatar</span>
+
+                                <span class=curve_header1>Preferred Language <span class=editbtn onclick=editupdate('language',this)><label class=lbleditbtn>Edit</label>&nbsp;<img src=edit_white.svg ></span></span>
+                                <span class=curve_header2 id="lbl_language">English</span>
+								<span class="curve_header2 hide" id="edit_language">
+									<div class="form-group">
+										<select  class="form-control form-rounded transparent-input" id="language">
+											<option selected="selected" value="0" selected>-Select-</option>
+											<option value="1">English</option>
+											<option value="2">العربية</option>
+										</select>
+									</div>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 offset-lg-1">
+							
+                                <span class=curve_header1>Mobile <span class=editbtn onclick=editupdate('mobile',this)><label class=lbleditbtn>Edit</label>&nbsp;<img src=edit_white.svg ></span></span>
+                                <span class=curve_header2 id="lbl_mobile">+974 55443322</span>
+								<span class="curve_header2 hide" id="edit_mobile">
+									<div id="verifymobile_div">
+										<br />
+										<input type="password" class="form-control form-rounded transparent-input" id="mobilecode" data-maxlength="6" >
+										<br />
+										<button type="button" class="btn btn-success form-rounded form-control" onclick=verifymobile()>Verify CODE</button>
+										<div class="col-xs-12 col-sm-12 col-md-8 col-lg-12" id="msg_mobile_txt"></div>
+									</div>
+								</span>
+
+								
+
+                                <span class=curve_header1>Email <span class=editbtn onclick=editupdate('email',this)><label class=lbleditbtn>Edit</label>&nbsp;<img src=edit_white.svg ></span></span>
+                                <span class=curve_header2 id="lbl_email">ralphlauren@bein.net</span>
+								
+								<span class="curve_header2 hide" id="edit_email">
+									<div>
+										<input  type="text" class="form-control form-rounded" value='beinuser@bein.net' id="email" readonly />
+									</div>
+                                    <img style="position:absolute;top:5px;right:0;height:20px;display:none" class=pointer id=emaildeleteicon src=delete.png onclick=disableemail()>
+
+                                    <div id=sendemailcodetoverifymsg style=display:none>
+										<div style="height:15px;clear:both"></div>
+                                        <button type="button" class="btn btn-success form-rounded form-control" onclick=sendemailcode()>send CODE</button>
+									</div>
+								</span>
+								
+								
+								<div id="verifyemail_div" style="display:none">
+
+                                    <div class="row no-pad">
+                                        <div class="col-xs-12 col-sm-12 col-md-8 col-lg-12">
+                                            <br />
+                                            <input   type="text" class="form-control form-rounded transparent-input" id="emailcode" data-maxlength="6" placeholder="6 Digits verification code">
+                                        </div>
+                                    </div>
+
+                                    <div class="row no-pad" id="btnverifycode">
+                                        <div class="col-xs-12 col-sm-12 col-md-8 col-lg-12">
+                                            <br />
+                                            <button type="button" class="btn btn-success form-rounded form-control" onclick=verifyemail()>Verify code</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row no-pad" style="display:none;margin-bottom:10px" id="msg_email">
+                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" id="msg_email_txt"></div>
+                                </div>
+								
+								
+                                <span class=curve_header1>Password <span class=editbtn onclick=editupdate('passwords',this)><label class=lbleditbtn>Edit</label>&nbsp;<img src=edit_white.svg ></span></span>
+                                <span class=curve_header2 id="lbl_passwords">********</span>
+								<span class="curve_header2 hide" id="edit_passwords">
+									<div>
+										<input   type="text" class="form-control form-rounded" value='********' id="password" readonly />
+                                        <img style="position:absolute;top:5px;right:0;height:20px;display:none" class=pointer id=passworddeleteicon src=delete.png onclick=disablepassword()>
+                                    </div>
+								</span>
+								
+								
+								<div id="verifypassword_div" style=display:none>
+
+                                    <span class=curve_header1>Enter New Password</span>
+                                    <div class="row no-pad">
+                                        <div class="col-xs-12 col-sm-12 col-md-8 col-lg-12">
+                                            <div class="form-group" class="floats2">
+                                                <input type="password" class="form-control form-rounded transparent-input" id="passwordx" data-maxlength="6" >
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <span class=curve_header1>Reconfrm New Password</span>
+                                    <div class="row no-pad">
+                                        <div class="col-xs-12 col-sm-12 col-md-8 col-lg-12">
+                                            <div class="form-group" class="floats2">
+                                                <input type="password" class="form-control form-rounded transparent-input" id="confirmpassword" data-maxlength="6">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row no-pad" id="btnverifycode">
+                                        <div class="col-xs-12 col-sm-12 col-md-8 col-lg-12">
+                                            <br />
+                                            <div class="form-group">
+                                                <button type="button" class="btn btn-success form-rounded form-control" onclick=verifypassword()>Update password</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+								
+								<span class="curved_buttons_right" onclick=window.location='wallet.html'>Transfer</span>
+								<span class=curve_header1>Wallet</span> 
+                                <span class=curve_header2>$ 1000</span>  
+								
+								<span class=curve_header1>Credit</span>
+                                <span class=curve_header2>$ 200</span>
+			
+								
+                            </div>
+							
+                        </div>
+					</div>
+				</div>
+				
+				
+				
+	
+				 <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pt-4" style="clear:both">
+                        <div style="float:left">
+                            <h2 class=mainheader>Payment Methods</h2>
+                        </div>
+                    </div>
+                </div>
+				
+				<div class="row ruler">
+				<div class="col-xs-10 col-lg-10">
+					<div class="row  no-pad">
+					 <div class="tblhead col-md-3 col-lg-3  d-none d-lg-block">
+							Account
+						</div>
+						<div class="tblhead col-md-3 col-lg-3  d-none d-lg-block">
+							Type
+						</div>
+						<div class="tblhead col-md-3 col-lg-3  d-none d-lg-block">
+						   Expiry Date
+						</div>
+						<div class="tblhead col-md-3 col-lg-2  d-none d-lg-block">
+						   Status
+						</div>
+					</div>
+				</div>
+				<div class="col-xs-2 col-lg-1">
+				</div>
+				</div>	
+				
+				<div class="row ruler">
+				<div class="col-10 col-sm-10 col-md-10 col-lg-10">
+					<div id=card1 class="row  no-pad">
+						<div class="col-md-12 col-lg-3">
+							<div class="tblcell d-block d-lg-none">Account</div>
+							<div class=tblcell>xxxx-5434</div>
+						</div>
+						<div class="col-md-12 col-lg-3">
+							<div class="tblcell d-block d-lg-none">Type</div>
+							<div class=tblcell>Visa</div>
+						</div>
+						<div class="col-md-12 col-lg-3">
+							<div class="tblcell d-block d-lg-none">Expiry Date</div>
+							<div class=tblcell>10-Dec-2024</div>
+						</div>
+						<div class="col-md-12 col-lg-3">
+							<div class=tbl>
+								<div class="tblcell d-block d-lg-none">Status</div>
+								<div class="curved_buttons_active">Active</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-2 col-sm-2 col-md-2 col-lg-2  text-center removetext">
+					<img src="remove.svg">
+					<span>Remove</span>
+				</div>
+				</div>	
+				
+				<div class="row ruler">
+				<div class="col-10 col-sm-10 col-md-10 col-lg-10">
+					<div id=card2 class="row  no-pad">
+						<div class="col-md-12 col-lg-3">
+							<div class="tblcell d-block d-lg-none">Account</div>
+							<div class=tblcell>xxxx-9876</div>
+						</div>
+						<div class="col-md-12 col-lg-3">
+							<div class="tblcell d-block d-lg-none">Type</div>
+							<div class=tblcell>Master Card</div>
+						</div>
+						<div class="col-md-12 col-lg-3">
+							<div class="tblcell d-block d-lg-none">Expiry Date</div>
+							<div class=tblcell>10-Dec-2022</div>
+						</div>
+						<div class="col-md-12 col-lg-3">
+							<div class=tbl>
+								<div class="tblcell d-block d-lg-none">Status</div>
+								<div class=curved_buttons_setdefault>Set as Default</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-2 col-sm-2 col-md-2 col-lg-2  text-center removetext">
+					<img src="remove.svg">
+					<span>Remove</span>
+				</div>
+				</div>	
+				
+				<div class="row ruler">
+				<div class="col-10 col-sm-10 col-md-10 col-lg-10">
+					<div id=card3 class="row   no-pad">
+						<div class="col-md-12 col-lg-3">
+							<div class="tblcell d-block d-lg-none">Account</div>
+							<div class=tblcell>Paypal</div>
+						</div>
+						<div class="col-md-12 col-lg-3">
+							<div class="tblcell d-block d-lg-none">Type</div>
+							<div class=tblcell>beinuser@bein.net</div>
+						</div>
+						<div class="col-md-12 col-lg-3">
+							<div class="tblcell d-block d-lg-none">Expiry Date</div>
+							<div class=tblcell>10-Dec-2020</div>
+						</div>
+						<div class="col-md-12 col-lg-3">
+							<div class=tbl>
+								<div class="tblcell d-block d-lg-none">Status</div>
+								<div class=curved_buttons_setdefault>Set as Default</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-2 col-lg-2 text-center removetext">
+					<img src="remove.svg">
+					<span>Remove</span>
+				</div>
+				</div>	
+					
+					
+					
+				
+				<p>&nbsp;</p>
+				
+				<div class="row display_mode">
+					<div class="col-xs-12 col-sm-12 col-md-4 offset-md-8 col-lg-3 offset-lg-9 text-right">
+						<div class="curved_buttons_signout floats" onclick=goedit()>Add Payment Method</div>
+					</div>
+				</div>
+						
+				<p>&nbsp;</p>
+						
+				
+					
+					
+                </div>
+				<!--end of single-->
+
+				<!--split background for mobiles-->
+				<div class="row no-pad">
+					<div class="col-12 d-block d-lg-none" style="background-color:transparent;height:20px"></div>
+				</div>
+				<!--end of split background for mobiles-->
+				
+		
+
+               
+            </div>
+        </div>
+            </div>
+        </div>
+        <script>
+            footer();
+            footer_mobiletab();
+        </script>
+    </body>
+<script>
+var currentedit="";
+function editupdate(id,object)
+{
+	var lbl="#lbl_"+id;
+	var data="#edit_"+id;
+	
+	if(currentedit!="" && currentedit!=id)
+	return;
+	
+	if($(data).hasClass("hide"))
+	{
+	
+		if(id!="email" && id!="passwords")
+		$(object).find('label').text("Save");
+		
+		currentedit=id;
+		//check before previous edit was saved :
+	
+		$(lbl).hide();
+		$(data).removeClass("hide").addClass("show");
+		
+		if(id=="email")
+		enableemail();
+		else if(id=="passwords")
+		enablepassword();
+	}
+	else
+	{
+		currentedit="";
+		$(lbl).show();
+		$(data).removeClass("show").addClass("hide");
+		$(object).find('label').text("Edit");
+	}
+}
+</script>
+</html>

@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>My beIN</title>
+<meta name="viewport" content="width=device-width, user-scalable=no" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="ds/jquery-2.2.4.min.js"></script>	
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+<script src="ds/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="ds/theme.en.css">
+<link rel="stylesheet" href="common.css" />
+<link rel="stylesheet" href="all.css" />
+<script src="common.js"></script>
+</head>
+<body>
+
+<script>
+mobilemenu();
+</script>
+
+
+<script>
+header();
+</script>
+
+<div class="all">
+
+<div class="container maxheight">
+
+	
+	<script language=javascript>
+	menu();
+	</script>
+
+	
+	<div class="row no-pad" id="step1_header" style=display:none>
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-9" id="step1_header" style=display:none>
+			<span class=mainheader>Select Subscription</span>
+		</div>
+	</div>
+	
+	<div class="row no-pad" id="step2_header">
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-9">
+			<span class=mainheader>Top Up</span>
+		</div>
+	</div>
+	
+	<div class="row no-pad" id="step3_header" style=display:none>
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-9">
+			<span class=mainheader>Payment Solution</span>
+		</div>
+	</div>
+	
+	<div class="row no-pad" id="step4_header" style=display:none>
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-9" id="step4_header">
+			<span class=mainheader>Payment details</span>
+		</div>
+	</div>
+	
+	<div style="height:10px;clear:both"></div>
+	
+	
+		<div class="row no-pad" id="step1" style=display:none>
+		
+			<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+				<div class=curved_all style="min-height:250px">
+					<span class=curve_header>Subscription Details - #1</span>
+					
+					<span class=curve_header1>Receiver Number</span>
+					<span class=curve_header2>13150042201850</span>
+					
+					<span class=curve_header1>Current Balance</span>
+					<span class=curve_header2>$ 50</span>
+					
+					<span class=curve_header1></span>
+					<span class=curve_header2>
+						<div style=float:right;margin-right:10px><a href=javascript:gonext()><img  src='icons/card-pay.png'>&nbsp;Top Up</a></div>
+					</span>	
+				</div>
+			</div>
+			
+			<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+				<div class=curved_all style="min-height:250px">
+					<span class=curve_header>Subscription Details - #2</span>
+					<span class=curve_header1>Receiver Number</span>
+					<span class=curve_header2>33150042201878</span>
+					
+					<span class=curve_header1>Current Balance</span>
+					<span class=curve_header2>$ 0</span>
+					
+					<span class=curve_header1></span>
+					<span class=curve_header2>
+						<div style=float:right;margin-right:10px><a href=javascript:gonext()><img  src='icons/card-pay.png'>&nbsp;Top Up</a></div>
+					</span>	
+				</div>
+			</div>
+			
+			<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+				
+				<div class=curved_all style="min-height:250px">
+					<span class=curve_header>Subscription Details - #3</span>
+					
+					<span class=curve_header1>Receiver Number</span>
+					<span class=curve_header2>33150042201879</span>
+					
+					<span class=curve_header1>Current Balance</span>
+					<span class=curve_header2>$ 100</span>
+			
+					<span class=curve_header1></span>
+					<span class=curve_header2>
+						<div style=float:right;margin-right:10px><a href=javascript:gonext()><img  src='icons/card-pay.png'>&nbsp;Top Up</a></div>
+					</span>	
+				</div>
+			</div>
+		</div>
+		
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-9" id="step2">
+		
+			<div class="row no-pad">
+				<div style="height:10px;clear:both"></div>
+				<div class="col-xs-12 col-sm-4 col-md-4 col-lg-3"><span class=lbl>Smart Card Number</span></div>
+				<div class="col-xs-12 col-sm-4 col-md-4 col-lg-5"><span class=lbl>10066785314</span></div>
+			</div>
+			
+			<div class="row no-pad">
+				<div style="height:10px;clear:both"></div>
+				<div class="col-xs-12 col-sm-4 col-md-4 col-lg-3"><span class=lbl>Choose Amount to pay</span></div>
+				<div class="col-xs-12 col-sm-4 col-md-4 col-lg-5">
+					<div class="form-group">
+						<label class="customcheck">
+							<input type="radio"  name=rd1 id=rd1 onclick=deselectother()>
+							<span class="checkmark"></span>
+						$ 50</label>
+						<label class="customcheck">
+							<input type="radio"  name=rd1 id=rd2 onclick=deselectother()> 
+							<span class="checkmark"></span>
+						$ 100</label>
+						<label class="customcheck">
+							<input type="radio"  name=rd1 id=rd3 onclick=deselectother()>
+							<span class="checkmark"></span>
+						$ 200</label>
+						<label class="customcheck">
+							<input type="radio"  name=rdother id=rdother onclick=checkother()>
+							<span class="checkmark"></span>
+						Other amount</label>
+					</div>
+				</div>
+			</div>
+			
+			
+		
+			<div class="row no-pad" id="section_others" style="display:none">
+				<div class="col-xs-12 col-sm-4 col-md-4 col-lg-3"></div>
+				<div class="col-xs-12 col-sm-4 col-md-4 col-lg-5">
+					<div class="form-group">
+						<input type="Mobile" class="form-control form-rounded transparent-input" id="mobile">
+					</div>
+				</div>
+			</div>
+			
+			<div class="row no-pad">
+				<div class="col-xs-12 col-sm-4 col-md-4 col-lg-3"></div>
+				<div class="col-xs-12 col-sm-4 col-md-4 col-lg-5">
+					<div class="form-group" >
+						<button type="button" class="curved_buttons" onclick=gonext()>Continue</button>
+					</div>
+				</div>	
+			</div>
+			
+			<!--xxxxxx-->
+		</div>
+		
+		
+		<!--step3-->
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-9 min-height" id="step3">
+		
+		
+			<div class="oneitem" id="card1">
+				<div class="left" id="card1_left">
+					<div class="txt1"><img width=50% height=auto src=new_visa.png></div>
+				</div>
+				<div class="middle">
+					<div style="display:table-cell;vertical-align:middle">
+						<div class="txt2_light">Pay with Credit Card</div>
+					</div>
+				</div>
+				<div class="right" id="card1_right">
+					<div class="select valign-m">
+					Select
+					</div>
+				</div>
+			</div>
+			
+			<div id="visa_master_content"  style=display:none>
+			
+				<div class="row no-pad">
+					
+				
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+					<center>
+					<h3 class="mainheader2">Card details</h3>
+					</center>
+					
+					</div>
+					<div class="col-xs-12 col-sm-3 offset-sm-1 col-md-3 offset-md-2 col-lg-3 offset-lg-2 pt-3"><span class=lbl>Card Number</span></div>
+					<div class="col-xs-12 col-sm-7 col-md-5  col-lg-5"><input placeholder="14 digit number" type="card" class="form-control form-rounded transparent-input" id="mobile"></div>
+				
+					<div style="height:10px;clear:both"></div>
+					
+					<div class="col-xs-12 col-sm-3 offset-sm-1 col-md-3 offset-md-2 col-lg-3 offset-lg-2 pt-3"><span class=lbl>Card holder name</span></div>
+					<div class="col-xs-12 col-sm-7 col-md-5 col-lg-5 pt-3"><input placeholder="Name as in Card" type="cardname" class="form-control form-rounded transparent-input" id="mobile"></div>
+				
+					<div style="height:10px;clear:both"></div>
+				</div>
+				<div class="row no-pad">
+					<div class="col-xs-12 col-sm-3 offset-sm-1 col-md-3 offset-md-2 col-lg-3 offset-lg-2 pt-3"><span class=lbl>Expiry date</span></div>
+					<div class="col-xs-12 col-sm-3 col-md-2 col-lg-2 pt-3"><input placeholder="Year" type="e1" class="form-control form-rounded transparent-input" id="mobile" style="width:95%"><div style="height:10px" class="d-block d-sm-none"></div></div>
+					<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 pt-3"><input placeholder="Month" type="e2" class="form-control form-rounded transparent-input" id="mobile" style="width:95%"><div style="height:10px" class="d-block d-sm-none"></div></div>
+					<div class="col-xs-12 col-sm-2 col-md-1 col-lg-1 pt-3"><input placeholder="CVV" class="form-control form-rounded transparent-input" id="mobile" style="width:95%"></div>
+				</div>
+				<div class="row no-pad">
+					
+					<div class="col-xs-12 col-sm-6 offset-sm-3 col-md-5 offset-md-5 col-lg-5 offset-lg-5">
+						<div style="height:10px;clear:both"></div>
+						<div class="form-group">
+						<button type="button" class="curved_buttons" onclick=gonext()>Confirm</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div style="height:15px;clear:both"></div>
+			
+			<div class="oneitem" id="card2">
+				<div class="left" id="card2_left">
+					<div class="txt1"><img width=50% height=auto src=paypal.png></div>
+				</div>
+				<div class="middle">
+					<div style="display:table-cell;vertical-align:middle">
+						
+						<div class="txt2_light">Pay using your Paypal account</div>
+					</div>
+				</div>
+				<div class="right" id="card2_right">
+					<div class="select valign-m">
+					Select
+					</div>
+				</div>
+			</div>
+			
+			<div style="height:15px;clear:both"></div>
+			
+			<div class="oneitem" id="card3">
+				<div class="left" id="card3_left">
+					<div class="txt1"><i style="border:1px solid #000">NAPS</i></div>
+				</div>
+				<div class="middle">
+					<div style="display:table-cell;vertical-align:middle">
+						
+						<div class="txt2_light">Pay with NAPS Card</div>
+					</div>
+				</div>
+				<div class="right" id="card3_right">
+					<div class="select valign-m">
+					Select
+					</div>
+				</div>
+			</div>
+		
+			
+			<div style="height:15px;clear:both"></div>
+			
+			<div class="oneitem" id="card4">
+				<div class="left" id="card4_left">
+					<div class="txt1"><img class='cashu' src='icons/cashu.png'></div>
+				</div>
+				<div class="middle">
+					<div style="display:table-cell;vertical-align:middle">
+						
+						<div class="txt2_light">Pay with CASHU</div>
+					</div>
+				</div>
+				<div class="right" id="card4_right">
+					<div class="select valign-m">
+					Select
+					</div>
+				</div>
+			</div>
+			
+			
+	
+			<div style="height:15px;clear:both"></div>
+			
+			
+			
+			
+
+			
+			<div style="height:50px;clear:both"></div>
+		</div>
+			
+		<!--end of step3-->
+		
+		
+		<!--step4-->
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-9 min-height" id="step4" style="display:none">
+		
+			<div class="row no-pad">
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12"><span class=lbl>Thank you, your payment is successful</span></div>
+			</div>
+			
+			<div style="height:50px;clear:both"></div>
+		
+		</div>
+		<!--end of step4-->
+
+
+</div>
+
+<div style="height:50px;clear:both"></div>
+
+</div>
+
+
+<script>
+footer();
+</script>
+
+
+
+
+<script>
+var process="";
+
+function goedit()
+{
+$("#display_mode").hide();
+$("#edit_mode").show();
+
+}
+
+function sendmobilecode()
+	{
+		const msg1="<p class=info><i class='fa fa-envelope fa-lg'></i>&nbsp;Check your SMS for CODE </p>";
+		$("#msg_mobile").show();
+		$("#msg_mobile_txt").html(msg1);
+		$("#verifymobile_div").show();
+	}
+	
+	
+	function enablemobile()
+	{
+	
+		const msg_complete="<p class=info><i class='fa fa-envelope fa-lg'></i>&nbsp;Please complete the verification";
+		if(process!="")
+		{
+			err=1;
+			$("#msg_common").html(msg_complete);
+			return;
+		}
+		process="mobile";
+		$("#mobile").removeAttr("readonly");
+		$("#msg_mobile_txt").html('');
+		$("#msg_mobile_txt").text('');
+		$("#mobiledeleteicon").css("display","");
+		
+		$("#sendmobilecodetoverifymsg").show();
+		$("#mobilecode").val('');
+		$("#msg_common").html('');
+				
+	}
+	
+	function disablemobile()
+	{
+		process="";
+		$("#mobile").prop("readonly",true);
+		$("#msg_mobile_txt").html('');
+		$("#msg_mobile_txt").text('');
+		$("#mobiledeleteicon").css("display","none");
+		$("#sendmobilecodetoverifymsg").hide();
+		$("#verifymobile_div").hide();
+		$("#mobilecode").val('');
+		$("#mobile").val('1234567890');
+		$("#msg_common").html("");
+	}
+	
+	function verifymobile()
+	{
+		const msg1="<p class=info><i class='fa fa-envelope fa-lg'></i>&nbsp;<em>Mobile</em> is sucessfully verified</p>";
+		const msg2="<p class=err><i class='fa fa-envelope fa-lg'></i>&nbsp;<em>Mobile<em> verification failed</p>";
+		$("#msg_mobile_txt").html('');
+		$("#msg_mobile_txt").text('');
+		$("#msg_mobile").show();
+		
+		if($("#mobilecode").val()=="123456")
+		{
+			//$("#msg_mobile_txt").html(msg1);
+			$("#verifymobile_div").hide();
+			$("#verifymobile_div").hide();
+			$("#mobile").prop("readonly",true);
+			$("#mobiledeleteicon").css("display","none");
+			$("#sendmobilecodetoverifymsg").hide();
+			process="";
+		}
+		else
+		{
+			$("#msg_mobile_txt").html(msg2);
+		}
+	}
+	
+	function enableemail()
+	{
+	
+		const msg_complete="<p class=info><i class='fa fa-envelope fa-lg'></i>&nbsp;Please complete the verification";
+		if(process!="")
+		{
+			err=1;
+			$("#msg_common").html(msg_complete);
+			return;
+		}
+		
+		process="email";
+		$("#email").removeAttr("readonly");
+		$("#msg_email_txt").html('');
+		$("#msg_email_txt").text('');
+		$("#emaildeleteicon").css("display","");
+		
+		$("#sendemailcodetoverifymsg").show();
+		$("#verifyemail").val('');
+		$("#emailcode").val('');
+		
+		
+	}
+	
+	function disableemail()
+	{
+		process="";
+		$("#email").prop("readonly",true);
+		$("#msg_email_txt").html('');
+		$("#msg_email_txt").text('');
+		$("#emaildeleteicon").css("display","none");
+		$("#sendemailcodetoverifymsg").hide();
+		$("#verifyemail_div").hide();
+		$("#verifyemail").val('');
+		$("#email").val('user@bein.net');
+		$("#msg_common").html("");
+	}
+	
+	function sendemailcode()
+	{
+		const msg1="<p class=info><i class='fa fa-envelope fa-lg'></i>&nbsp;Check your Email for CODE</p>";
+		$("#msg_email").show();
+		$("#msg_email_txt").html(msg1);
+		$("#verifyemail_div").show();
+	}
+	
+	function verifyemail()
+	{
+		const msg1="<p class=info><i class='fa fa-envelope fa-lg'></i>&nbsp;<em>Email</em> is sucessfully verified</p>";
+		const msg2="<p class=err><i class='fa fa-envelope fa-lg'></i>&nbsp;<em>Email<em> verification failed</p>";
+		$("#msg_email_txt").html('');
+		$("#msg_email_txt").text('');
+		$("#msg_email").show();
+		
+		if($("#emailcode").val()=="123456")
+		{
+			$("#verifyemail_div").hide();
+			$("#email").prop("readonly",true);
+			$("#emaildeleteicon").css("display","none");
+			$("#msg_common").html("");
+			$("#sendemailcodetoverifymsg").hide();
+			process="";
+		}
+		else
+		{
+			$("#msg_email_txt").html(msg2);
+		}
+	}
+	
+	function verifypassword()
+	{
+		const msg1="<p class=info><i class='fa fa-envelope fa-lg'></i>&nbsp;<em>Password</em> is sucessfully updated</p>";
+		
+		$("#msg_password_txt").html('');
+		$("#msg_password_txt").text('');
+		$("#msg_password").show();
+		
+		
+		$("#verifypassword_div").hide();
+		$("#password").prop("readonly",true);
+		$("#passworddeleteicon").css("display","none");
+		$("#msg_common").html("");
+		process="";
+	}
+	
+	var signalid='';
+	function sendsignal(id)
+	{
+
+		$("#"+id).css("color","#5C2D91");
+		$("#"+id).removeClass("actionnormal");
+		$("#"+id).addClass("action");
+		signalid=id;
+		setTimeout("revert()",1000);
+	}
+	
+	function revert()
+	{
+
+		$("#"+signalid).addClass("actionnormal");
+		$("#"+signalid).css("color","#000");
+	}
+	
+	
+	function enablepassword()
+	{
+	
+		const msg_complete="<p class=info><i class='fa fa-envelope fa-lg'></i>&nbsp;Please complete the verification";
+		if(process!="")
+		{
+			err=1;
+			$("#msg_common").html(msg_complete);
+			return;
+		}
+		
+		process="password";
+		$("#password").removeAttr("readonly");
+		$("#msg_password_txt").html('');
+		$("#passworddeleteicon").css("display","");
+		$("#verifypassword_div").show();
+		
+	}
+	
+	function disablepassword()
+	{
+		process="";
+		$("#password").prop("readonly",true);
+		$("#password").val('********');
+		$("#msg_password_txt").html('');
+		$("#passworddeleteicon").css("display","none");
+		$("#verifypassword_div").hide();
+		$("#msg_common").html("");
+	}
+
+var start=2;	
+function gonext()
+{
+
+$(".curved_buttons_left").show();
+$(".curved_buttons_right").show();
+		
+$("#step"+start).hide();
+$("#step"+start+"_header").hide();
+start+=1;
+
+$("#step"+start).show();
+$("#step"+start+"_header").show();
+/*if(start==3)
+{
+$("#step"+1).hide();
+$("#step"+2).hide();
+}*/
+
+}
+
+
+$(".oneitem").click(function()
+{
+	var selectedobject=$(this)[0].id;
+	
+	//if not exist it was selected
+	
+	if(typeof($("#"+selectedobject+" .txt1").attr("class"))!="undefined")
+	{
+		//highlighting
+		
+		if($("#"+selectedobject).attr("id")=="card1")
+		{
+			$("#visa_master_content").show(400);
+		}
+		else if($("#"+selectedobject).attr("id").indexOf("card")>=0)
+		{
+			alert("CALL TO EXTERNAL ACTION");
+			return;
+		}
+		
+			
+			
+		var left=selectedobject+"_left";
+		var right=selectedobject+"_right";
+		$("#"+left).removeClass("left");
+		$("#"+left).addClass("left_over");
+		$("#"+right).removeClass("right");
+		$("#"+right).addClass("right_over");
+		$("#"+selectedobject+" .txt1").addClass("txt1_over");
+		$("#"+selectedobject+" .txt1").removeClass("txt1");
+		
+		$("#"+selectedobject+" .select").html("&#10004;")
+		$("#"+selectedobject+" .select").addClass("select_over");
+		$("#"+selectedobject+" .select").removeClass("select");
+		
+		
+	}
+	else
+	{
+	
+		//remove highlighting
+		
+		if($("#"+selectedobject).attr("id")=="card1")
+		{
+			$("#visa_master_content").hide();
+		}
+	
+		var left=selectedobject+"_left";
+		var right=selectedobject+"_right";
+		$("#"+left).removeClass("left_over");
+		$("#"+left).addClass("left");
+		$("#"+right).removeClass("right_over");
+		$("#"+right).addClass("right");
+		$("#"+selectedobject+" .txt1_over").addClass("txt1");
+		$("#"+selectedobject+" .txt1_over").removeClass("txt1_over");
+		
+		
+		$("#"+selectedobject+" .select_over").addClass("select");
+		$("#"+selectedobject+" .select_over").removeClass("select_over");
+		$("#"+selectedobject+" .select").text("Select")
+		
+	
+	}
+	
+	
+})
+</script>
+</body>
+</html>
+<style>
+/* The customcheck */
+.customcheck {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+	 border-radius: 20px;
+}
+
+/* Hide the browser's default checkbox */
+.customcheck input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #ccc;
+    border-radius: 20px;
+}
+
+/* On mouse-over, add a grey background color */
+.customcheck:hover input ~ .checkmark {
+    background-color: #a3a3a3;
+}
+
+/* When the checkbox is checked, add a blue background */
+.customcheck input:checked ~ .checkmark {
+    background-color: #5C2D91;
+    border-radius: 20px;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+.customcheck input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+.customcheck .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+
+
+
+
+
+
+
+/* The customcheck */
+.customcheck2 {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+	 border-radius: 20px;
+}
+
+/* Hide the browser's default checkbox */
+.customcheck2 input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* Create a custom checkbox */
+.checkmark2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #ccc;
+    border-radius: 20px;
+}
+
+/* On mouse-over, add a grey background color */
+.customcheck2:hover input ~ .checkmark2 {
+    background-color: #a3a3a3;
+}
+
+/* When the checkbox is checked, add a blue background */
+.customcheck2 input:checked ~ .checkmark2 {
+    background-color: #5C2D91;
+    border-radius: 20px;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark2:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+.customcheck2 input:checked ~ .checkmark2:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+.customcheck2 .checkmark2:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+</style>  
+
+<script>
+function checkother()
+{
+	if(document.getElementById("rdother").checked==true)
+	{
+		document.getElementById("section_others").style.display='';
+		document.getElementById("rd1").checked=false;
+		document.getElementById("rd2").checked=false;
+		document.getElementById("rd3").checked=false;
+	}
+}
+
+function deselectother()
+{
+	document.getElementById("rdother").checked=false;
+	document.getElementById("section_others").style.display='none';
+}
+</script>
