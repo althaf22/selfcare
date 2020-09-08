@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>My beIN</title>
+<meta name="viewport" content="width=device-width, user-scalable=no" />
+<link href="//fonts.googleapis.com/css?family=Roboto+Condensed:300,600,700" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="ds/jquery-2.2.4.min.js"></script>	
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+<script src="ds/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="ds/bootbox.min.js"></script>
+<link rel="stylesheet" href="ds/theme.en.css">
+<link rel="stylesheet" href="common.css" />
+<link rel="stylesheet" href="all.css" />
+<script src="common.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.css">
+<script src="bootstrap-datepicker.min.js"></script>
+
+<script type="text/javascript">
+function validatesmartcard()
+{
+	const msg1="<p class=err><i class='fa fa-exclamation-triangle'></i>The <em>Smart card number</em> &nbsp;is invalid</p>";
+	$("#msg").hide();
+	$("#msgtxt").text('');
+	$("#msgtxt").html('');
+	
+	if($("#smartcard").val()!="1234567890")
+	{
+		err=1;
+		$("#msg").show();
+		$("#msgtxt").html(msg1);
+	}
+	else
+	{
+		$("#country").val("+974");
+		$("#mobile").attr("placeholder", "xxxxx67890");
+		$("#step1").fadeTo(400,0.3);
+		$("#step2").fadeTo(400,10);
+	
+	}
+}
+
+function validateotp()
+{
+	var err=0;
+	const msg4="<p class=err><i class='fa fa-exclamation-triangle'>&nbsp;</i>The Code entered is invalid</p>";
+
+	if($("#otp").val()!="123456")
+	{
+		err=1;
+		$("#msg_step2").show();
+		$("#msg_step2_txt").html(msg4);
+	}
+	
+	if(err==0)
+	{
+	$("#msg_step2").hide();
+	$("#step2").fadeTo(400,0.3);
+	$("#step3").fadeTo(400,10);
+	}
+	
+}
+</script>
+
+
+<style>
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+	margin:0 auto;
+	text-align:center;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+	width:100%;
+	margin-top:2px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+	text-align:center;
+	
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #ddd;}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {display: block;}
+
+
+        .modal-content {
+            overflow-y: auto;
+            overflow-y: auto;
+            -webkit-border-radius: 30px !important;
+            -moz-border-radius: 30px !important;
+            border-radius: 30px;
+			display:inline-block;
+        }
+        
+        .modal-body {
+            overflow: auto;
+            z-index: 1100 !important;
+            color: #fff;
+        }
+        /* This will prevent a long page from scrolling when a modal is opend */
+        
+   
+        
+        html {
+            overflow-y: scroll;
+        }
+        
+        .modal-open {
+            padding-right: 0 !important;
+        }
+        
+        #modal_channels .modal-content {
+            background: #ffffff !important;
+            color: #FFFFFF !important;
+            border: 1px solid #767382;
+            -webkit-border-radius: 30px !important;
+            -moz-border-radius: 30px !important;
+            border-radius: 30px;
+        }
+        /* Change background only on thank you modal */
+        
+        #modal_thankyou .modal-content {
+            background: #767382 !important;
+            color: #FFFFFF !important;
+
+        }
+		
+		
+   
+        
+       
+        .modal-backdrop {
+            background-color: rgba(233, 233, 240, 0.9) !important;
+            z-index: 1040 !important;
+        }
+		 .modal-content {
+            overflow-y: auto;
+            overflow-y: auto;
+            -webkit-border-radius: 30px !important;
+            -moz-border-radius: 30px !important;
+            border-radius: 30px;
+			display:inline-block;
+        }
+        
+        .modal-body {
+            overflow: auto;
+            z-index: 1100 !important;
+            color: #fff;
+        }
+        /* This will prevent a long page from scrolling when a modal is opend */
+        
+   
+        
+        html {
+            overflow-y: scroll;
+        }
+        
+        .modal-open {
+            padding-right: 0 !important;
+        }
+        
+        #modal_channels .modal-content {
+            background: #ffffff !important;
+            color: #FFFFFF !important;
+            border: 1px solid #767382;
+            -webkit-border-radius: 30px !important;
+            -moz-border-radius: 30px !important;
+            border-radius: 30px;
+        }
+        /* Change background only on thank you modal */
+        
+        
+        
+       
+        .modal h2 {
+            color: #fff;
+        }
+</style>
+
+</head>
+<body>
+
+
+  <!-- The Modal -->
+    <div class="modal" id="modal_thankyou" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+							<div style="height:35px;clear:both"></div>
+                            <h2>Congratulations !</h2>
+                            <p>Congratulations ! You are now done and will be able to manage your subscriptions</p>
+							<div class="curved_buttons" onclick=window.location='subscriptions.html'>Sign In</div>
+							<div style="height:35px;clear:both"></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!--MODALS-->
+
+<div class="modal" id="basicModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered">
+	   <div class="modal-content">
+			<div class="modal-body">
+				<div class="container">
+					<i><h4><b>Are you changing to a new mobile number  ?</b></h4></i>
+					<p>We will send you a one time CODE to your new number for verification purpose</p>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-success" data-dismiss="modal" onclick=mobilechanged(true)>Yes</button>
+				<button type="button" class="btn btn-success" data-dismiss="modal" onclick=mobilechanged(false)>No</button>
+			</div>
+		</div>
+	</div>
+</div>
+   
+
+
+<div class="modal" id="basicemailModal" tabindex="-1" role="dialog" aria-labelledby="basicemailModal" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-body">
+		<i>
+        <h4><b>Are you changing to a new Email ?</b></h4>
+		<p>We will send you a one time CODE to your EMAIL for verification purpose</p>
+		</i>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success" data-dismiss="modal" onclick=emailchanged(true)>Yes</button>
+        <button type="button" class="btn btn-success" data-dismiss="modal" onclick=emailchanged(false)>No</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script>
+header2();
+</script>
+
+<div class="all">
+
+	<div id="myNav" class="overlay d-block d-lg-none">
+            <!-- Button to close the overlay navigation -->
+            <div style="height:20px" class="d-block d-lg-none"></div>
+            <a href="javascript:closeNav()" role="button" style="font-family:Gotham-Book;font-size:18pt;color:#000000;padding-left:12px">X</a>
+
+			<!-- Overlay content -->
+			<div class="overlay-content">
+				<div style="height:50px"></div>
+				<hr />
+				<a href="signin.html" role="button">Sign In</a></li>
+				<hr />
+				<a href="user.html" role="button">Subscribe</a></li>
+				<hr />
+			</div>
+	</div>
+
+ <div id="container" class="container" style="clear:both">
+ 
+ 
+
+	<div class="row" id="step0_header">
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-9 pt-4">
+		<h2 class=mainheader>Register account</h2>
+		</div>
+	</div>
+
+	
+	<div class="row no-pad">
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+			<!--step1-->
+			<div id="step1">
+				<div class="row">
+					<div class="col-xs-12 col-sm-8 col-md-8 col-lg-6">
+						<label  for="smartcard" class="lbl">&nbsp;&nbsp;Smart Card</label>
+						<input type="text" class="form-control form-rounded transparent-input" id="smartcard" placeholder="Your Smart Card Number" data-maxlength="11">
+					</div>
+				</div>
+
+				<div class="row" >
+					<div class="col-xs-12 col-sm-8 col-md-8 col-lg-6">
+						<div class="form-group" >
+							<div style="height:15px;clear:both"></div>
+							<button type="button" class="btn btn-success form-rounded" onclick='validatesmartcard()'>Verify Smart card</button>
+						</div>
+					</div>
+				</div>
+
+				<div class="row"  id="msg" style=display:none>
+					<div class="col-xs-12 col-sm-8 col-md-8 col-lg-6" id="msgtxt">
+					</div>
+				</div>
+			</div>
+
+			<!--step2-->
+			<div id="step2" style="display:none">
+	
+				<div style="height:15px;clear:both"></div>
+
+				<div class="row">
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+						<div for="otp" class=lbl  data-toggle="tooltip" title="">Enter the CODE we sent to you by SMS, If not received yet ?<a href="javascript:return false" class=nolink> click to resend</a></div>
+					</div>
+				</div>
+		
+				<div class="row">
+					<div class="col-xs-12 col-sm-8 col-md-8 col-lg-6">
+					<input type="text" class="form-control form-rounded transparent-input" id="otp" placeholder="6 digits verification Code" data-maxlength="6">
+					</div>
+				</div>
+		
+				<div class="row">
+					<div class="col-xs-12 col-sm-8 col-md-8 col-lg-6">
+						<div class="form-group" >
+							<div style="height:15px;clear:both"></div>
+							<button type="button" class="btn btn-success form-rounded" onclick='validateotp()'>Verify Code</button>
+						</div>
+					</div>
+				</div>
+		
+				<div class="row"  style="margin-bottom:10px" id="msg_step2" style=display:none>
+					<div class="col-xs-12 col-sm-8 col-md-8 col-lg-4" id="msg_step2_txt"></div>
+				</div>
+	
+			</div>
+			
+			<!--step3-->
+			<div id="step3" style="display:none">
+	
+				<div style="height:15px;clear:both"></div>
+
+				<div class="row">
+				<div class="col-xs-12 col-sm-8 col-md-8 col-lg-6">
+					<div class="form-group">
+					<label  for="country" class=lbl  data-toggle="tooltip" title="Choose your country" class="lbl">&nbsp;&nbsp;Country</label>
+					<select class="form-control form-rounded transparent-input" id="country">
+						<option selected="selected" value="0">Country Code</option>
+						<option value="+213">+213 - Algeria</option>
+						<option value="+973">+974 - Bahrain</option>
+						<option value="+235">+235 - Chad</option>
+						<option value="+964">+964 - Iraq</option>
+						<option value="+962">+962 - Jordan</option>
+						<option value="‎+965">+965 - Kuwait</option>
+						<option value="‎+961">+961 - Lebanon</option>
+						<option value="+218">+218 - Libya</option>
+						<option value="‎+222">+222 - Mauritania</option>
+						<option value="+212">+212 - Morocco</option>
+						<option value="‎+968">+968 - Oman</option>
+						<option value="‎+970">+970 - Palestine</option>
+						<option value="+974">+974 - Qatar</option>
+						<option value="+966">+966 - Saudi Arabia</option>
+						<option value="+249">+249 - Sudan</option>
+						<option value="+249">+211 - South Sudan</option>
+						<option value="+963">+963 - Syria</option>
+						<option value="+216">+216 - Tunisia</option>
+						<option value="+971">+971 - United Arab Emirates</option>
+						<option value="+967">+967 - Yemen</option>
+					</select>
+					</div>
+				</div>
+				</div>
+				
+				<div class="row">
+					<div class="col-xs-12 col-sm-8 col-md-8 col-lg-6">
+						<div class="form-group">
+							<label  for="mobile" class="lbl" data-toggle="tooltip" title="Enter your existing Mobile or new one if you wish to change">&nbsp;&nbsp;Mobile</label>
+							<input type="Mobile" class="form-control form-rounded transparent-input" id="mobile" placeholder="Mobile">
+							<label id="mobile_msg" style=display:none></label>
+						</div>
+					</div>
+				</div>	
+		
+				<div style="height:15px;clear:both"></div>
+
+				<div class="row">
+					<div class="col-xs-12 col-sm-8 col-md-8 col-lg-6">
+						<div class="form-group" >
+							<button type="button" class="btn btn-success form-rounded" onclick='validatemobile()'>Verify Mobile</button>
+						</div>
+					</div>
+				</div>
+
+		
+				<!--mobile code container-->
+				<div id="mobilecode_container" style="display:none">
+		
+				<div style="height:15px;clear:both"></div>
+			
+				<div class="row">
+					<div class="col-xs-12 col-sm-8 col-md-8 col-lg-6">
+						<div class="form-group">
+						<label  for="otp" class=blue-tooltip data-toggle="tooltip" title="Check your SMS and enter the Code"><i class="fa fa-info-circle fa-lg"></i>&nbsp;&nbsp;Check your SMS to get the Code, Update it below</label>
+						<label  for="otp" class=blue-tooltip data-toggle="tooltip" title="Resend Code"><a href="javascript:return false" class=nolink>&nbsp;&nbsp;If you did not receive your Code ? click to resend</a></label>
+						<input type="text" class="form-control form-rounded transparent-input" id="mobilecode" placeholder="6 Digits verification Code" data-maxlength="6">
+						<label id="mobile_code_msg" style=display:none></label>
+						</div>
+					</div>
+				</div>
+			
+				<div style="height:15px;clear:both"></div>
+			
+				<div class="row">
+					<div class="col-xs-12 col-sm-8 col-md-8 col-lg-6">
+						<div class="form-group">
+							
+							<button type="button" class="btn btn-success form-rounded" onclick='validatemobilecode()'>Verify Code</button>
+						</div>
+					</div>
+				</div>
+		
+				</div>
+				<!--end code container-->
+		
+				<div class="row"  style="margin-bottom:10px" id="msg_step3" style=display:none>
+					<div class="col-xs-12 col-sm-8 col-md-8 col-lg-6" id="msg_step3_txt"></div>
+				</div>
+		
+			</div>
+			
+			<!--step4-->
+			<div id="step4" style="display:none">
+		
+				<div style="height:10px;clear:both"></div>
+		
+				<div class="row">
+					<div class="col-xs-12 col-sm-8 col-md-8 col-lg-6">
+						<div class="form-group">
+							<label class="lbl" for="email" data-toggle="tooltip" title="Email address">&nbsp;&nbsp;&nbsp;Email</label>
+							<input type="text" class="form-control form-rounded transparent-input" id="email" placeholder="**er@bein.net">
+							<label id="email_msg" style=display:none></label>
+						</div>
+					</div>
+				</div>
+		
+				<div class="row" >
+					<div class="col-xs-12 col-sm-8 col-md-8 col-lg-6">
+						<div class="form-group" >
+							<div style="height:15px;clear:both"></div>
+							<button type="button" class="btn btn-success form-rounded" onclick='validateemail()'>Verify Email</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		
+				<!--EMAIL code step-->
+				<div  id="emailcode_container" style=display:none>
+					<div class="col-xs-12 col-sm-8 col-md-8 col-lg-6">
+						<label  for="emailcode" class=lbl data-toggle="tooltip" title="Check your EMAIL and enter the Code"><i class="fa fa-info-circle fa-lg"></i>&nbsp;&nbsp;Please check your EMAIL and enter the Code below</label>
+						<label  for="otp" class=blue-tooltip data-toggle="tooltip" title="Resend Code"><a href="javascript:return false" class=nolink>&nbsp;&nbsp;If you did not receive your Code ? click to resend</a></label>
+						<input type="text" class="form-control form-rounded transparent-input" id="emailcode" placeholder="6 digits verification Code" data-maxlength="6">
+						<label id="email_code_msg" style=display:none></label>
+					</div>
+					
+					<div style="clear:both"></div>
+				
+					
+					<div class="col-xs-12 col-sm-8 col-md-8 col-lg-6">
+						<div style="height:15px;clear:both"></div>
+						<button type="button" class="btn btn-success form-rounded" onclick='validateemailcode()'>Verify Code</button>
+					</div>
+				</div>
+	
+				
+				<!--EMAIL code step-->
+	
+
+				<div class="row"  style="margin-bottom:10px" id="msg_step4" style=display:none>
+					<div class="col-xs-12 col-sm-8 col-md-8 col-lg-6"	id="msg_step4_txt"></div>
+				</div>
+				
+	
+			</div>
+			
+			<!--step5-->
+			<div id="step5" style=display:none>
+	
+				<div class="row">
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+						<p><i>We now need to create your account, please enter your beIN username which will be used as your login and choose a <b>Password</b></i></p>
+					</div>
+				</div>
+
+				<div style="height:10px;clear:both"></div>
+		
+				<div class="row">
+					<div class="col-xs-12 col-sm-8 col-md-8 col-lg-6">
+						<div class="form-group">
+							<label class=lbl for="identity" data-toggle="tooltip" title="Password">&nbsp;&nbsp;&nbsp;Enter your preferred beIN Username</label>
+							<input type="text" class="form-control form-rounded transparent-input" id="identity" placeholder="Username">
+						</div>
+					</div>
+				</div>
+	
+				<div class="row">
+					<div class="col-xs-12 col-sm-8 col-md-8 col-lg-6">
+						<div class="form-group">
+							<label class=lbl for="password" data-toggle="tooltip" title="Password">&nbsp;&nbsp;&nbsp;Password</label>
+							<input type="password" class="form-control form-rounded transparent-input" id="password" placeholder="Password">
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-xs-12 col-sm-8 col-md-8 col-lg-6">
+						<div class="form-group">
+							<label class=lbl for="repassword" data-toggle="tooltip" title="Confirm Password">&nbsp;&nbsp;&nbsp;Confirm Password</label>
+							<input type="password" class="form-control form-rounded transparent-input" id="repassword" placeholder="Confirm Password">
+						</div>
+					</div>
+				</div>
+		
+				<div class="row" >
+					<div class="col-xs-12 col-sm-8 col-md-8 col-lg-6">
+						<div class="form-group" >
+							<div style="height:15px;clear:both"></div>
+							<button type="button" class="btn btn-success form-rounded" onclick='validatefinal()'>Register</button>
+						</div>
+					</div>
+				</div>
+		
+		
+				<div class="row"  style="margin-bottom:10px" id="msg_step5" style=display:none>
+					<div class="col-xs-12 col-sm-8 col-md-8 col-lg-6"	id="msg_step5_txt"></div>
+				</div>
+	
+			</div>
+			
+			<!--step6-->
+			<div id="step6"  style=display:none>
+			<!--this is the last page supposed to show modal-->
+		
+			</div>
+
+		</div>
+	</div>
+	
+	
+	
+	
+</div>		
+
+
+
+</div>
+
+<script>footer();</script>
+
+
+
+
+
+
+</body>
+
+
+</html>
+<script>
+$(document).ready(function()
+{
+
+	$('label[data-toggle="tooltip"]').tooltip({
+		animated: 'fade',
+		placement: 'bottom',
+		html: true
+	});
+	$("#msg").hide();
+	
+	
+	$('#smartcard').keyup(validateMaxLength);
+	$('#otp').keyup(validateMaxLength);
+	$('#mobilecode').keyup(validateMaxLength);
+	$('#emailcode').keyup(validateMaxLength);
+});
+
+function validatesmartcard()
+{
+	const msg1="<p class=err><i class='fa fa-exclamation-triangle'></i>The <em>Smart card number</em> &nbsp;is invalid</p>";
+	$("#msg").hide();
+	$("#msgtxt").text('');
+	$("#msgtxt").html('');
+	
+	if($("#smartcard").val()!="1234567890")
+	{
+		err=1;
+		$("#msg").show();
+		$("#msgtxt").html(msg1);
+	}
+	else
+	{
+		$("#country").val("+974");
+		$("#mobile").attr("placeholder", "xxxxx67890");
+		$("#step1").fadeTo(400,0.3);
+		$("#step2").fadeTo(400,10);
+	
+	}
+}
+
+function validateotp()
+{
+	var err=0;
+	const msg4="<p class=err><i class='fa fa-exclamation-triangle'>&nbsp;</i>The code entered is invalid</p>";
+
+	if($("#otp").val()!="123456")
+	{
+		err=1;
+		$("#msg_step2").show();
+		$("#msg_step2_txt").html(msg4);
+	}
+	
+	if(err==0)
+	{
+	$("#msg_step2").hide();
+	$("#step2").fadeTo(400,0.3);
+	$("#step3").fadeTo(400,10);
+	}
+	
+}
+
+function validatemobile()
+{
+	var err=0;
+	
+	const msg2="<p class=err><i class='fa fa-exclamation-triangle'>&nbsp;</i>The <em>Country Code</em> must be chosen</p>";
+	const msg3="<p class=err><i class='fa fa-exclamation-triangle'>&nbsp;</i>Please type a valid mobile number</p>";
+	
+
+	$("#msg").hide();
+	$("#msgtxt").text('');
+	$("#msgtxt").html('');
+	
+	
+	$("#msg_step3").hide();
+	$("#msg_step3_txt").text('');
+	$("#msg_step3_txt").html('');
+	
+
+	if($("#country").val()==0)
+	{
+		err=1;
+		$("#msg_step3").show();
+		$("#msg_step3_txt").html(msg2);
+		return;
+	}
+	else if($("#mobile").val()=="")
+	{
+		err=1;
+		$("#msg_step3").show();
+		$("#msg_step3_txt").html(msg3);
+		return;
+	}
+	else if($("#mobile").val()!="1234567890")
+	{
+		if($("#mobilecode_container").css("display")=='none')
+		{
+			$("#basicModal").modal("show");
+			return;
+		}
+	}
+	else
+	{
+		$("#step3").fadeTo(400,0.3);
+		$("#step4").fadeTo(400,10);
+	}
+	
+}
+
+function validatemobilecode()
+{
+	var msg1="<p class=err><i class='fa fa-exclamation-triangle'>&nbsp;</i>Invalid mobile Code</p>";
+	
+	if($("#mobilecode").val()!="123456")
+	{
+		err=1;
+		$("#mobile_code_msg").show();
+		$("#mobile_code_msg").html(msg1);
+	}
+	else if($("#mobilecode").val()=="123456")
+	{
+		err=0;
+	}
+	
+	if(err==0)
+	{
+		$("#step3").fadeTo(400,0.3);
+		$("#step4").fadeTo(400,10);
+	}
+
+}
+
+
+function validateemail()
+{
+
+	var err=0;
+	const msg2="<p class=err><i class='fa fa-exclamation-triangle'>&nbsp;</i>The <em>code</em> is invalid</p>";
+	const msg3="<p class=err><i class='fa fa-exclamation-triangle'>&nbsp;</i>The Email is already in use, please change</p><p class=err>&nbsp;This email is used for smart card number xxxxxxx0987</p>";
+	const msg6="<p class=err><i class='fa fa-exclamation-triangle'>&nbsp;</i>The email cannot be blank</p>";
+	const msg7="<p class=err><i class='fa fa-exclamation-triangle'>&nbsp;</i>Please enter a valid email</p>";
+	
+	
+	$("#msg_step4").hide();
+	$("#msg_step4_txt").text('');
+	$("#msg_step4_txt").html('');
+	$("#email_msg").html('');
+
+	if(validemail($("#email").val())==false)
+	{
+		$("#emailcode_container").show();
+		err=1;
+		$("#msg_step4").show();
+		$("#msg_step4_txt").html(msg7);
+		return;
+	}
+	else if($("#email").val()!="user@bein.net")
+	{
+		err=1;
+		
+		//$("#msg_step4").show();
+		//$("#msg_step4_txt").html(msg3);
+		
+		if($("#emailcode_container").css("display")=='none')
+		{
+		$("#basicemailModal").modal("show");
+		return;
+		}
+		else
+		{
+			if($("#emailcode").val()!="123456")
+			{
+			err=1;
+			$("#msg_step4").show();
+			$("#msg_step4_txt").html(msg2);
+			}
+			else if($("#emailcode").val()=="123456")
+			{
+				err=0;
+			}
+		}
+	}
+	
+	
+	
+	if(err==0)
+	{
+		$("#step1").hide();
+		$("#step2").hide();
+		$("#step3").hide();
+		$("#step4").hide();
+		$("#step5").fadeTo(400,10);
+		$('body,html').animate({
+            scrollTop: 0
+        }, 400);
+		
+	}
+	
+	
+	
+}
+
+function validateemailcode()
+{
+	var msg1="<p class=err><i class='fa fa-exclamation-triangle'>&nbsp;</i>Invalid Email CODE</p>";
+	
+	if($("#emailcode").val()!="123456")
+	{
+		err=1;
+		$("#email_code_msg").show();
+		$("#email_code_msg").html(msg1);
+	}
+	else if($("#emailcode").val()=="123456")
+	{
+		err=0;
+	}
+	
+	if(err==0)
+	{
+		$("#step1").hide();
+		$("#step2").hide();
+		$("#step3").hide();
+		$("#step4").hide();
+		$("#emailcode_container").hide();
+		$("#step5").fadeTo(400,10);
+		$('body,html').animate({
+            scrollTop: 0
+        }, 400);
+	}
+}
+
+
+function validatefinal()
+{
+	var err=0;
+	const msg4="<p class=err><i class='fa fa-exclamation-triangle'>&nbsp;</i>The password field cannot be left blank</p>";
+	const msg5="<p class=err><i class='fa fa-exclamation-triangle'>&nbsp;</i>The password does not match</p>";
+	
+	
+	
+	if($("#password").val()=="")
+	{
+		err=1;
+		$("#msg_step5").show();
+		$("#msg_step5_txt").html(msg4);
+	}
+	else if($("#password").val()!=$("#repassword").val())
+	{
+		err=1;
+		$("#msg_step5").show();
+		$("#msg_step5_txt").html(msg5);
+	}
+
+	if(err==0)
+	{
+		$("#step0_header").hide();
+		$(".footers").hide();
+		$("#step1").hide();
+		$("#step2").hide();
+		$("#step3").hide();
+		$("#step4").hide();
+		$("#step5").hide();
+		$("#step6").show();
+		showmodal('modal_thankyou');
+	}
+
+
+}
+
+
+function mobilechanged(opt)
+{
+	if(opt==true)
+	{
+		$("#mobile_msg").hide();
+		$("#mobilecode_container").show();
+	}
+	else
+	{
+		$("#mobilecode_container").hide();
+		$("#step4").hide();
+		$("#mobile").attr("placeholder", "xxxxx67890");
+		$("#mobile").val('');	
+		$("#mobile_msg").show();
+		$("#mobile_msg").html("<p class=info><i class='fa fa-exclamation-triangle'></i>&nbsp;Enter your existing number</p>");
+	}
+}
+
+
+function emailchanged(opt)
+{
+	if(opt==true)
+	{
+		$("#step4").fadeTo(400,0.3);
+		$("#emailcode_container").show();
+	}
+	else
+	{
+		$("#emailcode_container").hide();
+		$("#email").attr("placeholder", "**er@bein.net");
+		$("#email").val('');	
+		$("#email_msg").show();
+		$("#email_msg").html("<p class=info><i class='fa fa-exclamation-triangle'></i>&nbsp;Enter your existing Email</p>");
+	}
+}
+
+
+function validateMaxLength()
+{
+    var text = $(this).val();
+    var maxlength = $(this).data('maxlength');
+
+    if(maxlength > 0)  
+    {
+       $(this).val(text.substr(0, maxlength)); 
+    }
+}
+
+function showcard(e)
+{
+	x=e.clientX;
+    y=e.clientY;
+	$("#smartcard_img").css("left",x);
+	$("#smartcard_img").css("top",y);
+	$("#smartcard_img").show();
+
+}
+
+window.onmouseout=function(e)
+{
+if(e.srcElement.id!="smart_hover")
+$("#smartcard_img").hide();
+}
+
+ function validemail(email) {
+  var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+ 
+  return (email.length > 0 && emailReg.test(email))
+}
+</script>  

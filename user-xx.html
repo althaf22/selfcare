@@ -1,0 +1,2130 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>My beIN</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no" />
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <script src="ds/jquery-2.2.4.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <script src="ds/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="ds/bootbox.min.js"></script>
+    <link rel="stylesheet" href="ds/theme.en.css">
+    <link rel="stylesheet" href="common.css" />
+    <link rel="stylesheet" href="all.css" />
+    <link rel="stylesheet" href="compiled/flipclock.css">
+    <script src="common.js"></script>
+    <script src="compiled/flipclock.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.css">
+    <script src="bootstrap-datepicker.min.js"></script>
+    <style>
+        #footer-area {
+            background-color: #EAE9F0;
+            text-align: center;
+            margin: 0 auto;
+            z-index: 1;
+        }
+        
+        .verify-clock {
+            margin: 0 auto;
+            width: auto !important;
+            width: auto;
+            text-align: center;
+            display: inline-block;
+        }
+        
+        @media screen and (max-height: 450px) {
+            .overlay a {
+                font-size: 19px
+            }
+            .overlay .closebtn {
+                font-size: 40px;
+                top: 15px;
+                right: 35px;
+            }
+        }
+        
+        .modal-backdrop {
+            background-color: rgba(233, 233, 240, 0.9) !important;
+            z-index: 1040 !important;
+        }
+        
+        .modal-content {
+            overflow-y: auto;
+            overflow-y: auto;
+            -webkit-border-radius: 30px !important;
+            -moz-border-radius: 30px !important;
+            border-radius: 30px;
+			display:inline-block;
+        }
+        
+        .modal-body {
+            overflow: auto;
+            z-index: 1100 !important;
+            color: #fff;
+        }
+        /* This will prevent a long page from scrolling when a modal is opend */
+        
+        html {
+            overflow-y: scroll;
+        }
+        
+        .modal-open {
+            padding-right: 0 !important;
+        }
+        
+        #modal_channels .modal-content {
+            background: #ffffff !important;
+            color: #FFFFFF !important;
+            border: 1px solid #767382;
+            -webkit-border-radius: 30px !important;
+            -moz-border-radius: 30px !important;
+            border-radius: 30px;
+        }
+        /* Change background only on thank you modal */
+        
+        #modal_thankyou .modal-content {
+            background: #767382 !important;
+            color: #FFFFFF !important;
+
+        }
+        
+       
+        .modal h2 {
+            color: #fff;
+        }
+		
+		.modal p {
+            color: #fff;
+        }
+		
+		
+    </style>
+</head>
+
+<body>
+
+    <!-- The Modal -->
+    <div class="modal" id="modal_channels">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <!-- Modal body -->
+                <div class="modal-body">
+				
+				<div style="width:100%;height:auto">
+				
+					 <div class="container">
+						<div class="row">
+							 <div class="col-12">
+									<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-right">
+										<span class=closebtn onclick=hidemodal('modal_channels')>X</span>
+									</div>
+							  </div>
+						</div>
+						<div class="row">
+							 <div class="col-12">
+							<center>
+							<img src="access-package.png" style="margin:0 auto;display:inline-block;">
+							</center>
+							</div>
+						</div>
+					</div>
+				
+				</div>
+					
+				</div>
+			</div>
+		</div>
+	</div>
+    <!-- The Modal -->
+    <div class="modal" id="modal_thankyou" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                            <h2>Congratulations !</h2>
+                            <p>Your payment is successful.</p>
+                            <p>Our call center will contact you soon for installation appointment.</p. <p>Welcome to the world of entertainment!</p>
+							
+							<div class="curved_buttons" onclick=window.location='create.html'>Create Your Account</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="cover-spin"></div>
+
+    <script>
+        header2();
+    </script>
+
+    <div class="all" style="clear:both">
+
+        <div id="myNav" class="overlay d-block d-lg-none">
+            <!-- Button to close the overlay navigation -->
+            <div style="height:20px" class="d-block d-lg-none"></div>
+            <a href="javascript:closeNav()" role="button" class=closebtnmobile>X</a>
+
+			<!-- Overlay content -->
+			<div class="overlay-content">
+				<div style="height:50px"></div>
+				<hr />
+				<a href="signin.html" role="button">Sign In</a></li>
+				<hr />
+				<a href="create.html" role="button">Register my beIN</a></li>
+				<hr />
+			</div>
+		</div>
+
+<div id="container" class="container">
+
+	<div class="row" id="step0_header" >
+		<div class="col-12 col-sm-12 col-md-12 col-lg-9 pt-4">
+		<h2 class=mainheader>Country</h2>
+		</div>
+	</div>
+
+	<div class="row" id="step1_header" style=display:none>
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-9 pt-4">
+		<h2 class=mainheader>Promotions</h2>
+		</div>
+	</div>
+
+	<div class="row" id="step2_header" style=display:none>
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-9 pt-4">
+		<h2 class=mainheader>Add ons</h2>
+		</div>
+	</div>
+
+	<div class="row" id="step3_header" style=display:none>
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-9 pt-4">
+		<h2 class=mainheader>Device</h2>
+		</div>
+	</div>
+
+	<div class="row" id="step4_header" style=display:none>
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-9 pt-4">
+		<h2 class=mainheader>Services</h2>
+		</div>
+	</div>
+
+	<div class="row" id="step5_header" style=display:none>
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-9 pt-4">
+		<h2 class=mainheader>Payment Plan</h2>
+		</div>
+	</div>
+
+	<div class="row" id="step6_header" style=display:none>
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-9 pt-4">
+		<h2 class=mainheader>Personal Information</h2>
+		</div>
+	</div>
+
+	<div class="row" id="step7_header" style=display:none>
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-9 pt-4">
+		<h2 class=mainheader>Document Verification</h2>
+		</div>
+	</div>
+
+	<div class="row" id="step8_header" style=display:none>
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-9 pt-4">
+		<h2 class=mainheader>Order Summary</h2>
+		</div>
+	</div>
+
+	<div class="row" id="step9_header" style=display:none>
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-9 pt-4">
+		<h2 class=mainheader>Payment Solution</h2>
+		</div>
+	</div>
+
+	<div class="row" id="step10_header" style=display:none>
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-9 pt-4">
+		<h2 class=mainheader></h2>
+		</div>
+	</div>
+
+	<div class="row no-pad">
+
+		<!--step0-->
+		<div class="col-12 col-sm-12 col-md-12 col-lg-12 step" id="step0">
+			<div class="row no-pad">
+			<div class="col-12 col-sm-12 col-md-12 col-lg-3">
+					
+					<div class=btncountry>
+						<img src="newflags/algeria.png" />
+						<span>Algeria</span>
+						<i class="fas fa-check"></i>
+					</div>
+					<div class=btncountry>
+						<img src="newflags/bahrain.png" />
+						<span>Bahrain</span>
+						<i class="fas fa-check"></i>
+					</div>
+					<div class=btncountry>
+						<img src="newflags/chad.png" />
+						<span>Chad</span>
+						<i class="fas fa-check"></i>
+					</div>
+					<div class=btncountry>
+						<img src="newflags/Djibouti.png">
+						<span>Djibouti</span>
+						<i class="fas fa-check"></i>
+					</div>
+					<div class=btncountry>
+						<img src="newflags/Egypt.png">
+						<span>Egypt</span>
+						<i class="fas fa-check"></i>
+					</div>
+					<div class=btncountry>
+						<img src="newflags/Iran.png">
+						<span>Iran</span>
+						<i class="fas fa-check"></i>
+					</div>
+					<div class=btncountry>
+						<img src="newflags/Iraq.png">
+						<span>Iraq</span>
+						<i class="fas fa-check"></i>
+					</div>
+					<div class=btncountry>
+						<img src="newflags/Jordan.png">
+						<span>Jordan</span>
+						<i class="fas fa-check"></i>
+					</div>
+					<div class=btncountry>
+						<img src="newflags/Kuwait.png">
+						<span>Kuwait</span>
+						<i class="fas fa-check"></i>
+					</div>
+					
+
+			</div>
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-3 offset-lg-1">
+				<div class=btncountry>
+						<img src="newflags/Lebanon.png">
+						<span>Lebanon</span>
+						<i class="fas fa-check"></i>
+				</div>
+				<div class=btncountry>
+					<img src="newflags/Libya.png">
+					<span>Libya</span>
+					<i class="fas fa-check"></i>
+				</div>
+				<div class=btncountry>
+					<img src="newflags/Mauritania.png">
+					<span>Mauritania</span>
+					<i class="fas fa-check"></i>
+				</div>
+				<div class=btncountry>
+					<img src="newflags/Morocco.png">
+					<span>Morocco</span>
+					<i class="fas fa-check"></i>
+				</div>
+				<div class=btncountry>
+					<img src="newflags/Oman.png">
+					<span>Oman</span>
+					<i class="fas fa-check"></i>
+				</div>
+				<div class=btncountry>
+					<img src="newflags/Palestine.png">
+					<span>Palestine</span>
+					<i class="fas fa-check"></i>
+				</div>
+				<div class=btncountry>
+					<img src="newflags/Qatar.png">
+					<span>Qatar</span>
+					<i class="fas fa-check"></i>
+				</div>
+				<div class=btncountry>
+					<img src="newflags/ksa.png">
+					<span>Saudi Arabia</span>
+					<i class="fas fa-check"></i>
+				</div>
+				<div class=btncountry>
+					<img src="newflags/Somalia.png">
+					<span>Somalia</span>
+					<i class="fas fa-check"></i>
+				</div>
+			</div>
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-3 offset-lg-1" style="position:relative">
+
+				<div class=btncountry>
+					<img src="newflags/Sudan.png">
+					<span>Sudan</span>
+					<i class="fas fa-check"></i>
+				</div>
+				<div class=btncountry>
+					<img src="newflags/Syria.png">
+					<span>Syria</span>
+					<i class="fas fa-check"></i>
+				</div>
+				<div class=btncountry>
+					<img src="newflags/Tunisia.png">
+					<span>Tunisia</span>
+					<i class="fas fa-check"></i>
+				</div>
+				<div class=btncountry>
+					<img src="newflags/uae.png">
+					<span>United Arab Emirates</span>
+					<i class="fas fa-check"></i>
+				</div>
+				<div class=btncountry>
+					<img src="newflags/yemen.png">
+					<span>Yemen</span>
+					<i class="fas fa-check"></i>
+				</div>
+
+				<div style="height:50px;clear:both"></div>
+
+				<div class="summarybuttons">
+						<div style="height:10px;clear:both"></div>
+						<div class="curved_buttons_left" onclick=goback()>Back</div>
+						<div class="curved_buttons_right" onclick=gonext()>Next</div>
+				</div>
+
+			</div>
+			</div>
+		</div>
+
+		<!--step1-->
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-9 min-height step" id="step1">
+
+			<div class="oneitem" id="pkg1" promotion="true" status='collapsed'>
+				<div class="left" id="pkg1_left">
+					<div class="txt1">EARLY BIRD PROMOTION</div>
+				</div>
+				<div class="middle">
+					<div class="valign-m">
+						<div class="txt1-xs-xm expandable" onclick=shows(this) style="clear:both">2019 AFC ASIAN CUP<span><span style="float:right">$ 20 <i  class="fa fa-chevron-down fa-1x chevronstyle" aria-hidden="true"></i>&nbsp;&nbsp;</span></span></div>
+						<div class="txt1-xs-xm collapsible collapsibletext" onclick=shows(this)>2019 AFC ASIAN CUP<span style="float:right"><i  class="fa fa-chevron-up fa-1x ignoreit" aria-hidden="true"></i></span></div>
+						<div class="mobileshow">
+							
+							<div class="txt1-xs-xm_desc">Subscribe Now and Get 2022 FIFA WORLD CUP Free at discounted rates</div>
+							<div style="height:10px;clear:both"></div>
+							<div style="width:90%;margin:0 auto;clear:both;">
+								<div class="txt3_left"><img onclick=showmodal('modal_channels') class=viewchannels src=channels.svg style="width:30px">&nbsp;&nbsp;Channels</div>
+								<div class="txt3_right_red"><span class=txt3_part>$</span>20<span class=txt3_part>/Month</span></div>
+								<div style="height:10px;clear:both"></div>
+								<div class="curved_buttons_red d-block d-md-none" onclick=select(this)>Select</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="right" id="pkg1_right">
+					<div class="select valign-m">Select</div>
+				</div>
+			</div>
+
+			<div style="height:15px;clear:both"></div>
+
+			<div class="row" id="step1_2_header">
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-9 pt-4">
+					<h2 class=mainheader>Packages</h2>
+				</div>
+			</div>
+
+			<div class="oneitem" id="pkg2" status='collapsed'>
+				<div class="left" id="pkg2_left">
+					<div class="txt1">ACCESS</div>
+				</div>
+				<div class="middle">
+					<div class="valign-m">
+						<div class="txt1-xs-xm d-block d-md-none" onclick=shows(this)>ACCESS <span style="float:right">$ 20&nbsp;&nbsp;<i class="fa fa-chevron-down fa-1x chevronstyle" aria-hidden="true"></i></span></div>
+
+						<div class="mobileshow">
+							<div class="txt1-xs-xm_desc">Choose and get started with premium entertainment for your family with a wide selection content.</div>
+							<div style="height:10px;clear:both"></div>
+							<div style="width:90%;margin:0 auto;clear:both;">
+								<div class="txt3_left"><img onclick=showmodal('modal_channels') class=viewchannels src=channels.svg style="width:30px">&nbsp;&nbsp;Channels</div>
+								<div class="txt3_right"><span class=txt3_part>$</span>20<span class=txt3_part>/Month</span></div>
+								<div style="height:10px;clear:both"></div>
+								<div class="curved_buttons d-block d-md-none" onclick=select(this)>Select</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="right" id="pkg2_right">
+					<div class="select valign-m">Select</div>
+				</div>
+			</div>
+
+			<div style="height:15px;clear:both"></div>
+
+			<div class="oneitem" id="pkg3" status='collapsed'>
+				<div class="left" id="pkg3_left">
+					<div class="txt1">ENTERTAINMENT</div>
+				</div>
+				<div class="middle">
+					<div class="valign-m">
+						<div class="txt1-xs-xm d-block d-md-none" onclick=shows(this)>ENTERTAINMENT <span style="float:right">$ 40&nbsp;&nbsp;<i  class="fa fa-chevron-down fa-1x chevronstyle" aria-hidden="true"></i></span></div>
+						<div class="mobileshow">
+							<div class="txt1-xs-xm_desc">Choose & enter into the world of non-stop entertainment. Are you a movie buff if yes this is 4 U</div>
+							<div style="height:10px;clear:both"></div>
+							<div style="width:90%;margin:0 auto;clear:both;">
+								<div class="txt3_left"><img onclick=showmodal('modal_channels') class=viewchannels src=channels.svg style="width:30px">&nbsp;&nbsp;Channels</div>
+								<div class="txt3_right"><span class=txt3_part>$</span>40<span class=txt3_part>/Month</span></div>
+								<div style="height:10px;clear:both"></div>
+								<div class="curved_buttons d-block d-md-none" onclick=select(this)>Select</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="right" id="pkg3_right">
+					<div class="select valign-m">Select</div>
+				</div>
+			</div>
+
+			<div style="height:15px;clear:both"></div>
+
+			<div class="oneitem" id="pkg4" status='collapsed'>
+				<div class="left" id="pkg4_left">
+					<div class="txt1">COMPLETE</div>
+				</div>
+				<div class="middle">
+					<div class="valign-m">
+						<div class="txt1-xs-xm d-block d-md-none" onclick=shows(this)>COMPLETE <span style="float:right">$ 60&nbsp;&nbsp;<i  class="fa fa-chevron-down fa-1x chevronstyle" aria-hidden="true"></i></span></div>
+						<div class="mobileshow">
+							<div class="txt1-xs-xm_desc">Get started with premium entertainment on SPORTS & ENTERTAINMENT</div>
+							<div style="height:10px;clear:both"></div>
+							<div style="width:90%;margin:0 auto;clear:both;">
+								<div class="txt3_left"><img onclick=showmodal('modal_channels') class=viewchannels src=channels.svg style="width:30px">&nbsp;&nbsp;Channels</div>
+								<div class="txt3_right"><span class=txt3_part>$</span>60<span class=txt3_part>/Month</span></div>
+								<div style="height:10px;clear:both"></div>
+								<div class="curved_buttons d-block d-md-none" onclick=select(this)>Select</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="right" id="pkg4_right">
+					<div class="select valign-m">Select</div>
+				</div>
+			</div>
+
+			<div style="height:15px;clear:both"></div>
+
+			<div class="oneitem" id="pkg5" status='collapsed'>
+				<div class="left" id="pkg5_left">
+					<div class="txt1">ELITE</div>
+				</div>
+				<div class="middle">
+					<div class="valign-m">
+						<div class="txt1-xs-xm d-block d-md-none" onclick=shows(this)>ELITE <span style="float:right">$ 80&nbsp;&nbsp;<i  class="fa fa-chevron-down fa-1x chevronstyle" aria-hidden="true"></i></span></div>
+						<div class="mobileshow">
+							<div class="txt1-xs-xm_desc">Enjoy pure premiem content in Ultra definition</div>
+							<div style="height:10px;clear:both"></div>
+							<div style="width:90%;margin:0 auto;clear:both;">
+								<div class="txt3_left"><img onclick=showmodal('modal_channels') class=viewchannels src=channels.svg style="width:30px">&nbsp;&nbsp;Channels</div>
+								<div class="txt3_right"><span class=txt3_part>$</span>80<span class=txt3_part>/Month</span></div>
+								<div style="height:10px;clear:both"></div>
+								<div class="curved_buttons d-block d-md-none" onclick=select(this)>Select</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="right" id="pkg5_right">
+					<div class="select valign-m">Select</div>
+				</div>
+			</div>
+
+		</div>
+		<!--end of step1-->
+
+		<!--step2-->
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-9 min-height step" id="step2">
+
+			<div class="oneitem" id="pkg6" status='collapsed'>
+				<div class="left" id="pkg6_left">
+					<div class="txt1">2022 FIFA WORLD CUP</div>
+				</div>
+				<div class="middle">
+					<div class="valign-m">
+						<div class="txt1-xs-xm d-block d-md-none" onclick=shows(this)>2022 FIFA WORLD CUP <span style="float:right">$ 15&nbsp;&nbsp;<i class="fa fa-chevron-down fa-1x chevronstyle" aria-hidden="true"></i></span></div>
+						<div class="mobileshow">
+							<div class="txt1-xs-xm_desc">Subscribe to 2022 FIFA WORLD CUP</div>
+							<div style="height:10px;clear:both"></div>
+							<div style="width:90%;margin:0 auto;clear:both;">
+								<div class="txt3_left"><img class=viewchannels src=channels.svg style="width:30px">&nbsp;&nbsp;Channels</div>
+								<div class="txt3_right"><span class=txt3_part>$</span>15<span class=txt3_part>/Month</span></div>
+								<div style="height:10px;clear:both"></div>
+								<div class="curved_buttons d-block d-md-none" onclick=select(this)>Select</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="right" id="pkg6_right">
+					<div class="select valign-m">Select</div>
+				</div>
+			</div>
+
+		</div>
+		<!--end of step2-->
+
+		<!--step 3-->
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-9 min-height step" id="step3">
+
+			<div class="oneitem" id="rc1" status='collapsed'>
+				<div class="left" id="rc1_left">
+					<div class="txt1"><img class="box" align='center' src=box1.png></div>
+				</div>
+				<div class="middle">
+					<div class="valign-m">
+						<div class="txt1-xs-xm d-block d-md-none" onclick=shows(this)>beIN 4K Media Server <span style="float:right">$ 100&nbsp;&nbsp;<i  class="fa fa-chevron-down fa-1x chevronstyle" aria-hidden="true"></i></span></div>
+						<div class="mobileshow">
+							<div class="txt1-xs-xm d-none d-md-block expandable">beIN 4K Media Serverss</div>
+							<div class="txt1-xs-xm_desc">Advanced satellite receiver - 4K Ultra high definition</div>
+							<div style="height:10px;clear:both"></div>
+							<div style="width:90%;margin:0 auto;clear:both;">
+								<div style="height:10px;clear:both"></div>
+								<div class="d-block d-md-none">
+									<div class="txt1"><img class="box" align='center' src=box1.png></div>
+									<div style="height:10px;clear:both"></div>
+									<h4 class="features">Features</h4>
+									<li>- Full HD 1080P</li>
+									<li>- 7 Day Program Guide</li>
+									<li>- Multi-languages</li>
+									<li>- Dolby Audio</li>
+									<li>- Parental Control</li>
+									<li>- USB Port</li>
+									<li>- WIFI enabled</li>
+									<li>- Personal Video Recorder</li>
+									<li>- Record, Rewind, Pause Forward Live TV</li>
+									<li>- Video-on-demand - Picture-in-Picture (PIP)</li>
+									<li>- Internal Storage device 1TB</li>
+									<li>- Wireless entertainment network</li>
+									<li>- 4K Ultra HD (2160 x 3,840) resolution</li>
+								</div>
+								<div class="txt3_right"><span class=txt3_part>$</span>100</div>
+								<div class="curved_buttons d-block d-md-none" onclick=select(this)>Select</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="right" id="rc1_right">
+					<div class="select valign-m">Select</div>
+				</div>
+			</div>
+
+			<div style="height:15px;clear:both"></div>
+
+			<div class="oneitem" id="rc2" status='collapsed'>
+				<div class="left" id="rc2_left">
+					<div class="txt1"><img class="box" align='center' src=box1.png></div>
+				</div>
+				<div class="middle">
+					<div class="valign-m">
+						<div class="txt1-xs-xm d-block d-md-none" onclick=shows(this)>beIN PVR Plus <span style="float:right">$ 200&nbsp;&nbsp;<i  class="fa fa-chevron-down fa-1x chevronstyle" aria-hidden="true"></i></span></div>
+						<div class="mobileshow">
+							<div class="txt1-xs-xm d-none d-md-block">beIN PVR Plus</div>
+							<div class="txt1-xs-xm_desc">High definition digital satellite receiver / recorder.</div>
+							<div style="height:10px;clear:both"></div>
+							<div style="width:90%;margin:0 auto;clear:both;">
+								<div style="height:10px;clear:both"></div>
+								<div class="d-block d-md-none">
+									<div class="txt1"><img class="box" align='center' src=box1.png></div>
+									<div style="height:10px;clear:both"></div>
+									<h3>Features</h3>
+									<ul>
+										<li>- Full HD 1080P</li>
+										<li>- 7 Day Program Guide</li>
+										<li>- Multi-languages</li>
+										<li>- Dolby Audio</li>
+										<li>- Parental Control</li>
+										<li>- USB Port</li>
+										<li>- WIFI enabled</li>
+										<li>- Personal Video Recorder</li>
+										<li>- Record, Rewind, Pause Forward Live TV</li>
+										<li>- Video-on-demand - Picture-in-Picture (PIP)</li>
+										<li>- Internal Storage device 1TB</li>
+										<li>- Wireless entertainment network</li>
+										<li>- 4K Ultra HD (2160 x 3,840) resolution</li>
+									</ul>
+								</div>
+								<div class="txt3_right"><span class=txt3_part>$</span>200</div>
+								<div class="curved_buttons d-block d-md-none" onclick=select(this)>Select</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="right" id="rc2_right">
+					<div class="select valign-m">Select</div>
+				</div>
+			</div>
+
+		</div>
+		<!--end of step 3-->
+
+		<!--step 4-->
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-9 min-height step" id="step4">
+
+			<div class="oneitem" id="sc1" status='collapsed'>
+				<div class="left" id="sc1_left">
+					<div class="txt1"><img class="box rounded" align='center' src=Delivery.jpg style="width:65%"></div>
+				</div>
+				<div class="middle">
+					<div class="valign-m">
+						<div class="txt1-xs-xm d-block d-md-none" onclick=shows(this)>Full Installation <span style="float:right">$103&nbsp;&nbsp;<i  class="fa fa-chevron-down fa-1x chevronstyle" aria-hidden="true"></i></span></div>
+						<div class="mobileshow">
+							<div class="txt1-xs-xm d-none d-md-block">Full Installation</div>
+							<div class="txt1-xs-xm_desc">We deliver and install your receiver.</div>
+							<div style="height:10px;clear:both"></div>
+							<div style="width:90%;margin:0 auto;clear:both;">
+								<div class="d-block d-md-none">
+									<div class="txt1"><img class="box rounded" align='center' src=delivery.jpg></div>
+								</div>
+								<div style="height:10px;clear:both"></div>
+								<div class="txt3_right">$103</div>
+								<div class="curved_buttons d-block d-md-none" onclick=select(this)>Select</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="right" id="sc1_right">
+					<div class="select valign-m">Select</div>
+				</div>
+			</div>
+
+			<div style="height:15px;clear:both"></div>
+
+			<div class="oneitem" id="sc2" status='collapsed'>
+				<div class="left" id="sc2_left">
+					<div class="txt1"><img class="box rounded" align='center' src=installation.jpg style="width:65%"></div>
+				</div>
+				<div class="middle">
+					<div class="valign-m">
+						<div class="txt1-xs-xm d-block d-md-none" onclick=shows(this)>Home Delivery <span style="float:right">$80&nbsp;&nbsp;<i  class="fa fa-chevron-down fa-1x chevronstyle" aria-hidden="true"></i></span></div>
+						<div class="mobileshow">
+							<div class="txt1-xs-xm d-none d-md-block">Home Delivery</div>
+							<div class="txt1-xs-xm_desc">We deliver, you install the receiver</div>
+							<div style="height:10px;clear:both"></div>
+							<div style="width:90%;margin:0 auto;clear:both;">
+								<div class="d-block d-md-none">
+									<div class="txt1"><img class="box rounded" align='center' src=installation.jpg></div>
+								</div>
+								<div style="height:10px;clear:both"></div>
+								<div class="txt3_right">&nbsp;$80</div>
+								<div class="curved_buttons d-block d-md-none" onclick=select(this)>Select</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="right" id="sc2_right">
+					<div class="select valign-m">Select</div>
+				</div>
+			</div>
+
+		</div>
+		<!--end of step 4-->
+
+		<!--step5-->
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-9 min-height step" id="step5">
+
+			<div class="oneitem" id="paymenterms1" status='collapsed'>
+				<div class="left" id="paymenterms1_left">
+					<div class="txt1">12 Months</div>
+				</div>
+				<div class="middle">
+					<div class="valign-m">
+						<div class="txt1-xs-xm d-block d-md-none" onclick=shows(this)>12 Months <span style="float:right"><i  class="fa fa-chevron-down fa-1x chevronstyle" aria-hidden="true"></i></span></div>
+
+						<div class="mobileshow">
+							<div class="txt1-xs-xm_desc">One time payment</div>
+							<div style="height:10px;clear:both"></div>
+							<div style="width:90%;margin:0 auto;clear:both;">
+								<div style="height:10px;clear:both"></div>
+								<div class="curved_buttons d-block d-md-none" onclick=select(this)>Select</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="right" id="paymenterms1_right">
+					<div class="select valign-m">Select</div>
+				</div>
+			</div>
+
+			<div style="height:15px;clear:both"></div>
+
+			<div class="oneitem" id="paymenterms2" status='collapsed'>
+				<div class="left" id="paymenterms2_left">
+					<div class="txt1">6 Months</div>
+				</div>
+				<div class="middle">
+					<div class="valign-m">
+						<div class="txt1-xs-xm d-block d-md-none" onclick=shows(this)>6 Months <span style="float:right"><i  class="fa fa-chevron-down fa-1x chevronstyle" aria-hidden="true"></i></span></div>
+
+						<div class="mobileshow">
+							<div class="txt1-xs-xm_desc">Payment every 6 months</div>
+							<div style="height:10px;clear:both"></div>
+							<div style="width:90%;margin:0 auto;clear:both;">
+								<div style="height:10px;clear:both"></div>
+								<div class="curved_buttons d-block d-md-none" onclick=select(this)>Select</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="right" id="paymenterms2_right">
+					<div class="select valign-m">Select</div>
+				</div>
+			</div>
+
+			<div style="height:15px;clear:both"></div>
+
+			<div class="oneitem" id="paymenterms3" status='collapsed'>
+				<div class="left" id="paymenterms3_left">
+					<div class="txt1">1 Month</div>
+				</div>
+				<div class="middle">
+					<div class="valign-m">
+						<div class="txt1-xs-xm d-block d-md-none" onclick=shows(this)>1 Month <span style="float:right"><i  class="fa fa-chevron-down fa-1x chevronstyle" aria-hidden="true"></i></span></div>
+
+						<div class="mobileshow">
+							<div class="txt1-xs-xm_desc">Monthly payment for 12 months</div>
+							<div style="height:10px;clear:both"></div>
+							<div style="width:90%;margin:0 auto;clear:both;">
+								<div style="height:10px;clear:both"></div>
+								<div class="curved_buttons d-block d-md-none" onclick=select(this)>Select</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="right" id="paymenterms3_right">
+					<div class="select valign-m">Select</div>
+				</div>
+			</div>
+
+		</div>
+		<!--end of step5-->
+
+		<!--step6-->
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-9 min-height step" id="step6">
+
+			<div id="mobile_container">
+				<div class="row no-pad pt-1">
+					<div class="col-xs-12 col-sm-12 col-md-6 offset-md-3 col-lg-6 offset-lg-3">
+						<input type="Mobile" class="form-control form-rounded transparent-input" id="mobile" placeholder="Mobile">
+					</div>
+				</div>
+
+				<div class="row no-pad pt-1">
+					<div class="col-xs-12 col-sm-12 col-md-6 offset-md-3 col-lg-6 offset-lg-3">
+						<button type="button" class=curved_buttons_signout_black1 onclick='mobilechanged(true)'>Get code by SMS</button>
+						<button type="button" class=curved_buttons_signout_black2 onclick='mobilechanged(false)'>Get Code by CALL</button>
+					</div>
+				</div>
+
+			</div>
+
+			<div id="mobilecode_container" style="display:none">
+
+				<div class="row no-pad pt-1">
+					<div class="col-xs-12 col-sm-12 col-md-6 offset-md-3 col-lg-6 offset-lg-3">
+						<span for="otp" class=blue-tooltip data-toggle="tooltip" title="" id=otp1>Enter the CODE we sent to you by SMS</span>
+						<span><a href="javascript:return false" class=nolink id=otp2>If you did not receive ? click here to resend</a>  or call us at 44441234 for immediate verification</span>
+					</div>
+				</div>
+
+				<div style="clear:both"></div>
+
+				<div class="row no-pad pt-1">
+					<div class="col-xs-12 col-sm-12 col-md-6 offset-md-3 col-lg-6 offset-lg-3">
+						<input type="text" class="form-control form-rounded transparent-input" id="mobilecode" placeholder="6 Digits verification CODE" data-maxlength="6">
+					</div>
+				</div>
+
+				<div style="height:10px;clear:both"></div>
+
+				<div class="row no-pad pt-1">
+					<div class="col-xs-12 col-sm-12 col-md-6 offset-md-3 col-lg-6 offset-lg-3">
+						<div class="form-group">
+							<button type="button" class=curved_buttons_signout_black onclick='validatemobilecode()'>Verify Code</button>
+							<label id="mobile_code_msg" style=display:none></label>
+						</div>
+					</div>
+				</div>
+
+				<div style="height:10px;clear:both"></div>
+
+			</div>
+
+			<div class="row no-pad pt-1">
+				<div class="col-xs-12 col-sm-12 col-md-6 offset-md-3 col-lg-6 offset-lg-3">
+					<input type="Mobile" class="form-control form-rounded transparent-input" id="mobile" placeholder="First Name">
+				</div>
+			</div>
+
+			<div class="row no-pad pt-1">
+				<div class="col-xs-12 col-sm-12 col-md-6 offset-md-3 col-lg-6 offset-lg-3">
+					<input type="Mobile" class="form-control form-rounded transparent-input" id="mobile" placeholder="Middle Name">
+				</div>
+			</div>
+
+			<div class="row no-pad pt-1">
+				<div class="col-xs-12 col-sm-12 col-md-6 offset-md-3 col-lg-6 offset-lg-3">
+					<input type="Mobile" class="form-control form-rounded transparent-input" id="mobile" placeholder="Last Name">
+				</div>
+			</div>
+
+			<div class="row no-pad pt-1">
+				<div class="col-xs-12 col-sm-12 col-md-6 offset-md-3 col-lg-6 offset-lg-3">
+					<div class="form-group">
+						<textarea style="overflow:hidden" rows="4" type="Mobile" class="form-control form-rounded2 transparent-input" id="mobile" placeholder="Address"></textarea>
+					</div>
+				</div>
+			</div>
+
+			<div class="row no-pad pt-1">
+				<div class="col-xs-12 col-sm-12 col-md-6 offset-md-3 col-lg-6 offset-lg-3"><span class=lbl><font color="red">*</font> Date of Birth</span> </div>
+			</div>
+
+			<div class="row no-pad pt-1">
+				<div class="col-xs-12 col-sm-4 offset-md-3 col-md-2 col-lg-2 offset-lg-3">
+
+					<select class="form-control form-rounded transparent-input" id="country" placeholder="Year">
+						<option selected="selected" value="0">DAY</option>
+						<option value="1">01</option>
+						<option value="1">02</option>
+						<option value="1">03</option>
+						<option value="1">04</option>
+						<option value="1">05</option>
+						<option value="1">06</option>
+						<option value="1">07</option>
+						<option value="1">08</option>
+						<option value="1">09</option>
+						<option value="1">10</option>
+						<option value="1">11</option>
+						<option value="1">12</option>
+						<option value="1">13</option>
+						<option value="1">14</option>
+						<option value="1">15</option>
+						<option value="1">16</option>
+						<option value="1">17</option>
+						<option value="1">18</option>
+						<option value="1">19</option>
+						<option value="1">20</option>
+						<option value="1">21</option>
+						<option value="1">22</option>
+						<option value="1">23</option>
+						<option value="1">24</option>
+						<option value="1">25</option>
+						<option value="1">26</option>
+						<option value="1">27</option>
+						<option value="1">28</option>
+						<option value="1">29</option>
+						<option value="1">30</option>
+						<option value="1">31</option>
+					</select>
+					<div style="height:10px" class="d-block d-sm-none"></div>
+				</div>
+
+				<div class="col-xs-12 col-sm-4 col-md-2 col-lg-2">
+					<select class="form-control form-rounded transparent-input" id="country" placeholder="Month">
+						<option selected="selected" value="0">MONTH</option>
+						<option value="1">Jan</option>
+						<option value="1">Feb</option>
+						<option value="1">Mar</option>
+						<option value="1">Apr</option>
+						<option value="1">May</option>
+						<option value="1">Jun</option>
+						<option value="1">Jul</option>
+						<option value="1">Aug</option>
+						<option value="1">Sep</option>
+						<option value="1">Oct</option>
+						<option value="1">Nov</option>
+						<option value="1">Dec</option>
+					</select>
+					<div style="height:10px" class="d-block d-sm-none"></div>
+				</div>
+				<div class="col-xs-12 col-sm-4 col-md-2 col-lg-2">
+					<select class="form-control form-rounded transparent-input" id="country" placeholder="Year">
+						<option selected="selected" value="0">YEAR</option>
+						<option value="1">2000</option>
+						<option value="1">2001</option>
+						<option value="1">2002</option>
+						<option value="1">2003</option>
+						<option value="1">2004</option>
+						<option value="1">2005</option>
+						<option value="1">2006</option>
+						<option value="1">2007</option>
+						<option value="1">2008</option>
+						<option value="1">2009</option>
+						<option value="1">2010</option>
+						<option value="1">2011</option>
+						<option value="1">2012</option>
+						<option value="1">2013</option>
+						<option value="1">2014</option>
+						<option value="1">2015</option>
+						<option value="1">2016</option>
+						<option value="1">2017</option>
+						<option value="1">2018</option>
+					</select>
+					<div style="height:10px" class="d-block d-sm-none"></div>
+				</div>
+
+			</div>
+
+			<div class="row no-pad pt-1">
+				<div class="col-xs-12 col-sm-6 col-md-6 offset-md-3 col-lg-6 col-lg-6 offset-lg-3"><span class=lbl><font color="red">*</font> Gender</span> </div>
+			</div>
+
+			<div class="row no-pad pt-1">
+				<div class="col-xs-12 col-sm-12 col-md-6 offset-md-3 col-lg-6 col-lg-6 offset-lg-3">
+					<select class="form-control form-rounded transparent-input" id="country" style="width:100%">
+						<option selected>Male</option>
+						<option value="1">Female</option>
+					</select>
+				</div>
+			</div>
+
+			<div class="row no-pad pt-1">
+				<div class="col-xs-12 col-sm-12 col-md-6 offset-md-3 col-lg-6 col-lg-6 offset-lg-3"><span class=lbl><font color="red">*</font> Preferred Language</span></div>
+			</div>
+
+			<div class="row no-pad pt-1">
+				<div class="col-xs-12 col-sm-12 col-md-6 offset-md-3 col-lg-6 offset-lg-3">
+					<select class="form-control form-rounded transparent-input" id="country" style="width:100%">
+						<option selected>-Select-</option>
+						<option selected>English</option>
+						<option value="1">العربية</option>
+					</select>
+				</div>
+			</div>
+
+			<div class="row no-pad pt-1">
+				<div class="col-xs-12 col-sm-12 col-md-6 offset-md-3 col-lg-6 col-lg-6 offset-lg-3"><span class=lbl><font color="red">*</font> ID Number</span> </div>
+			</div>
+
+			<div class="row no-pad pt-1">
+				<div class="col-xs-12 col-sm-12 col-md-6 offset-md-3 col-lg-6 col-lg-6 offset-lg-3">
+					<input type="text" class="form-control form-rounded transparent-input" id="idnumber">
+				</div>
+			</div>
+
+			<div class="row no-pad pt-1">
+				<div class="col-xs-12 col-sm-12 col-md-6 offset-md-3 col-lg-6 col-lg-6 offset-lg-3"><span class=lbl><font color="red">*</font> ID Expiry</span> </div>
+			</div>
+
+			<div class="row no-pad pt-1">
+				<div class="col-xs-12 col-sm-4 col-md-2 offset-md-3 col-lg-2 col-lg-2 offset-lg-3">
+					<select class="form-control form-rounded transparent-input" id="country">
+						<option selected="selected" value="0">DAY</option>
+						<option value="1">01</option>
+						<option value="1">02</option>
+						<option value="1">03</option>
+						<option value="1">04</option>
+						<option value="1">05</option>
+						<option value="1">06</option>
+						<option value="1">07</option>
+						<option value="1">08</option>
+						<option value="1">09</option>
+						<option value="1">10</option>
+						<option value="1">11</option>
+						<option value="1">12</option>
+						<option value="1">13</option>
+						<option value="1">14</option>
+						<option value="1">15</option>
+						<option value="1">16</option>
+						<option value="1">17</option>
+						<option value="1">18</option>
+						<option value="1">19</option>
+						<option value="1">20</option>
+						<option value="1">21</option>
+						<option value="1">22</option>
+						<option value="1">23</option>
+						<option value="1">24</option>
+						<option value="1">25</option>
+						<option value="1">26</option>
+						<option value="1">27</option>
+						<option value="1">28</option>
+						<option value="1">29</option>
+						<option value="1">30</option>
+						<option value="1">31</option>
+					</select>
+					<div style="height:10px" class="d-block d-sm-none"></div>
+				</div>
+
+				<div class="col-xs-12 col-sm-4 col-md-2 col-lg-2">
+					<select class="form-control form-rounded transparent-input" id="country">
+						<option selected="selected" value="0">MONTH</option>
+						<option value="1">Jan</option>
+						<option value="1">Feb</option>
+						<option value="1">Mar</option>
+						<option value="1">Apr</option>
+						<option value="1">May</option>
+						<option value="1">Jun</option>
+						<option value="1">Jul</option>
+						<option value="1">Aug</option>
+						<option value="1">Sep</option>
+						<option value="1">Oct</option>
+						<option value="1">Nov</option>
+						<option value="1">Dec</option>
+					</select>
+					<div style="height:10px" class="d-block d-sm-none"></div>
+				</div>
+				<div class="col-xs-12 col-sm-4 col-md-2 col-lg-2">
+					<select class="form-control form-rounded transparent-input" id="country">
+						<option selected="selected" value="0">YEAR</option>
+						<option value="1">2000</option>
+						<option value="1">2001</option>
+						<option value="1">2002</option>
+						<option value="1">2003</option>
+						<option value="1">2004</option>
+						<option value="1">2005</option>
+						<option value="1">2006</option>
+						<option value="1">2007</option>
+						<option value="1">2008</option>
+						<option value="1">2009</option>
+						<option value="1">2010</option>
+						<option value="1">2011</option>
+						<option value="1">2012</option>
+						<option value="1">2013</option>
+						<option value="1">2014</option>
+						<option value="1">2015</option>
+						<option value="1">2016</option>
+						<option value="1">2017</option>
+						<option value="1">2018</option>
+					</select>
+					<div style="height:10px" class="d-block d-sm-none"></div>
+				</div>
+			</div>
+
+			<div class="row no-pad pt-1">
+				<div class="col-xs-12 col-sm-12 col-md-6 offset-md-3 col-lg-6 col-lg-6 offset-lg-3">
+					<label style='width:100%;margin:0;padding:0;clear:both' for="file-upload1" class="custom-file-upload">
+						<div style='cursor:pointer;float:left' class=curved_buttons_signout_black id=up1_filename><i class='fas fa-upload fa-lg'></i>&nbsp;&nbsp;ID Front</div>
+					</label>
+				</div>
+			</div>
+
+			<div class="row no-pad pt-1">
+				<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 offset-md-3 col-lg-6 offset-lg-3">
+					<label style='width:100%;margin:0;padding:0;clear:both' for="file-upload2" class="custom-file-upload">
+						<div style='cursor:pointer;float:left' class=curved_buttons_signout_black id=up2_filename><i class='fas fa-upload fa-lg'></i>&nbsp;&nbsp;ID Back</div>
+					</label>
+				</div>
+			</div>
+			<!--<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6"><input type="text" class="form-control form-rounded transparent-input" id="idexpiry"></div>-->
+
+			<!--EMAIL_CONTAINER-->
+
+			<div class="row no-pad pt-1">
+				<div class="col-xs-12 col-sm-12 col-md-6 offset-md-3 col-lg-6 offset-lg-3"><span class=lbl><font color="red">*</font> Email</span></div>
+			</div>
+
+			<div class="row no-pad pt-1">
+				<div class="col-xs-12 col-sm-12 col-md-6 offset-md-3 col-lg-6 offset-lg-3">
+					<input type="email" class="form-control form-rounded transparent-input" id="mobile">
+				</div>
+			</div>
+
+			<div style="height:10px;clear:both"></div>
+
+			<div class="row no-pad" id="emailcode_container" style="display:none">
+
+				<div class="row no-pad pt-1">
+					<div class="col-xs-12 col-sm-12 col-md-6 offset-md-3 col-lg-6 offset-lg-3">
+						<span for="otp" class=blue-tooltip data-toggle="tooltip" title="">Enter the CODE we sent to you by Email</span>
+						<span><a href="javascript:return false" class=nolink>If you did not receive ? click here to resend</a></span>
+					</div>
+				</div>
+
+				<div class="row no-pad pt-1">
+					<div class="col-xs-12 col-sm-12 col-md-6 offset-md-3 col-lg-6 offset-lg-3">
+						<input type="text" class="form-control form-rounded transparent-input" id="emailcode" placeholder="6 Digits verification CODE" data-maxlength="6">
+					</div>
+				</div>
+
+				<div style="height:10px;clear:both"></div>
+
+				<div class="row no-pad pt-1">
+					<div class="col-xs-12 col-sm-12 col-md-6 offset-md-3 col-lg-6 offset-lg-3">
+						<div class="form-group">
+							<button type="button" class=curved_buttons_signout_black onclick='validateemailcode()'>Verify Code</button>
+							<label id="email_code_msg" style=display:none></label>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+			<div class="row no-pad pt-1">
+				<div class="col-xs-12 col-sm-12 col-md-6 offset-md-3 col-lg-6 offset-lg-3">
+					<div class="txt" style="display:table">
+						<div style="display:table-cell;vertical-align:middle">
+							<span style='cursor:pointer;' id=choice1 class="far fa-check-circle fa-2x" onclick=yesno(this)></span>
+							<span class=txt>I Agree to terms and conditions</span>
+							<div style="height:5px"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row no-pad pt-1">
+				<div class="col-xs-12 col-sm-12 col-md-6 offset-md-3 col-lg-6 offset-lg-3">
+					<div class="curved_buttons_left" onclick=goback()>Back</div>
+					<div class="curved_buttons_right" onclick=gonext()>Save & Continue</div>
+				</div>
+			</div>
+
+			<div style="height:50px;clear:both"></div>
+			<input id="file-upload1" type="file" />
+			<input id="file-upload2" type="file" />
+		</div>
+		<!--end of step6-->
+
+    <!--step 7-->
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-9 min-height step" id="step7">
+
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">We are validating your documents.</div>
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">Please wait..</div>
+        </div>
+
+        <div style="clear:both;height:30px"></div>
+
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+                <div class="verify-clock"></div>
+            </div>
+        </div>
+
+        <div style="clear:both;height:30px"></div>
+
+        <div class="row no-pad">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+                <img src="Reviewing.svg">
+                <h3>Under Review</h3>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+                <div class="approved">
+                    <div style="height:20px"></div>
+                    <i class="far fa-check-circle fa-3x" style="color:#ffffff"></i>
+                    <p class="approved1">Approved</p>
+                    <div class="curved_buttons_gray" onclick=gonext()>proceed</div>
+                </div>
+                <div class="rejected">
+                    <div style="height:20px"></div>
+                    <i class="far fa-times-circle fa-3x" style="color:#ffffff"></i>
+                    <p class="rejected1">Rejected</p>
+                    <p class="rejected2">Our customer support will contact you soon with further details.</p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+    <!--end of step 7-->
+
+    <!--step 8-->
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-9 min-height step" id="step8">
+        <div class="oneitem" id="order1">
+            <div class="left" id="order1_left">
+                <div class="txt1">2022 FIFA WORLD CUP</div>
+            </div>
+            <div class="middle">
+                <div class="valign-m">
+                    <div class="txt1-xs-xm d-block d-md-none" onclick=edits(this)>2022 FIFA WORLD CUP <span style="float:right">$ 20 <img src="Edit_White.svg"></span></div>
+                    <div class="mobileshow">
+                        <div class="txt1-xs-xm_desc">2022 FIFA WORLD CUP</div>
+                        <div style="height:10px;clear:both"></div>
+                        <div style="width:90%;margin:0 auto;clear:both;">
+                            <div class="curved_buttons d-block d-md-none" onclick=edits(this)><img src="Edit_White.svg"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="right" id="order1_right">
+                <div class="select valign-m"><img src="Edit_White.svg"></div>
+            </div>
+        </div>
+
+        <div style="height:15px;clear:both"></div>
+
+        <div class="oneitem" id="order2">
+            <div class="left" id="order2_left">
+                <div class="txt1"><img class="box" align='center' src=box1.png></div>
+            </div>
+            <div class="middle">
+                <div class="valign-m">
+                    <div class="txt1-xs-xm d-block d-md-none" onclick=edits(this)>beIN 4K Media Server <span style="float:right">$ 20 <img src="Edit_White.svg"></span></div>
+                    <div class="mobileshow">
+                        <div class="txt1-xs-xm_desc d-none d-md-block">beIN 4K Media Server</div>
+                        <div style="height:10px;clear:both"></div>
+                        <div style="width:90%;margin:0 auto;clear:both;">
+                            <div class="curved_buttons d-block d-md-none" onclick=edits(this)><img src="Edit_White.svg"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="right" id="order2_right">
+                <div class="select valign-m"><img src="Edit_White.svg"></div>
+            </div>
+        </div>
+
+        <div style="height:15px;clear:both"></div>
+
+        <div class="oneitem" id="order3">
+            <div class="left" id="order3_left">
+                <div class="txt1"><img class="box rounded" align='center' src=Delivery.jpg></div>
+            </div>
+            <div class="middle">
+                <div class="valign-m">
+                    <div class="txt1-xs-xm d-block d-md-none" onclick=edits(this)>Full Installation <span style="float:right">$ 50 <img src="Edit_White.svg"></span></div>
+                    <div class="mobileshow">
+                        <div class="txt1-xs-xm_desc d-none d-md-block">Full Installation</div>
+                        <div style="height:10px;clear:both"></div>
+                        <div style="width:90%;margin:0 auto;clear:both;">
+                            <div class="curved_buttons d-block d-md-none" onclick=edits(this)><img src="Edit_White.svg"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="right" id="order3_right">
+                <div class="select valign-m"><img src="Edit_White.svg"></div>
+            </div>
+        </div>
+
+        <div style="height:15px;clear:both"></div>
+
+        <div class="oneitem" id="order4">
+            <div class="left" id="order4_left">
+                <div class="txt1">12 Months</div>
+            </div>
+            <div class="middle">
+                <div class="valign-m">
+                    <div class="txt1-xs-xm d-block d-md-none" onclick=edits(this)>12 Months <span style="float:right">$ 20/Month <img src="Edit_White.svg"></span></div>
+
+                    <div class="mobileshow">
+                        <div class="txt1-xs-xm_desc d-none d-md-block">One time payment</div>
+                        <div style="width:90%;margin:0 auto;clear:both;">
+                            <div style="height:10px;clear:both"></div>
+                            <div class="curved_buttons d-block d-md-none" onclick=edits(this)><img src="Edit_White.svg"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="right" id="order4_right">
+                <div class="select valign-m"><img src="Edit_White.svg"></div>
+            </div>
+        </div>
+
+    </div>
+    <!--step9-->
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-9 min-height step" id="step9">
+
+        <div class="oneitem" id="card1" ignoreselect="true">
+            <div class="left" id="card1_left">
+                <div class="txt1"><img src="new_visa.png" width="50%"></div>
+            </div>
+            <div class="middle">
+                <div class="valign-m">
+                    <div class="txt1-xs-xm d-block d-md-none" onclick=shows(this)>Pay with Credit Card <span style="float:right"><i  class="fa fa-chevron-down fa-1x chevronstyle" aria-hidden="true"></i></span></div>
+
+                    <div style="height:10px;clear:both"></div>
+                    <div class="txt1-xs-xm_desc d-none d-md-block">Pay with Credit Card</div>
+
+                    <!--start of visa card div-->
+                    <div id="visa_master_content" style=display:none>
+
+                        <div class="row no-pad pt-1">
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-10 offset-lg-1"><span class=lbl><font color="red">*</font> Card Name</span> </div>
+                        </div>
+
+                        <div class="row pt-1">
+                            <div class="col-xs-12 col-sm-12 col-md-12  col-lg-10 offset-lg-1">
+                                <input type="Mobile" class="form-control form-rounded transparent-input" id="mobile" placeholder="14 Digit card number">
+                            </div>
+                        </div>
+
+                        <div style="height:10px;clear:both"></div>
+
+                        <div class="row no-pad pt-1">
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-10 offset-lg-1"><span class=lbl><font color="red">*</font> Card Holder Name</span> </div>
+                        </div>
+
+                        <div class="row  pt-1">
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-10 offset-lg-1">
+                                <input type="Mobile" class="form-control form-rounded transparent-input" id="mobile" placeholder="Name as on Card">
+                            </div>
+                        </div>
+
+                        <div class="row no-pad pt-1">
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-10 offset-lg-1"><span class=lbl><font color="red">*</font> Expiry date</span> </div>
+                        </div>
+
+                        <div class="row pt-1">
+                            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-3 offset-lg-1">
+
+                                <select class="form-control form-rounded transparent-input" id="country" placeholder="Year">
+                                    <option selected="selected" value="0">DAY</option>
+                                    <option value="1">01</option>
+                                    <option value="1">02</option>
+                                    <option value="1">03</option>
+                                    <option value="1">04</option>
+                                    <option value="1">05</option>
+                                    <option value="1">06</option>
+                                    <option value="1">07</option>
+                                    <option value="1">08</option>
+                                    <option value="1">09</option>
+                                    <option value="1">10</option>
+                                    <option value="1">11</option>
+                                    <option value="1">12</option>
+                                    <option value="1">13</option>
+                                    <option value="1">14</option>
+                                    <option value="1">15</option>
+                                    <option value="1">16</option>
+                                    <option value="1">17</option>
+                                    <option value="1">18</option>
+                                    <option value="1">19</option>
+                                    <option value="1">20</option>
+                                    <option value="1">21</option>
+                                    <option value="1">22</option>
+                                    <option value="1">23</option>
+                                    <option value="1">24</option>
+                                    <option value="1">25</option>
+                                    <option value="1">26</option>
+                                    <option value="1">27</option>
+                                    <option value="1">28</option>
+                                    <option value="1">29</option>
+                                    <option value="1">30</option>
+                                    <option value="1">31</option>
+                                </select>
+                                <div style="height:10px" class="d-block d-sm-none"></div>
+                            </div>
+                            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-3">
+                                <select class="form-control form-rounded transparent-input" id="country" placeholder="Month">
+                                    <option selected="selected" value="0">MONTH</option>
+                                    <option value="1">Jan</option>
+                                    <option value="1">Feb</option>
+                                    <option value="1">Mar</option>
+                                    <option value="1">Apr</option>
+                                    <option value="1">May</option>
+                                    <option value="1">Jun</option>
+                                    <option value="1">Jul</option>
+                                    <option value="1">Aug</option>
+                                    <option value="1">Sep</option>
+                                    <option value="1">Oct</option>
+                                    <option value="1">Nov</option>
+                                    <option value="1">Dec</option>
+                                </select>
+                                <div style="height:10px" class="d-block d-sm-none"></div>
+                            </div>
+                            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                                <select class="form-control form-rounded transparent-input" id="country" placeholder="Year">
+                                    <option selected="selected" value="0">YEAR</option>
+                                    <option value="1">2000</option>
+                                    <option value="1">2001</option>
+                                    <option value="1">2002</option>
+                                    <option value="1">2003</option>
+                                    <option value="1">2004</option>
+                                    <option value="1">2005</option>
+                                    <option value="1">2006</option>
+                                    <option value="1">2007</option>
+                                    <option value="1">2008</option>
+                                    <option value="1">2009</option>
+                                    <option value="1">2010</option>
+                                    <option value="1">2011</option>
+                                    <option value="1">2012</option>
+                                    <option value="1">2013</option>
+                                    <option value="1">2014</option>
+                                    <option value="1">2015</option>
+                                    <option value="1">2016</option>
+                                    <option value="1">2017</option>
+                                    <option value="1">2018</option>
+                                </select>
+                                <div style="height:10px" class="d-block d-sm-none"></div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-6 offset-sm-3 col-md-5 offset-md-5 col-lg-10 offset-lg-1">
+                                <div style="height:10px;clear:both"></div>
+                                <div class="form-group">
+                                    <button type="button" class="curved_buttons" onclick=gonext()>Confirm</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--end of visa card div-->
+
+                </div>
+            </div>
+            <div class="right" id="card1_right">
+                <div class="select valign-m">Select</div>
+            </div>
+        </div>
+
+        <div style="height:15px;clear:both"></div>
+
+        <div class="oneitem" id="card2" ignoreselect="true">
+            <div class="left" id="card2_left">
+                <div class="txt1"><img src="paypal.png" width="50%"></div>
+            </div>
+            <div class="middle">
+                <div class="valign-m">
+                    <div class="txt1-xs-xm d-block d-md-none">Pay using your Paypal account <span style="float:right"><img width="50" height=auto src=paypal.png></span></div>
+
+                    <div class="mobileshow">
+                        <div style="height:10px;clear:both"></div>
+                        <div class="txt1-xs-xm_desc d-none d-md-block">Pay using your Paypal account</div>
+                    </div>
+                </div>
+            </div>
+            <div class="right" id="card2_right">
+                <div class="select valign-m">Select</div>
+            </div>
+        </div>
+
+        <div style="height:15px;clear:both"></div>
+
+        <div class="oneitem" id="card3" ignoreselect="true">
+            <div class="left" id="card3_left">
+                <div class="txt1"><i style="border:1px solid #000">NAPS</i></div>
+            </div>
+            <div class="middle">
+                <div class="valign-m">
+                    <div class="txt1-xs-xm d-block d-md-none">Pay with NAPS Card <span style="float:right"><i style="border:1px solid #000">NAPS</i></span></div>
+
+                    <div class="mobileshow">
+                        <div style="height:10px;clear:both"></div>
+                        <div class="txt1-xs-xm_desc  d-none d-md-block">Pay with NAPS Card</div>
+                    </div>
+                </div>
+            </div>
+            <div class="right" id="card3_right">
+                <div class="select valign-m">Select</div>
+            </div>
+        </div>
+
+        <div style="height:15px;clear:both"></div>
+
+        <div class="oneitem" id="card4" ignoreselect="true">
+            <div class="left" id="card4_left">
+                <div class="txt1"><img src="cashu.png" width="50%"></div>
+            </div>
+            <div class="middle">
+                <div class="valign-m">
+                    <div class="txt1-xs-xm d-block d-md-none">Pay with CASHU <span style="float:right"><img width="50" height=auto src=cashu.png></span></div>
+
+                    <div class="mobileshow">
+                        <div style="height:10px;clear:both"></div>
+                        <div class="txt1-xs-xm_desc  d-none d-md-block">Pay with CASHU</div>
+                    </div>
+                </div>
+            </div>
+            <div class="right" id="card4_right">
+                <div class="select valign-m">Select</div>
+            </div>
+        </div>
+
+    </div>
+    <!--end of step9-->
+
+    <!--step10-->
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-9 min-height step" id="step10">
+        <div style="height:50px;clear:both"></div>
+
+    </div>
+    <!--end of step10-->
+
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-3" id="order_summary" style='display:none'>
+
+        <div class=curved_full_container>
+
+            <div class=curved_full_top><span class="curve_header">Order summary</span></div>
+            <div class=curved_full_middle>
+
+                <div style="width:95%;margin:0 auto">
+
+                    <div style='width:100%;'>
+                        <div class=curve_txt1>Package</div>
+                    </div>
+
+                    <div style='width:100%'>
+                        <div class=curve_txt2_left>Complete </div>
+                        <div class=curve_txt2_right>120 $ </div>
+                    </div>
+                    <div style="height:5px;clear:both"></div>
+                    <div class=curve_hr style='clear:both;display:block'>&nbsp;</div>
+
+                    <div style='width:100%;'>
+                        <div class=curve_txt1>Add on</div>
+                    </div>
+
+                    <div style='width:100%;'>
+                        <div class=curve_txt2_left>2022 World Cup</div>
+                        <div class=curve_txt2_right>Free</div>
+                    </div>
+                    <div style="height:5px;clear:both"></div>
+                    <div class=curve_hr style='clear:both;display:block'>&nbsp;</div>
+
+                    <div style='width:100%;'>
+                        <div class=curve_txt1>Device</div>
+                        <div class=curve_txt2_left>beIN 4K Media server</div>
+                    </div>
+                    <div style="height:5px;clear:both"></div>
+                    <div class=curve_hr style='clear:both;display:block'>&nbsp;</div>
+
+                    <div style='width:100%;'>
+                        <div class=curve_txt1>Services</div>
+                        <div class=curve_txt2_left></div>
+                    </div>
+                    <div style='width:100%'>
+                        <div class=curve_txt2_left>Home Delivery </div>
+                        <div class=curve_txt2_right>65 $ </div>
+                    </div>
+
+                    <div style="height:5px;clear:both"></div>
+                    <div class=curve_hr style='clear:both;display:block'>&nbsp;</div>
+
+                    <div style='width:100%;'>
+                        <div class=curve_txt1>Payment plan</div>
+                        <div class=curve_txt2_left>12 Months</div>
+                    </div>
+
+                    <div style='clear:both;height:20px'>&nbsp;</div>
+
+                </div>
+
+            </div>
+            <div class=curved_full_bottom>
+                <div>
+                    <div class="curve_header_left">Total </div>
+                    <div class="curve_header_right">$ 360</div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="summarybuttons" style="clear:both;margin:0 auto;width:95%;text-align:right">
+			<div style="height:10px;clear:both"></div>
+            <div class="curved_buttons_left" onclick=goback()>Back</div>
+            <div class="curved_buttons_right" onclick=gonext()>Next</div>
+            <div class="curved_buttons_confirm" id="btnsummaryconfirm" onclick=goconfirm() style='display:none'>Confirm</div>
+        </div>
+    </div>
+
+    </div>
+
+    </div>
+
+    <div id="mobilemode" class="d-block d-md-none"></div>
+    <div class="fixed-bottom row" id="footer-area">
+		<div class="container">
+		<div class="row">
+		<div class="col-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="curved_buttons_left" onclick=goback() >Back</div>
+            <div class="curved_buttons_right" onclick=gonext()>Next</div>
+            <div id="btnfooterconfirm" class="curved_buttons_confirm_footer curved_buttons_right" onclick=gonext() style='display:none'>Confirm</div>
+		</div>
+		</div>
+		</div>	
+    </div>
+
+  <div style="height:100px" class="d-block d-lg-none"></div>
+
+    </div>
+
+    <script language=javascript>
+        footer();
+    </script>
+
+    <script>
+        var insummary = false;
+        var startbtn = -1
+        $(".btncountry").click(function(e) {
+            if (e.target != startbtn && startbtn != -1) {
+                $(startbtn).removeClass('btncountry_selected');
+                $(startbtn).find("i").css({
+                    "display": "none"
+                });
+                startbtn = e.target;
+            }
+            $(e.target).find("i").css({
+                "display": "block"
+            });
+            $(e.target).addClass('btncountry_selected');
+            startbtn = e.target;
+        });
+
+        //if the select button on desktop mode was clicked , this is also being autoclicked when the user selects an item in mobile mode
+        $(".right").click(function() {
+            $("#visa_master_content").hide();
+
+            var selectedobject = $(this).closest(".oneitem")[0].id;
+            //console.log($(this).closest(".oneitem").attr("chosen").length);
+
+            if ($(this).closest(".oneitem").attr("chosen") != "true") {
+                $("#" + selectedobject).attr("chosen", "true");
+
+                //highlight
+                if ($(this).closest(".oneitem").attr("promotion") == "true") {
+                    var left = selectedobject + "_left";
+                    var right = selectedobject + "_right";
+                    $("#" + left).removeClass("left");
+                    $("#" + left).addClass("promotion_left_over");
+                    $("#" + right).removeClass("right");
+                    $("#" + right).addClass("promotion_right_over");
+                    $("#" + selectedobject + " .txt1").addClass("txt1_over");
+                    $("#" + selectedobject + " .txt1").removeClass("txt1");
+
+                    $("#" + selectedobject + " .select").html("&#10004;")
+                    $("#" + selectedobject + " .select").addClass("select_over");
+                    $("#" + selectedobject + " .select").removeClass("select");
+                } else {
+                    var left = selectedobject + "_left";
+                    var right = selectedobject + "_right";
+                    $("#" + left).removeClass("left");
+                    $("#" + left).addClass("left_over");
+                    $("#" + right).removeClass("right");
+                    $("#" + right).addClass("right_over");
+                    $("#" + selectedobject + " .txt1").addClass("txt1_over");
+                    $("#" + selectedobject + " .txt1").removeClass("txt1");
+
+                    $("#" + selectedobject + " .select").html("&#10004;")
+                    $("#" + selectedobject + " .select").addClass("select_over");
+                    $("#" + selectedobject + " .select").removeClass("select");
+                }
+            } else {
+
+                $("#" + selectedobject).removeAttr("chosen");
+
+                if ($(this).closest(".oneitem").attr("promotion") == "true") {
+                    var left = selectedobject + "_left";
+                    var right = selectedobject + "_right";
+                    $("#" + left).removeClass("promotion_left_over").addClass("left");
+                    $("#" + right).removeClass("promotion_right_over").addClass("right");
+                    $("#" + selectedobject + " .txt1_over").removeClass("txt1_over").addClass("txt1");
+                    $("#" + selectedobject + " .select_over").removeClass("select_over").addClass("select");
+                    $("#" + selectedobject + " .select").html("Select")
+                } else {
+                    var left = selectedobject + "_left";
+                    var right = selectedobject + "_right";
+                    $("#" + left).removeClass("left_over").addClass("left");
+                    $("#" + right).removeClass("right_over").addClass("right");
+                    $("#" + selectedobject + " .txt1_over").removeClass("txt1_over").addClass("txt1");
+                    $("#" + selectedobject + " .select_over").removeClass("select_over").addClass("select");
+                    $("#" + selectedobject + " .select").html("Select")
+                }
+            }
+
+            if ($("#" + selectedobject).attr("id") == "card1") {
+                $("#visa_master_content").attr("display", "inline-block");
+                $("#" + selectedobject).find("#card1_left").css({
+                    height: "350px",
+                    borderTopLeftRadius: "10px",
+                    borderBottomLeftRadius: "10px"
+                });
+                $("#" + selectedobject).find("#card1_right").css({
+                    height: "350px",
+                    borderTopRightRadius: "10px",
+                    borderBottomRightRadius: "10px"
+                });
+                $("#" + selectedobject).find(".middle").css({
+                    height: "350px"
+                });
+                $("#visa_master_content").show();
+
+            } else if ($("#" + selectedobject).attr("id").indexOf("card") >= 0) {
+                alert("CALL TO EXTERNAL ACTION ***");
+                return;
+            }
+
+        })
+
+        function highlightedesktop(id) {
+            $("#visa_master_content").hide();
+
+            var selectedobject = id;
+
+            //highlight
+
+            if ($("#" + id).attr("promotion") == "true") {
+                var left = selectedobject + "_left";
+                var right = selectedobject + "_right";
+                $("#" + left).removeClass("left");
+                $("#" + left).addClass("promotion_left_over");
+                $("#" + right).removeClass("right");
+                $("#" + right).addClass("promotion_right_over");
+                $("#" + selectedobject + " .txt1").addClass("txt1_over");
+                $("#" + selectedobject + " .txt1").removeClass("txt1");
+
+                $("#" + selectedobject + " .select").html("&#10004;")
+                $("#" + selectedobject + " .select").addClass("select_over");
+                $("#" + selectedobject + " .select").removeClass("select");
+            } else {
+                var left = selectedobject + "_left";
+                var right = selectedobject + "_right";
+                $("#" + left).removeClass("left");
+                $("#" + left).addClass("left_over");
+                $("#" + right).removeClass("right");
+                $("#" + right).addClass("right_over");
+                $("#" + selectedobject + " .txt1").addClass("txt1_over");
+                $("#" + selectedobject + " .txt1").removeClass("txt1");
+
+                $("#" + selectedobject + " .select").html("&#10004;")
+                $("#" + selectedobject + " .select").addClass("select_over");
+                $("#" + selectedobject + " .select").removeClass("select");
+            }
+
+            if ($("#" + selectedobject).attr("id") == "card1") {
+                $("#visa_master_content").attr("display", "inline-block");
+                $("#" + selectedobject).find("#card1_left").css({
+                    height: "350px",
+                    borderTopLeftRadius: "10px",
+                    borderBottomLeftRadius: "10px"
+                });
+                $("#" + selectedobject).find("#card1_right").css({
+                    height: "350px",
+                    borderTopRightRadius: "10px",
+                    borderBottomRightRadius: "10px"
+                });
+                $("#" + selectedobject).find(".middle").css({
+                    height: "350px"
+                });
+                $("#visa_master_content").show();
+
+            } else if ($("#" + selectedobject).attr("id").indexOf("card") >= 0) {
+                alert("CALL TO EXTERNAL ACTION ***");
+                return;
+            }
+
+        }
+
+        function goback() {
+
+			initial();
+			
+            if (d > 0) {
+			
+                $("#step" + d).hide();
+                $("#step" + d + "_header").hide();
+
+                d = d - 1;
+				initial();
+               showhideelements(d);
+
+            }
+
+            $("#step" + d).show();
+            $("#step" + d + "_header").show();
+
+            $('body,html').animate({
+                scrollTop: 0
+            }, 400);
+        }
+
+        d = 0;
+
+        function goconfirm() {
+            gonext();
+        }
+
+        function gonext() {
+
+            $('#cover-spin').show(0);
+
+            setTimeout(function() {
+
+                //your long waiting AJAX calls in here ....
+                $('#cover-spin').hide(0);
+
+                if (d <= 10) {
+
+                    $("#step" + d).hide();
+                    $("#step" + d + "_header").hide();
+
+                    d = d + 1;
+					
+					initial();
+                    showhideelements(d);
+
+                    $("#step" + d).show();
+                    $("#step" + d + "_header").show();
+                }
+
+                $('body,html').animate({
+                    scrollTop: 0
+                }, 400);
+				fixheight();
+
+            }, 300);
+
+        }
+
+        function viewchannels() {
+            return;
+        }
+    </script>
+
+</body>
+
+</html>
+
+<script>
+    function validatemobile() {
+
+        var err = 0;
+
+        const msg2 = "<p class=err><i class='fa fa-exclamation-triangle'>&nbsp;</i>The <em>Country code</em> must be chosen</p>";
+        const msg3 = "<p class=err><i class='fa fa-exclamation-triangle'>&nbsp;</i>Please type a valid mobile number</p>";
+
+        $("#msg").hide();
+        $("#msgtxt").text('');
+        $("#msgtxt").html('');
+
+        $("#msg_step3").hide();
+        $("#msg_step3_txt").text('');
+        $("#msg_step3_txt").html('');
+
+        if ($("#country").val() == 0) {
+            err = 1;
+            $("#msg_step3").show();
+            $("#msg_step3_txt").html(msg2);
+            return;
+        } else if ($("#mobile").val() == "") {
+            err = 1;
+            $("#msg_step3").show();
+            $("#msg_step3_txt").html(msg3);
+            return;
+        } else if ($("#mobile").val() != "1234567890") {
+            if ($("#mobilecode_container").css("display") == 'none') {
+                $("#basicModal").modal("show");
+                return;
+            }
+        } else {
+            $("#step3").fadeTo(400, 0.3);
+            $("#step4").fadeTo(400, 10);
+        }
+
+    }
+
+    var bycall = true;
+
+    function mobilechanged(opt) {
+        if (opt == true) {
+            bycall = false;
+            $("#otp1").html("Enter the CODE we sent to you by SMS");
+            $("#otp2").html("If you did not receive ? click here to resend");
+            $("#mobile_msg").hide();
+            $("#mobile_container").fadeTo(400, 0.3);
+            $("#mobilecode_container").show();
+
+        } else {
+            bycall = true;
+            $("#otp1").html("Enter the CODE provided by beIN customer care");
+            $("#otp2").html("If you did not receive a call ? click here to reinitiate");
+            $("#mobile_msg").hide();
+            $("#mobile_container").fadeTo(400, 0.3);
+            $("#mobilecode_container").show();
+            /*
+            $("#mobilecode_container").hide();
+            $("#step4").hide();
+            $("#mobile").attr("placeholder", "xxxxx67890");
+            $("#mobile").val('');	
+            $("#mobile_msg").show();
+            $("#mobile_msg").html("<p class=info><i class='fa fa-exclamation-triangle'></i>&nbsp;Enter your existing number</p>");
+            */
+        }
+    }
+
+    function emailchanged(opt) {
+        if (opt == true) {
+            $("#email_msg").hide();
+            $("#email_container").fadeTo(400, 0.3);
+            $("#emailcode_container").show();
+
+        } else {
+            $("#mobilecode_container").hide();
+            $("#step4").hide();
+            $("#mobile").attr("placeholder", "xxxxx67890");
+            $("#mobile").val('');
+            $("#mobile_msg").show();
+            $("#mobile_msg").html("<p class=info><i class='fa fa-exclamation-triangle'></i>&nbsp;Enter your existing number</p>");
+        }
+    }
+
+    function validatemobilecode() {
+        var msg1 = "<p class=err><i class='fa fa-exclamation-triangle'>&nbsp;</i>Invalid mobile CODE</p>";
+
+        if ($("#mobilecode").val() != "123456") {
+            err = 1;
+            $("#mobile_code_msg").show();
+            $("#mobile_code_msg").html(msg1);
+        } else if ($("#mobilecode").val() == "123456") {
+            $("#mobilecode_container").fadeTo(400, 0.3);
+            err = 0;
+        }
+
+        if (err == 0) {
+            //$("#step3").fadeTo(400,0.3);
+            //$("#step4").fadeTo(400,10);
+        }
+
+    }
+
+    function validateemailcode() {
+        var msg1 = "<p class=err><i class='fa fa-exclamation-triangle'>&nbsp;</i>Invalid EMAIL CODE</p>";
+
+        if ($("#emailcode").val() != "123456") {
+            err = 1;
+            $("#email_code_msg").show();
+            $("#email").html(msg1);
+        } else if ($("#emailcode").val() == "123456") {
+            $("#emailcode_container").fadeTo(400, 0.3);
+            err = 0;
+        }
+
+        if (err == 0) {
+            //$("#step3").fadeTo(400,0.3);
+            //$("#step4").fadeTo(400,10);
+        }
+
+    }
+
+    function yesno(object) {
+        if ($("#" + object.id).attr('class') == 'far fa-circle fa-2x') {
+            $("#" + object.id).removeClass("far fa-circle fa-2x")
+            $("#" + object.id).addClass("far fa-check-circle fa-2x")
+        } else {
+            $("#" + object.id).removeClass("far fa-check-circle fa-2x")
+            $("#" + object.id).addClass("far fa-circle fa-2x")
+        }
+
+    }
+
+    $('#file-upload1').change(function() {
+        var i = $(this).prev('label').clone();
+        var file = "";
+        file = $('#file-upload1')[0].files[0].name.split(".");
+        filepart1 = file[0].slice(0, 5);
+        filepart2 = "..." + file[1];
+        file = "<i class='fas fa-check-circle fa-lg'></i>&nbsp;&nbsp;" + filepart1 + filepart2 + "</i>";
+        $("#up1_filename").html(file);
+    });
+
+    $('#file-upload2').change(function() {
+        var i = $(this).prev('label').clone();
+        var file = "";
+        file = $('#file-upload2')[0].files[0].name.split(".");
+        filepart1 = file[0].slice(0, 5);
+        filepart2 = "..." + file[1];
+        file = "<i class='fas fa-check-circle fa-lg'></i>&nbsp;&nbsp;" + filepart1 + filepart2 + "</i>";
+        $("#up2_filename").html(file);
+    });
+
+    $('#idexpiry').datepicker({
+        autoclose: true,
+        todayHighlight: true,
+        format: "dd MM yyyy"
+    });
+
+    var clock = $('.verify-clock').FlipClock(2, {
+        countdown: true,
+        clockFace: 'MinuteCounter',
+        autoStart: false,
+        callbacks: {
+            interval: function() {
+                var time = clock.getTime().time;
+
+                if (time == 0) {
+
+                    $(".approved").show();
+
+                }
+                //alert(time);
+                //if (time % 60 == 0) {
+                //     //Change element
+                //}
+            }
+        }
+    });
+
+   
+   $(window).resize(function() {
+        //the resize does not fire on maximize / restore, but it fires after a certain time, so we put the code inside timeout
+        setTimeout(function() {
+            resizecode();
+        }, 200);
+    });
+
+
+    function openNav() {
+        document.getElementById("myNav").style.width = "100%";
+    }
+
+    /* Close when someone clicks on the "x" symbol inside the overlay */
+    function closeNav() {
+        document.getElementById("myNav").style.width = "0%";
+    }
+	
+	function showhideelements(d)
+	{
+					if(d==0)
+					$("#order_summary").hide();
+
+					if (d == 5) {
+                        $(".summarybuttons .curved_buttons_left").show();
+                        $(".summarybuttons .curved_buttons_right").show();
+                       $("#btnfooterconfirm").hide();
+
+                    }
+					if (d == 6) {
+                        $(".summarybuttons .curved_buttons_left").hide();
+                        $(".summarybuttons .curved_buttons_right").hide();
+                        $(".fixed-bottom").hide();
+                        $(".fixed-bottom .curved_buttons_left").hide();
+                        $(".fixed-bottom .curved_buttons_right").hide();
+
+                    }
+
+                    if (d == 7) {
+                        $(".summarybuttons .curved_buttons_left").hide();
+                        $(".summarybuttons .curved_buttons_right").hide();
+                        $(".fixed-bottom").hide();
+                        $(".fixed-bottom .curved_buttons_left").hide();
+                        $(".fixed-bottom .curved_buttons_right").hide();
+
+                        clock.start(function() {
+                            // Optional callback will fire when the clock starts
+                        });
+                    }
+
+                    if (d == 8) {
+
+                        $(".summarybuttons .curved_buttons_left").hide();
+                        $(".summarybuttons .curved_buttons_right").hide();
+                        $(".fixed-bottom .curved_buttons_left").hide();
+                        $(".fixed-bottom .curved_buttons_right").hide();
+						$("#btnsummaryconfirm").show();
+                        $(".fixed-bottom .curved_buttons_confirm_footer").show();
+
+                        if ($("#mobilemode").css("display") == "block")
+                         $(".fixed-bottom").show();
+                    }
+
+                    if (d == 9) {
+                        $(".summarybuttons .curved_buttons_left").show();
+                        $(".summarybuttons .curved_buttons_right").hide();
+                        $(".fixed-bottom").hide();
+                        $(".fixed-bottom .curved_buttons_left").show();
+                        $(".fixed-bottom .curved_buttons_right").hide();
+						$("#btnsummaryconfirm").show();
+                    }
+
+                    if (d == 10) {
+						$("#order_summary").hide();
+                        $(".summarybuttons .curved_buttons_left").hide();
+                        $(".summarybuttons .curved_buttons_right").hide();
+                        $(".fixed-bottom").hide();
+                        $(".fixed-bottom .curved_buttons_left").hide();
+                        $(".fixed-bottom .curved_buttons_right").hide();
+                        showmodal('modal_thankyou');
+                    }
+
+	}
+</script>

@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>My beIN</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="ds/jquery-2.2.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link rel="stylesheet" href="ds/theme.en.css">
+    <link rel="stylesheet" href="common.css" />
+    <link rel="stylesheet" href="all.css" />
+    <style>
+		@media only screen and (min-width : 320px) {
+			.icon_text{padding-top:5px;font-family:Gotham-Medium;font-size:9px;color:#4A3562}
+			ul {
+				display: flex;
+				align-items: stretch;
+				/* Default */
+				justify-content: space-between;
+				width: 100%;
+				margin: 0;
+				padding: 0;
+			}
+			.subscribe_blues
+			{
+				background-color:#493661;height:120px;	
+				height:120px;
+				color:#fff;
+			}
+			.subscribe_blues2
+			{
+				background-color:#493661;height:1px;	
+				margin-bottom:5px;
+				box-shadow: 0px 5px:
+				color:#fff;
+			}
+		}
+		
+		@media only screen and (min-width : 768px) {
+			.icon_text{padding-top:5px;font-weight:bold;font-family:Gotham-Medium;font-size:12px;color:#4A3562}
+			ul {
+            display: flex;
+            align-items: stretch;
+            /* Default */
+            justify-content: space-evenly;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+			}
+			.subscribe_blues
+			{
+				background-color:#493661;height:90px;
+				height:70px;
+				color:#fff;
+			}
+			.subscribe_blues2
+			{
+				background-color:#493661;height:1px;
+				color:#fff;
+				margin-bottom:15px;
+			}
+		}
+	
+        
+        li {
+            display: block;
+            flex: 0 1 auto;
+            /* Default */
+            list-style-type: none;
+        }
+        
+        .avatar {
+            width: 50px;
+            height: 50px;
+            border: 1px solid #E9E9F0;
+            border-radius: 100px;
+            -webkit-border-radius: 100px;
+            -moz-border-radius: 100px;
+        }
+        
+        .avatar img {
+            margin-left: auto;
+            margin-right: auto;
+            vertical-align: middle;
+            display: block;
+            text-align: center;
+            padding-top: 8px;
+        }
+		.subheader{font-family:'Gotham-Medium';font-size:18pt}
+		
+    </style>
+    <script src="common.js"></script>
+    <body>
+
+        <script>
+		mobilemenu2();
+        header2();
+        </script>
+
+        <div class="all">
+			<div id="container" class="container" style="clear:both">	
+                <div class="row">
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pt-4 d-block d-lg-none" style="clear:both">
+						<div style="float:left;width:50%">
+						<h2 class=mainheader>Subscriptions</h2>	
+						</div>
+						<div class="text-right" style="float:right;">
+							<img align=center src="add.svg" onclick=window.location='addsubscription.html'>
+							<div class="text-center" style="padding-top:5px;font-weight:bold;font-family:Gotham-Medium;font-size:9px;color:#4A3562">Add</div>
+						</div>
+					</div>
+				</div>
+
+                <script language=javascript>
+                   menu();
+                </script>
+
+                <!--SINGLE SUBSCRIPION-->
+				
+				<div class="row no-pad d-none d-lg-block">
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+						<div class=curved_buttons_signout2>
+						<div style="display:table;width:100%;height:50px;">
+							<div class=valign-m-c style='color:#5C2D91' onclick=window.location='addsubscription.html'>
+							<i class="fas fa-plus-circle fa-1x removefloat"></i>&nbsp;&nbsp;Add Subscription
+							</div>
+						</div>
+						</div>
+					</div>
+				</div>
+				
+				<div style="height:15px"></div>
+				
+				<div class="row">
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="clear:both">
+						<span class="subheader">Subscription 1</span>
+					</div>
+				</div>
+				
+
+				<div style="height:15px"></div>
+      
+                <div class="row no-pad">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+                        <div class=curved_full>
+
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div style="height:20px"></div>
+                                    <ul>
+                                        <li onclick=window.location='pr.html' style=cursor:pointer>
+                                            <div class="avatar" ><img align=center src="promotions.png"></div>
+											<div class="text-center icon_text">Promotions</div>
+                                        </li>
+                                        <li onclick=window.location='ad.html' style=cursor:pointer>
+                                            <div class="avatar"><img src="addons.png"></div>
+											<div class="text-center icon_text">Add Ons</div>
+                                        </li>
+                                        <li onclick=window.location='re.html' style=cursor:pointer>
+                                            <div class="avatar"><img src="renew.png"></div>
+											<div class="text-center icon_text"  style="">Renew</div>
+                                        </li>
+                                        <li onclick=window.location='up.html' style=cursor:pointer>
+                                            <div class="avatar"><img src="upgrade.png"></div>
+											<div class="text-center icon_text">Upgrade</div>
+                                        </li>
+                                        <li onclick=window.location='bo.html' style=cursor:pointer>
+                                            <div class="avatar"><img src="boxoffice.png"></div>
+											<div class="text-center icon_text">Box Office</div>
+                                        </li>
+                                        <li onclick=window.location='to.html' style=cursor:pointer>
+                                            <div class="avatar"><img src="topup.png"></div>
+											<div class="text-center icon_text">Top Up</div>
+                                        </li>
+                                    </ul>
+									<div style="height:20px"></div>
+                                </div>
+                            </div> 
+							
+							<div class="row no-pad">
+                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 subscribe_blues">
+									<div class="row pt-3">
+										<div class="col-12 col-md-8 col-lg-9">Payment Due : $300</div>
+										<div class="col-12 col-md-4 col-lg-3 text-right">
+											<div class="curved_buttons_white">Pay</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+                         
+                            <div class="row">
+
+                                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                                    <span class=curve_header1>Smart Card Number</span>
+                                    <span class=curve_header2>10066785314</span>
+
+                                    <span class=curve_header1>Receiver Number</span>
+                                    <span class=curve_header2>13150042201850</span>
+
+                                    <span class=curve_header1>Receiver Type</span>
+                                    <span class=curve_header2>beIN 4k Media Server</span>
+
+                                    <span class=curve_header1>Package</span>
+                                    <span class=curve_header2>Access</span>
+                                </div>
+
+                                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+
+                                    <span class=curve_header1>Add on</span>
+                                    <span class=curve_header2>2022 FIFA WORLD CUP</span>
+
+                                    <span class=curve_header1>Contract Start Date</span>
+                                    <span class=curve_header2>23-Dec-2017</span>
+
+                                    <span class=curve_header1>Contract End Date</span>
+                                    <span class=curve_header2>23-Dec-2018</span>
+
+                                    <span class=curve_header1>Payment by</span>
+                                    <span class=curve_header2>Cash Payment</span>
+                                </div>
+
+                                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+
+                                    <span class=curve_header1>Payment Plan</span>
+                                    <span class=curve_header2>Full Amount</span>
+
+                                    <span class=curve_header1>Current Balance</span>
+                                    <span class=curve_header2>$ 500</span>
+
+                                </div>
+                            </div>
+							
+							 <div class="row">
+                                <div class="col-12 col-sm-6 offset-sm-6 col-md-4 offset-md-8 col-lg-3 offset-lg-9 text-right">
+                                    <div class="curved_buttons_white" onclick=sendsignal('s1')>Activate Signal</div>
+                                </div>
+                            </div>
+
+                           
+
+                            <div style="height:20px"></div>
+
+                        </div>
+                    </div>
+                </div>
+                <!--END OF SINGLE SUBSCRIPION-->
+				
+				<div style="height:15px"></div>
+				<!--SINGLE SUBSCRIPION-->
+
+				<div class="row">
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="clear:both">
+						<span class="subheader">Subscription 2</span>
+					</div>
+				</div>
+
+				<div style="height:15px"></div>
+
+                <div class="row no-pad">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+                        <div class=curved_full>
+
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div style="height:20px"></div>
+                                    <ul>
+                                        <li>
+                                            <div class="avatar"><img align=center src="promotions.png"></div>
+											<div class="text-center icon_text">Promotions</div>
+                                        </li>
+                                        <li>
+                                            <div class="avatar"><img src="addons.png"></div>
+											<div class="text-center icon_text">Add Ons</div>
+                                        </li>
+                                        <li>
+                                            <div class="avatar"><img src="renew.png"></div>
+											<div class="text-center icon_text">Renew</div>
+                                        </li>
+                                        <li>
+                                            <div class="avatar"><img src="upgrade.png"></div>
+											<div class="text-center icon_text">Upgrade</div>
+                                        </li>
+                                        <li>
+                                            <div class="avatar"><img src="boxoffice.png"></div>
+											<div class="text-center icon_text">Box Office</div>
+                                        </li>
+                                        <li>
+                                            <div class="avatar"><img src="topup.png"></div>
+											<div class="text-center icon_text">Top Up</div>
+                                        </li>
+                                    </ul>
+									<div style="height:20px"></div>
+                                </div>
+                            </div> 
+							
+							<div class="row no-pad">
+                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 subscribe_blues2">
+									
+								</div>
+							</div>
+
+                         
+                            <div class="row">
+
+                                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                                    <span class=curve_header1>Smart Card Number</span>
+                                    <span class=curve_header2>10066785314</span>
+
+                                    <span class=curve_header1>Receiver Number</span>
+                                    <span class=curve_header2>13150042201850</span>
+
+                                    <span class=curve_header1>Receiver Type</span>
+                                    <span class=curve_header2>beIN 4k Media Server</span>
+
+                                    <span class=curve_header1>Package</span>
+                                    <span class=curve_header2>Access</span>
+                                </div>
+
+                                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+
+                                    <span class=curve_header1>Add on</span>
+                                    <span class=curve_header2>2022 FIFA WORLD CUP</span>
+
+                                    <span class=curve_header1>Contract Start Date</span>
+                                    <span class=curve_header2>23-Dec-2017</span>
+
+                                    <span class=curve_header1>Contract End Date</span>
+                                    <span class=curve_header2>23-Dec-2018</span>
+
+                                    <span class=curve_header1>Payment by</span>
+                                    <span class=curve_header2>Cash Payment</span>
+                                </div>
+
+                                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+
+                                    <span class=curve_header1>Payment Plan</span>
+                                    <span class=curve_header2>Full Amount</span>
+
+                                    <span class=curve_header1>Current Balance</span>
+                                    <span class=curve_header2>$ 500</span>
+
+                                </div>
+                            </div>
+							
+							 <div class="row">
+                                <div class="col-12 col-sm-6 offset-sm-6 col-md-4 offset-md-8 col-lg-3 offset-lg-9 text-right">
+                                    <div class="curved_buttons_white" onclick=sendsignal('s1')>Activate Signal</div>
+                                </div>
+                            </div>
+
+                            <div style="height:20px"></div>
+
+                        </div>
+                    </div>
+                </div>
+                <!--END OF SINGLE SUBSCRIPION-->
+            </div>
+			<div style="height:100px"></div>
+        </div>
+        <script>
+        footer();
+		footer_mobiletab();
+		</script>
+    </body>
+</html>
+
