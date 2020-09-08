@@ -234,7 +234,7 @@ $(document).click(function() {
 });
 
 $( document ).ready(function() {
-     if (new String(window.location).indexOf("signin.html") == -1 && new String(window.location).indexOf("subscriptions.html") == -1 && new String(window.location).indexOf("payments.html") == -1 && new String(window.location).indexOf("orders.html") == -1 && new String(window.location).indexOf("create.html") == -1 && new String(window.location).indexOf("accounts.html") == -1) {
+     if (new String(window.location).indexOf("signin.html") == -1 && new String(window.location).indexOf("subscriptions.html") == -1 && new String(window.location).indexOf("payments.html") == -1 && new String(window.location).indexOf("orders.html") == -1 && new String(window.location).indexOf("create.html") == -1 && new String(window.location).indexOf("accounts.html") == -1  && new String(window.location).indexOf("register.html") == -1) {
         initial();
     }
     fixheight();
@@ -293,11 +293,11 @@ function initial() {
         $(".summarybuttons").show();
 
 
-        if (new String(window.location).indexOf("pr.html") > 0 || new String(window.location).indexOf("ad.html") >0 || new String(window.location).indexOf("re.html") >0 || new String(window.location).indexOf("up.html") >0 || new String(window.location).indexOf("bo.html")>0) {
+        if (new String(window.location).indexOf("pr.html") > 0 || new String(window.location).indexOf("ad.html") >0 || new String(window.location).indexOf("re.html") >0 || new String(window.location).indexOf("up.html") >0 || new String(window.location).indexOf("bo.html")>0 || new String(window.location).indexOf("gifts.html")>0) {
 			$(".summarybuttonsall").show();
             $("#order_summary").removeClass("order_summary_nodisplay").addClass("order_summary");
         }
-		else if (new String(window.location).indexOf("to.html") > 0) {
+		else if (new String(window.location).indexOf("to.html") > 0 || new String(window.location).indexOf("wallet.html") > 0) {
 			$(".summarybuttonsall_2").hide();
             $("#order_summary").removeClass("order_summary").addClass("order_summary_nodisplay");
         } 		

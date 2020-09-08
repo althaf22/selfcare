@@ -182,7 +182,7 @@ function validatemobile()
 
 	$("#msg").hide();
 	$("#msgtxt").text('');
-	$("#msgtxt").html('');
+	
 	
 	
 	$("#msg_step3").hide();
@@ -379,14 +379,14 @@ function validatemobilecode()
 			
 
 			<div class="row">
-					<div class="col-xs-12 col-sm-8 col-md-8 col-lg-6">
+					<div class="col-xs-12 col-sm-8 col-md-8 col-lg-5">
 						<label  for="smartcard" class="lbl">&nbsp;&nbsp;Smart Card</label>
 						<input type="text" class="form-control form-rounded transparent-input" id="smartcard" placeholder="Your Smart Card Number" data-maxlength="11">
 					</div>
 				</div>
 
 			<div class="row" >
-					<div class="col-xs-12 col-sm-8 col-md-8 col-lg-6">
+					<div class="col-xs-12 col-sm-8 col-md-8 col-lg-5">
 						<div class="form-group" >
 							<div style="height:15px;clear:both"></div>
 							<button type="button" class="btn btn-success form-rounded" onclick='validatesmartcard()'>Verify Smart card</button>
@@ -541,17 +541,16 @@ function validatemobilecode()
 			
 			<div id="step_last">
 			
-			<div class="row">
-				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-				<hr style="height:0.5px;color:#5C2D91;display:block;height:0.5px;background-color:#5C2D91;margin-top:10px">&nbsp;
-				</div>
-			</div>
+			
+			<div class="ruler">&nbsp;</div>
+			
+			<div style="height:20px"></div>
 			
 			
 			<div class="row">
 				<div class="col-xs-12 col-sm-8 col-md-8 col-lg-6">
 					<div class="form-group">
-						<label  for="smartcard" >&nbsp;&nbsp;Buy new receiver and subscription</label>
+						<label  for="smartcard" >&nbsp;&nbsp;Buy a new receiver and subscription</label>
 					</div>
 				</div>
 			</div>
@@ -559,6 +558,20 @@ function validatemobilecode()
 			<div class="row">
 				<div class="col-xs-12 col-sm-8 col-md-8 col-lg-6">
 					<button type="button" class="btn btn-success form-rounded" onclick=window.location='user.html'>Buy</button>
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-xs-12 col-sm-8 col-md-8 col-lg-6">
+					<div class="form-group">
+						<label  for="smartcard" >&nbsp;&nbsp;Give a Gift</label>
+					</div>
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-xs-12 col-sm-8 col-md-8 col-lg-6">
+					<button type="button" class="btn btn-success form-rounded" onclick=window.location='gifts.html'>Send a Gift</button>
 				</div>
 			</div>
 			

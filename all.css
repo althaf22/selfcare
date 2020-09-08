@@ -151,6 +151,8 @@ input[type="file"] {
 	outline:none;
 }
 
+.btn-full{width:100%}
+
 .curved_buttons_white{font-family: 'Gotham-Medium';font-size: 14pt;border-top-left-radius:30px;    border-top-right-radius:30px;	border-bottom-left-radius:30px;    border-bottom-right-radius:30px;		background: rgb(255,255,255);background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 0%, rgba(233,233,240,1) 100%);	color:#4A3562;text-align:center;	width:100%;	margin:0 auto;margin-top:4px;float:left;height:40px;line-height:40px;margin-right:10px;cursor:pointer;border:1px solid #767382;box-shadow: 1px 1px #00000029;}
 .curve_mainheader{font-family:'Gotham-XLight';font-size:30px;color:#2B2932;display:block;font-weight:100;margin-bottom:20px}
 
@@ -208,8 +210,8 @@ input[type="file"] {
 	.thad{background-color:#ffffff;color:#2B2932;font-size:16px;vertical-align:middle}
 	.ths{color:#2B2932;font-family:'Gotham-Book';font-size:16px;font-weight:bold;background-color:#ffffff}
 	.thd{background-color:#fff;color:#2B2932;vertical-align:middle;font-size:16px}
-	.tblcell:nth-of-type(1){font-weight:bold}
-	.tblcell {}
+	.tblcell:nth-of-type(1){font-weight:bold;float:left;width:50%}
+	.tblcell:nth-of-type(2){float:left;width:50%}
 	
 	
 	.left{display:none}
@@ -261,6 +263,10 @@ input[type="file"] {
 .footerright{display:table;width:100%;height:10px;text-align:center}
 .expandable{display:block}
 .collapsible{display:block}
+
+
+.curved_buttons_active    {font-family: 'Gotham-Book';font-size: 15px;border-top-left-radius:30px;    border-top-right-radius:30px;	border-bottom-left-radius:30px;    border-bottom-right-radius:30px;		background-color:#229933;	color:#ffffff;text-align:center;	width:46%!important; margin:0 auto;margin-top:4px;float:left;height:28px;line-height:28px;margin-right:10px;border:0}
+.curved_buttons_setdefault{font-family: 'Gotham-Book';font-size: 15px;border-top-left-radius:30px;    border-top-right-radius:30px;	border-bottom-left-radius:30px;    border-bottom-right-radius:30px;		background-color:#D5D4D8;	color:#2B2932;text-align:center;	width:46%!important; margin:0 auto;margin-top:4px;float:left;height:28px;line-height:28px;margin-right:10px;cursor:pointer;border:0;border:1px solid #229933;}
 
 }
 
@@ -367,7 +373,8 @@ input[type="file"] {
 .thad{background-color:#faf7ff;color:#2B2932;font-size:16px;vertical-align:middle;height:40px}
 .ths{color:#2B2932;font-family:'Gotham-Book';font-size:16px;font-weight:bold;background-color:#ffffff;height:40px}
 .thd{background-color:#fff;color:#2B2932;vertical-align:middle;font-size:16px;height:40px}
-.tblcell:nth-of-type(1){font-weight:bold}
+.tblcell:nth-of-type(1){font-weight:bold;width:100%}
+.tblcell:nth-of-type(2){width:100%}
 .tblcell {display:table-cell;height:40px;vertical-align:middle}
 .tblhead{font-weight:bold}	
 .footerleft {display:table;width:100%;height:60px;text-align:center}
@@ -560,6 +567,7 @@ input[type="file"] {
 	h4{  font-family: 'Gotham-Book';}
     
 	.curved_buttons{font-family: 'Gotham-Book';font-size: 15px;border-top-left-radius:30px;    border-top-right-radius:30px;	border-bottom-left-radius:30px;    border-bottom-right-radius:30px;		background-color:#5C2D91;	color:#ffffff;text-align:center;	width:100%;	margin:0 auto;margin-top:4px;float:left;height:40px;line-height:40px;margin-right:10px;cursor:pointer;border:0}
+	.curved_buttons_gray_cancel{font-family: 'Gotham-Book';font-size: 15px;border-top-left-radius:30px;    border-top-right-radius:30px;	border-bottom-left-radius:30px;    border-bottom-right-radius:30px;		background-color:#D5D4D8;	color:#2B2932;text-align:center;	width:100%;	margin:0 auto;margin-top:4px;float:left;height:40px;line-height:40px;margin-right:10px;cursor:pointer;border:0}
 	.curved_buttons_red{font-family: 'Gotham-Book';font-size: 15px;border-top-left-radius:30px;    border-top-right-radius:30px;	border-bottom-left-radius:30px;    border-bottom-right-radius:30px;		background-color:red;	color:#ffffff;text-align:center;	width:100%;	margin:0 auto;margin-top:4px;float:left;height:40px;line-height:40px;margin-right:10px;cursor:pointer}
 	.curved_buttons_gray{margin:0 auto;font-family: 'Gotham-Book';font-size: 15px;border-top-left-radius:30px;    border-top-right-radius:30px;	border-bottom-left-radius:30px;    border-bottom-right-radius:30px;		background-color:#E9E9F0;	color:#2B2932;text-align:center;	width:90%;	margin:0 auto;margin-top:4px;height:40px;line-height:40px;cursor:pointer}
 	.curved_buttons_red{font-family: 'Gotham-Book';font-size: 15px;border-top-left-radius:30px;    border-top-right-radius:30px;	border-bottom-left-radius:30px;    border-bottom-right-radius:30px;		background-color:#C90000;	color:#ffffff;text-align:center;	width:100%;	margin:0 auto;margin-top:4px;float:left;height:40px;line-height:40px;margin-right:10px;cursor:pointer}
@@ -641,6 +649,7 @@ input[type="file"] {
 
 	.curved_buttons_gray{font-family: 'Gotham-Book';font-size: 15px;border-top-left-radius:30px;    border-top-right-radius:30px;	border-bottom-left-radius:30px;    border-bottom-right-radius:30px;		background-color:#E9E9F0;	color:#2B2932;text-align:center;	width:90%;	margin:0 auto;margin-top:4px;height:40px;line-height:40px;cursor:pointer}
 	.curved_buttons{font-family: 'Gotham-Book';font-size: 15px;border-top-left-radius:30px;    border-top-right-radius:30px;	border-bottom-left-radius:30px;    border-bottom-right-radius:30px;		background-color:#5C2D91;	color:#ffffff;text-align:center;	width:100%;	margin:0 auto;margin-top:4px;float:left;height:40px;line-height:40px;margin-right:10px;cursor:pointer;border:0}
+	.curved_buttons_gray_cancel{font-family: 'Gotham-Book';font-size: 15px;border-top-left-radius:30px;    border-top-right-radius:30px;	border-bottom-left-radius:30px;    border-bottom-right-radius:30px;		background-color:#D5D4D8;	color:#2B2932;text-align:center;	width:100%;	margin:0 auto;margin-top:4px;float:left;height:40px;line-height:40px;margin-right:10px;cursor:pointer;border:0}
 	.curved_buttons_red{font-family: 'Gotham-Book';font-size: 15px;border-top-left-radius:30px;    border-top-right-radius:30px;	border-bottom-left-radius:30px;    border-bottom-right-radius:30px;		background-color:#C90000;	color:#ffffff;text-align:center;	width:100%;	margin:0 auto;margin-top:4px;float:left;height:40px;line-height:40px;margin-right:10px;cursor:pointer}
 	.curved_buttons_red_promotion{font-family: 'Gotham-Book';font-size: 15px;border-top-left-radius:30px;    border-top-right-radius:30px;	border-bottom-left-radius:30px;    border-bottom-right-radius:30px;		background-color:#C90000;	color:#ffffff;width:90%;	margin:0 auto;margin-top:4px;float:left;height:35px;line-height:35px;cursor:pointer}
 
@@ -683,8 +692,12 @@ input[type="file"] {
     
 	.curved_buttons_gray{font-family: 'Gotham-Book';font-size: 15px;border-top-left-radius:30px;    border-top-right-radius:30px;	border-bottom-left-radius:30px;    border-bottom-right-radius:30px;		background-color:#E9E9F0;	color:#2B2932;text-align:center;	width:90%;	margin:0 auto;margin-top:4px;height:40px;line-height:40px;cursor:pointer}
 	.curved_buttons{font-family: 'Gotham-Book';font-size: 15px;border-top-left-radius:30px;    border-top-right-radius:30px;	border-bottom-left-radius:30px;    border-bottom-right-radius:30px;		background-color:#5C2D91;	color:#ffffff;text-align:center;	width:100%;	margin:0 auto;margin-top:4px;float:left;height:40px;line-height:40px;margin-right:10px;cursor:pointer;border:0}
+	.curved_buttons_gray_cancel{font-family: 'Gotham-Book';font-size: 15px;border-top-left-radius:30px;    border-top-right-radius:30px;	border-bottom-left-radius:30px;    border-bottom-right-radius:30px;		background-color:#D5D4D8;	color:#2B2932;text-align:center;	width:100%;	margin:0 auto;margin-top:4px;float:left;height:40px;line-height:40px;margin-right:10px;cursor:pointer;border:0}
 	.curved_buttons_red{font-family: 'Gotham-Book';font-size: 15px;border-top-left-radius:30px;    border-top-right-radius:30px;	border-bottom-left-radius:30px;    border-bottom-right-radius:30px;		background-color:#C90000;	color:#ffffff;text-align:center;	width:100%;	margin:0 auto;margin-top:4px;float:left;height:40px;line-height:40px;margin-right:10px;cursor:pointer}
 	.curved_buttons_red_promotion{font-family: 'Gotham-Book';font-size: 15px;border-top-left-radius:30px;    border-top-right-radius:30px;	border-bottom-left-radius:30px;    border-bottom-right-radius:30px;		background-color:#C90000;	color:#ffffff;	width:90%;	margin:0 auto;margin-top:4px;float:left;height:35px;line-height:35px;cursor:pointer}
+	
+	.curved_buttons_active    {font-family: 'Gotham-Book';font-size: 15px;border-top-left-radius:30px;    border-top-right-radius:30px;	border-bottom-left-radius:30px;    border-bottom-right-radius:30px;		background-color:#229933;	color:#ffffff;text-align:center;	width:100%!important; margin:0 auto;margin-top:4px;float:left;height:40px;line-height:40px;margin-right:10px;border:0}
+	.curved_buttons_setdefault{font-family: 'Gotham-Book';font-size: 15px;border-top-left-radius:30px;    border-top-right-radius:30px;	border-bottom-left-radius:30px;    border-bottom-right-radius:30px;		background-color:#D5D4D8;	color:#2B2932;text-align:center;	width:100%!important;margin:0 auto;margin-top:4px;float:left;height:40px;line-height:40px;margin-right:10px;cursor:pointer;border:0;border:1px solid #229933}
 }
 	
 /* Large Devices, Wide Screens */
@@ -737,6 +750,7 @@ input[type="file"] {
 	.{font-family: 'Gotham-Book';font-size: 15px;border-top-left-radius:30px;    border-top-right-radius:30px;	border-bottom-left-radius:30px;    border-bottom-right-radius:30px;		background-color:#E9E9F0;	color:#2B2932;text-align:center;	width:100%;	margin:0 auto;margin-top:4px;height:40px;line-height:40px;cursor:pointer}
 	.curved_buttons_gray{font-family: 'Gotham-Book';font-size: 15px;border-top-left-radius:30px;    border-top-right-radius:30px;	border-bottom-left-radius:30px;    border-bottom-right-radius:30px;		background-color:#E9E9F0;	color:#2B2932;text-align:center;	width:90%;	margin:0 auto;margin-top:4px;height:40px;line-height:40px;cursor:pointer}
 	.curved_buttons{font-family: 'Gotham-Book';font-size: 15px;border-top-left-radius:30px;    border-top-right-radius:30px;	border-bottom-left-radius:30px;    border-bottom-right-radius:30px;		background-color:#5C2D91;	color:#ffffff;text-align:center;	width:100%;	margin:0 auto;margin-top:4px;float:left;height:40px;line-height:40px;margin-right:10px;cursor:pointer;border:0}
+	.curved_buttons_gray_cancel{font-family: 'Gotham-Book';font-size: 15px;border-top-left-radius:30px;    border-top-right-radius:30px;	border-bottom-left-radius:30px;    border-bottom-right-radius:30px;		background-color:#D5D4D8;	color:#2B2932;text-align:center;	width:100%;	margin:0 auto;margin-top:4px;float:left;height:40px;line-height:40px;margin-right:10px;cursor:pointer;border:0}
 	.curved_buttons_red{font-family: 'Gotham-Book';font-size: 15px;border-top-left-radius:30px;    border-top-right-radius:30px;	border-bottom-left-radius:30px;    border-bottom-right-radius:30px;		background-color:#C90000;	color:#ffffff;text-align:center;	width:100%;	margin:0 auto;margin-top:4px;float:left;height:40px;line-height:40px;margin-right:10px;cursor:pointer}
 	.curved_buttons_red_promotion{font-family: 'Gotham-Book';font-size: 15px;border-top-left-radius:30px;    border-top-right-radius:30px;	border-bottom-left-radius:30px;    border-bottom-right-radius:30px;		background-color:#C90000;	color:#ffffff;	width:90%;	margin:0 auto;margin-top:4px;float:left;height:35px;line-height:35px;cursor:pointer}
 	.curved_buttons:hover, .curved_buttons:focus, .curved_buttons:active, .curved_buttons.active, .open>.dropdown-toggle.btn-success {
@@ -1007,3 +1021,25 @@ margin-top:0px;
 .trbgexpander td{padding-left:10px;height:30px}
 .trbgexpander td:nth-child(2){text-align:right;padding-right:10px}
 
+.curved_buttons_white_pricing    {font-family: 'Gotham-Book';font-size: 15px;border-top-left-radius:30px;    border-top-right-radius:30px;	border-bottom-left-radius:30px;    border-bottom-right-radius:30px;		background-color:#ffffff;width:23%;	color:#2B2932;text-align:center;margin:0 auto;margin-top:4px;float:left;height:40px;line-height:40px;margin-right:9px;cursor:pointer;border:0}
+.curved_buttons_white_pricing:last-child {margin-right:0px}
+.curved_buttons_white_pricing_selected    {font-family: 'Gotham-Book';font-size: 15px;border-top-left-radius:30px;    border-top-right-radius:30px;	border-bottom-left-radius:30px;    border-bottom-right-radius:30px;		background-color:#5C2D91;width:23%;	color:#ffffff;text-align:center;margin:0 auto;margin-top:4px;float:left;height:40px;line-height:40px;margin-right:9px;cursor:pointer;border:0}
+.curved_buttons_white_pricing_selected:last-child {margin-right:0px}
+.wallet_header{font-family:'Gotham-Medium';font-size:18px}
+
+
+.width70{width:68%!important}
+.width30{width:30%!important}
+.width10{width:100%!important}
+
+.removetext{font-size:12px;cursor:pointer}
+.spacer5{clear:both;height:10px}
+.spacer10{clear:both;height:10px}
+.spacer15{clear:both;height:15px}
+.spacer20{clear:both;height:20px}
+.spacer30{clear:both;height:30px}
+
+.show{display:block}
+.hidden{display:none}
+.editbtn{float:right;cursor:pointer}
+.lbleditbtn{cursor:pointer;font-size:14px}
